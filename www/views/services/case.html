@@ -1,0 +1,29 @@
+﻿<div class="services-page">
+        
+    <nav class="services-tab">
+        <ul>
+            <li ng-click="goTo('services.all'); filterDevice('')" ng-class="isOnState('services.all') ? 'selected' : ''">Все</li>
+            <li ng-click="goTo('services.iphone4'); filterDevice('iphone 4')" ng-class="isOnState('services.iphone4') ? 'selected' : ''">iPhone 4/4S</li>
+            <li ng-click="goTo('services.iphone5'); filterDevice('iphone 5')" ng-class="isOnState('services.iphone5') ? 'selected' : ''">iPhone 5/5S</li>
+            <li ng-click="goTo('services.iphone6'); filterDevice('iphone 6')" ng-class="isOnState('services.iphone6') ? 'selected' : ''">iPhone 6</li>
+            <li ng-click="goTo('services.ipad'); filterDevice('ipad')" ng-class="isOnState('services.ipad') ? 'selected' : ''">iPad 2/3/4</li>
+            <li ng-click="goTo('services.samsung'); filterDevice('Samsung Galaxy S3')" ng-class="isOnState('services.samsung') ? 'selected' : ''">Samsung Galaxy S3</li>
+        </ul>
+    </nav>
+    <div class="title-container">
+        <h1>Печать на чехлах вашего телефона.</h1>
+        <p>Закажите уникальный чехол с вашей фотографией, дизайном, картинкой, текстом или логотипом. Удивите своих друзей и близких.</p>
+    </div>
+    <div class="services-list ">
+        <div class="service-item" ng-repeat="service in services.cases | filter:device">  
+                 
+            <a href="#/case/{{service.id}}">
+                <img ng-src="{{service.url}}" alt="{{service.name}}" width="240" />            
+                <h2>{{service.name}}</h2>
+                <p>{{service.description}}</p>
+            </a>
+            
+            
+        </div>
+</div>
+</div>

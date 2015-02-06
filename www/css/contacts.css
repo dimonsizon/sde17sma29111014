@@ -1,0 +1,93 @@
+.contacts {
+    margin-top: 60px;
+    padding: 0 30px 15px;
+    overflow: hidden;
+}
+
+    .contacts .team {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ddd;
+        box-shadow: 0px 7px 5px -5px #ddd;
+        overflow: hidden;
+    }
+
+    .contacts .leader {
+        margin-right: 20px;
+        width: 200px;
+        float: left;
+    }
+        .contacts .info a {
+            text-align: center;
+            display: block;
+        }
+
+        .contact-links {
+            margin-top: 20px;
+            padding: 5px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+        }
+
+
+        .contacts .leader p {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+    .contacts .link-button.reg,
+    .contacts .link-button.mailto {
+        margin-top: 20px;
+        color: #fff;
+        text-align: center;
+        display: block;
+    }
+
+.contacts .icon {
+    margin-top: 4px;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+    float: left;
+    background: url(../images/contacts.png) no-repeat;
+}
+
+.contacts .vk.icon {
+    background-position: 0 0;
+}
+
+.contacts .mail.icon {
+    background-position: 0 -32px;
+}
+
+.contacts .skype.icon {
+    background-position: 0 -16px;
+}
+
+.register-form {
+    margin: 0 auto;
+    width: 350px;
+    display: none;
+}
+
+    .register-form input[type=text],
+    .register-form textarea {
+       width: 350px;
+       margin-bottom: 10px;
+    }
+
+    .register-form input[type=submit] {
+        width: 350px;
+    }
+	
+	.form-errorrs {
+		margin-bottom: 10px;
+	}
+
+.vk-group {
+    display: none;
+}
+
+.contacts .vk-group-con {
+	width: 220px;
+    position: relative;
+} 

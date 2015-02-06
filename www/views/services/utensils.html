@@ -1,0 +1,28 @@
+﻿<div class="services-page">        
+    <nav class="services-tab">
+        <ul>
+            <li ng-click="goTo('services.all'); filterDevice('')" ng-class="isOnState('services.all') ? 'selected' : ''">Все</li>
+            <li ng-click="goTo('services.mug.white'); filterDevice('белая')" ng-class="isOnState('services.mug.white') ? 'selected' : ''">Кружки белые</li>
+            <li ng-click="goTo('services.mug.color'); filterDevice('цветн')" ng-class="isOnState('services.mug.color') ? 'selected' : ''">Кружки цветные</li>
+            <li ng-click="goTo('services.mug.children'); filterDevice('детская')" ng-class="isOnState('services.mug.children') ? 'selected' : ''">Детские кружки</li>
+            <li ng-click="goTo('services.mug.chameleon'); filterDevice('хамелеон')" ng-class="isOnState('services.mug.chameleon') ? 'selected' : ''">Кружки хамелеон</li>
+            <li ng-click="goTo('services.mug.glass'); filterDevice('стеклян')" ng-class="isOnState('services.mug.glass') ? 'selected' : ''">Кружки стеклянные</li>
+            <li ng-click="goTo('services.mug.beer'); filterDevice('пивн')" ng-class="isOnState('services.mug.beer') ? 'selected' : ''">Пивные кружки</li>
+            <li ng-click="goTo('services.mug.lovers'); filterDevice('влюблен')" ng-class="isOnState('services.mug.lovers') ? 'selected' : ''">Кружки для влюбленных</li>
+            <li ng-click="goTo('services.wineglass'); filterDevice('рюмка')" ng-class="isOnState('services.wineglass') ? 'selected' : ''">Рюмки</li>
+        </ul>
+    </nav>
+    <div class="title-container">
+        <h1>Печать на кружках, рюмках, бакалах, тарелках и другой посуде.</h1>
+        <p>Закажите уникальную кружку с вашей фотографией, дизайном, картинкой, текстом или логотипом. Удивите своих друзей и близких.</p>
+    </div>
+    <div class="services-list ">
+        <div class="service-item" ng-repeat="service in services.utensils | filter:device">                 
+            <a href="#/utensils/{{service.id}}">
+                <img ng-src="{{service.url}}" alt="{{service.name}}" width="240" />            
+                <h2>{{service.name}}</h2>
+                <p>{{service.description}}</p>
+            </a>           
+        </div>
+</div>
+</div>

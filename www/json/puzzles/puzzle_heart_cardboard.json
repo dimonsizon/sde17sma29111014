@@ -1,0 +1,16 @@
+﻿{
+	"id": "puzzle_heart_cardboard",
+	"name": "Пазл в форме сердца картонный",	
+	"utensilsType": "puzzle", 
+	"price": "400 рублей",
+	"description": "Пазл в форме сердца c Вашей фотографией, картинкой, дизайном, текстом или логотипом. Доставьте себе и своим близким радость или сделайте оригинальный подарок любимому человеку.",
+	"availability": "Да",
+	"article": "-",
+	"material": "Картон",
+	"size":"",
+    "images": [
+        "/images/services/clothing/3.jpg", 
+        "/images/services/clothing/2.jpg",	
+        "/images/services/clothing/7.jpg"
+    ]	
+}

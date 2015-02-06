@@ -1,0 +1,25 @@
+﻿<div class="center">
+    <a class="logo" href="#/">
+        <img src="/images/logo.png" alt="ПечатьСчастья - 3d сублимационная печать на предметах (чехлах, кружках, майках, тарелках, стаканах, пазлах, камнях и других предметах) Таганрог" />
+    </a>
+    <nav class="menu">
+        <ul>
+            <li ng-click="goTo('home')" ng-class="isOnState('home') ? 'selected' : ''"><a href="#/">ГЛАВНАЯ</a></li>
+            <li>
+                <a class="default-cursor" href="">УСЛУГИ</a>
+                <ul class="sub-menu products">                        
+                    <li><a href="#/case" ng-click="goTo('case')">ЧЕХЛЫ НА ТЕЛЕФОН</a></li>
+                    <li><a href="#/utensils" ng-click="goTo('utensils')">КРУЖКИ, РЮМКИ, БАКАЛЫ</a></li>
+                    <li><a href="#/clothing" ng-click="goTo('clothing')">ФУТБОЛКИ И МАЙКИ</a></li>
+                    <li><a href="#/utensils" ng-click="goTo('utensils')">ТАРЕЛКИ</a></li>
+                    <li><a href="#/tile" ng-click="goTo('tile')">КЕРАМИЧЕСКАЯ ПЛИТКА</a></li>
+                    <li><a href="#/puzzles" ng-click="goTo('puzzles')">ПАЗЛЫ</a></li>
+                </ul>
+            </li>                 
+            <li ng-click="goTo('case')" ng-class="isOnState('case') ? 'selected' : ''"><a href="#/case">ЧЕХОЛ С ВАШИМ ФОТО</a></li>
+            <li ng-click="goTo('news')" ng-class="isOnState('news') ? 'selected' : ''"><a href="#/articles">СТАТЬИ</a></li>                       
+            <li ng-click="goTo('faq')" ng-class="isOnState('faq') ? 'selected' : ''"><a href="#/faq">FAQ</a></li>
+            <li ng-click="goTo('contacts')" ng-class="isOnState('contacts') ? 'selected' : ''"><a href="#/contacts">НАШИ КОНТАКТЫ</a></li>
+        </ul>
+    </nav>
+</div>

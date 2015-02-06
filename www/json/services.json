@@ -1,0 +1,144 @@
+﻿{
+	"cases": [
+		{
+			"id": "iphone4", 
+			"url": "/images/services/cases/min-iphone4.jpg", 
+			"name": "iPhone 4/4S", 
+			"description": "Матовые и глянцевые 3D чехолы для вашего iPhone 4/4S c фотографией, картинкой, дизайном, текстом или логотипом."
+		}, 
+		{
+			"id": "iphone5", 
+			"url": "/images/services/cases/min-iphone5.jpg",  
+			"name": "iPhone 5/5S", 
+			"description": "Матовые и глянцевые 3D чехолы для вашего iPhone 5/5S c фотографией, картинкой, дизайном, текстом или логотипом."
+		}, 
+		{
+			"id": "iphone6", 
+			"url": "/images/services/cases/min-iphone6.jpg", 
+			"name": "iPhone 6", 
+			"description": "Матовые и глянцевые 3D чехолы для вашего iPhone 6 c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "sumsung_galaxy_s3", 
+			"url": "/images/services/cases/min-samsung-galaxy-s3.jpg", 
+			"name": "Samsung Galaxy S3", 
+			"description": "Матовые и глянцевые 3D чехолы для вашего Sumsung Galaxy S3 c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "ipad", 
+			"url": "/images/services/cases/min-ipad.jpg", 
+			"name": "iPad 2/3/4", 
+			"description": "Матовые и глянцевые 3D чехолы для вашего iPad 2/3/4 c фотографией, картинкой, дизайном, текстом или логотипом."
+		}
+	],
+	"utensils": [
+		{
+			"id": "mug_white", 
+			"url": "/images/services/utensils/min-mug-white.jpg",  
+			"name": "Кружка белая", 
+			"description": "Кружка класса Премиум c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "mug_children", 
+			"url": "/images/services/utensils/min-mug-children.jpg", 
+			"name": "Кружка детская", 
+			"description": "Кружка детская c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "mug_lovers", 
+			"url": "/images/services/utensils/min-mug-lovers.jpg",  
+			"name": "Кружки для влюбленных", 
+			"description": "Кружка для влюбленных c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "mug_beer", 
+			"url": "/images/services/utensils/min-mug-beer.jpg",  
+			"name": "Пивная кружка", 
+			"description": "Пивная кружка c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "mug_glass", 
+			"url": "/images/services/utensils/min-mug-glass.jpg",  
+			"name": "Стеклянная кружка", 
+			"description": "Стеклянная кружка c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "mug_chameleon", 
+			"url": "/images/services/utensils/min-mug-chameleon.jpg", 
+			"name": "Кружка хамелеон", 
+			"description": "Кружка хамелеон, изображение появляется после нагревания."
+		},
+		{
+			"id": "mug_color_inside", 
+			"url": "/images/services/utensils/min-mug-color-inside.jpg",  
+			"name": "Кружка цветная внутри", 
+			"description": "Кружка цветная внутри c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "mug_color", 
+			"url": "/images/services/utensils/min-mug-color.jpg",  
+			"name": "Кружка цветная внутри и ручки", 
+			"description": "Кружка цветная внутри и ручки c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "mug_color_spoon", 
+			"url": "/images/services/utensils/min-mug-color-spoon.jpg",  
+			"name": "Кружка цветная с ложкой", 
+			"description": "Кружка цветная с ложкой c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "mug_color_rim", 
+			"url": "/images/services/utensils/min-mug-rim.jpg", 
+			"name": "Кружка с цветной каемкой и ручкой", 
+			"description": "Кружка с цветной каемкой и ручкой c фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "mug_wineglass", 
+			"url": "/images/services/utensils/min-mug-wineglass.jpg", 
+			"name": "Рюмка", 
+			"description": "Рюмка c фотографией, картинкой, дизайном, текстом или логотипом."
+		}
+	],
+	"clothing": [
+		{
+			"id": "t_shirt", 
+			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"name": "Футболки", 
+			"description": "Футболки c фотографией, картинкой, дизайном, текстом или логотипом."
+		}
+	],
+	"tile": [
+		{
+			"id": "ceramic_tile", 
+			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"name": "Керамическая плитка", 
+			"description": "Керамическая плитка Вашей c фотографией, картинкой, дизайном, текстом или логотипом."
+		}
+	],
+	"puzzle": [
+		{
+			"id": "puzzle_a4_cardboard", 
+			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"name": "Пазлы прямоугольные картонные", 
+			"description": "Пазлы прямоугольные c Вашей фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "puzzle_a4_magnetic", 
+			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"name": "Пазлы прямоугольные магнитные", 
+			"description": "Пазлы прямоугольные c Вашей фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "puzzle_heart_cardboard", 
+			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"name": "Пазлы в форме сердца картонные", 
+			"description": "Пазлы в форме сердца c Вашей фотографией, картинкой, дизайном, текстом или логотипом."
+		},
+		{
+			"id": "puzzle_heart_magnetic", 
+			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"name": "Пазлы в форме сердца магнитные", 
+			"description": "Пазлы в форме сердца c Вашей фотографией, картинкой, дизайном, текстом или логотипом."
+		}
+	]
+}

@@ -1,0 +1,57 @@
+﻿<div>
+    <a class="back-bt" href="#/{{url}}"><img class="left" src="/images/back.png" width="30"/>НАЗАД</a>
+</div>
+<div class="service-details">
+    <h1>{{service.name}}</h1>
+    <div class="service-container">
+        <div class="photo left" ng-click="goTo('fullImage'); getImage(service.images[0])">
+            <img class="left" src="{{service.images[0]}}" alt="{{service.description}}" width="250"/>
+        </div>
+        <div class="info">
+            <p><b>Цена:</b> {{service.price}}</p>
+            <p><b>Описание:</b> {{service.description}}</p>
+            <p><b>Наличие:</b> {{service.availability}}</p>
+            <!--<p>Артикул: {{service.article}}</p>-->
+
+            <!-- Только для чехлов -->
+            <p ng-show="service.utensilsType=='case'">
+                <b>Тип чехла:</b> <span ng-repeat="type in service.caseType">{{type}} </span>
+            </p>
+
+            <!-- Только для кружек -->
+            <div ng-show="service.utensilsType=='utensils'">
+                <p><b>Объем:</b> {{service.volume}}</p>
+                <p><b>Материал:</b> {{service.material}}</p>
+                <p><b>Размер:</b> Высота {{service.height}}, диаметр {{service.diameter}}</p>
+            </div>
+
+            <!-- Только для футболок, пазлов и керамической плитке -->
+            <div ng-show="service.utensilsType=='clothing' || service.utensilsType=='tile' || service.utensilsType=='puzzle'">
+                <p><b>Размер:</b> {{service.size}}</p>
+                <p><b>Материал:</b> {{service.material}}</p>
+            </div>
+            <div class="action-buttons">
+                <a class="link-button" href="#/{{url}}/{{service.id}}/order">ЗАКАЗАТЬ</a>
+                <a class="link-button">ЗАДАТЬ ВОПРОС МЕНЕДЖЕРУ</a>
+            </div>
+        </div>
+    </div>    
+    
+    <!-- Изображения -->
+    <div class="images-list">
+        <div class="img left" ng-repeat="img in service.images">
+            <img src="{{img}}" alt="{{service.description}}" ng-click="goTo('fullImage'); getImage(img)" width="100"/>
+        </div>        
+    </div>
+
+    <div class="block-page" ng-show="isOnState('fullImage')">
+        <div class="images-window">
+            <span class="close icon right" ng-click="goTo('')">
+                <img class="left" src="/images/close.png" width="30"/>
+            </span>
+            <span class="left-arrow arrow icon right" ng-click="prevImage(imageUrl)"></span>
+            <span class="right-arrow arrow icon right" ng-click="nextImage(imageUrl)"></span>
+            <img src="{{imageUrl}}" alt="{{service.description}}" ng-click="nextImage(imageUrl)" />
+        </div>
+    </div>    
+</div>

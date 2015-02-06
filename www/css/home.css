@@ -1,0 +1,82 @@
+.main-container {
+    margin-top: 15px;
+    margin-bottom: 20px; 
+    min-height: 660px;
+    /*position: relative;*/
+}
+
+    .main-container .content-info.top-info-container {
+        margin: 0 25px;
+    }
+
+    .main-container .content-info.top-info-container > .left {
+        width: 770px;
+    }
+
+    .main-container .content-info.top-info-container h1 {
+        margin-top: 90px;
+        width: 485px;
+    }
+
+    .main-container .content-info.top-info-container .phone {
+        margin: 20px;
+        font-size: 24px;             
+        display: inline-block;
+    }
+
+        .main-container .content-info.top-info-container .phone .icon {
+            width: 40px;
+            height: 40px;
+            background-image: url(/images/phone.png);
+        }
+
+    .main-container .content-info.top-info-container .steps {
+        margin-top: 38px;
+    }
+
+        .main-container .content-info.contacts p {
+            margin: 0;
+            text-align: center;
+        }
+
+        .main-container .content-info.contacts p.top15 {
+            margin-top: 15px;
+        }
+
+
+
+
+
+
+    .main-container .title {
+        margin: 15px 0;
+        padding: 5px 0;
+        font-size: 22px;
+        text-align: center;
+        color: #555;
+        border-bottom: 1px solid #ddd;
+        box-shadow: 0px 7px 5px -5px #ddd;
+        cursor: default;
+    }
+
+    .main-container .why-we {
+        padding: 10px 30px 20px;
+        background-color: #ddd;
+        opacity: 0.8;
+    }
+
+        .main-container .why-we .tick {
+            margin-top: 4px;
+            margin-right: 5px;
+            width: 22px;
+            height: 17px;
+            float: left;
+            background: url(../images/tick.png) no-repeat;
+        }
+
+        .main-container .why-we h3 {
+            margin-top: 20px;
+            color: #000;
+        }                
+        
+ 

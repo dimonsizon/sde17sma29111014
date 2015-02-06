@@ -1,0 +1,22 @@
+﻿{
+	"id": "mug_color",
+	"name": "Кружка цветная внутри с цветными ручками",	
+	"utensilsType": "utensils", 
+	"price": "Уточняйте у менеджера",
+	"description": "Кружка цветная внутри с цветными ручками c фотографией, картинкой, дизайном, текстом или логотипом.",
+	"availability": "Да",
+	"article": "-",
+	"volume":"300 мл",
+	"material":"Керамика",
+	"height":"10 см",
+	"diameter":"8 см",
+    "images": [
+        "/images/services/utensils/mug-color/1.jpg", 
+        "/images/services/utensils/mug-color/2.jpg", 
+		"/images/services/utensils/mug-color/3.jpg", 
+		"/images/services/utensils/mug-color/4.jpg", 
+		"/images/services/utensils/mug-color/5.jpg", 
+		"/images/services/utensils/mug-color/6.jpg", 
+		"/images/services/utensils/mug-color/7.jpg"
+    ]	
+}

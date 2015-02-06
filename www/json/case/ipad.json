@@ -1,0 +1,22 @@
+﻿{
+	"id": "ipad", 
+	"name": "Чехол iPad 2/3/4",
+	"utensilsType": "case", 
+	"price": "Уточняйте у менеджера",
+	"description": "Сублимационный 3D чехол для вашего iPad 2/3/4 c фотографией, картинкой, дизайном, текстом или логотипом. Изображение наносится не только на заднюю поверхность чехла, но и на боковые части чехла.",
+	"availability": "Нет",
+	"article": "-",
+	"caseType": [
+		"Глянцвый,",
+		"Матовый"
+	],    
+    "images": [
+        "/images/services/cases/ipad/1.jpg",
+		"/images/services/cases/ipad/2.jpg",
+		"/images/services/cases/ipad/3.jpg",
+		"/images/services/cases/ipad/4.jpg",
+		"/images/services/cases/ipad/5.jpg",
+		"/images/services/cases/ipad/6.jpg",
+		"/images/services/cases/ipad/7.jpg"
+    ]	
+}

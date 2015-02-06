@@ -1,0 +1,30 @@
+﻿{
+	"id": "iphone4",
+	"name": "Чехол iPhone 4/4S",
+	"utensilsType": "case", 	
+	"price": "600 рублей",
+	"description": "Сублимационный 3D чехол для вашего iPhone 4/4S c фотографией, картинкой, дизайном, текстом или логотипом. Изображение наносится не только на заднюю поверхность чехла, но и на боковые части чехла.",
+	"availability": "Да",
+	"article": "-",
+	"caseType": [
+		"Глянцвый,",
+		"Матовый"
+	],    
+    "images": [
+        "/images/services/cases/iphone4/0.jpg", 
+        "/images/services/cases/iphone4/1.jpg",
+		"/images/services/cases/iphone4/2.jpg",
+		"/images/services/cases/iphone4/3.jpg",
+		"/images/services/cases/iphone4/4.jpg",
+		"/images/services/cases/iphone4/5.jpg",
+		"/images/services/cases/iphone4/6.jpg",
+		"/images/services/cases/iphone4/7.jpg",
+		"/images/services/cases/iphone4/8.jpg",
+		"/images/services/cases/iphone4/9.jpg",
+		"/images/services/cases/iphone4/10.jpg",
+		"/images/services/cases/iphone4/11.jpg",
+		"/images/services/cases/iphone4/12.jpg",
+		"/images/services/cases/iphone4/13.jpg",
+		"/images/services/cases/iphone4/14.jpg"
+    ]	
+}

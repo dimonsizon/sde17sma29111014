@@ -1,0 +1,16 @@
+﻿{
+	"id": "puzzle_heart_magnetic",
+	"name": "Пазл в форме сердца магнитный",	
+	"utensilsType": "puzzle", 
+	"price": "450 рублей",
+	"description": "Пазл в форме сердца магнитный c Вашей фотографией, картинкой, дизайном, текстом или логотипом. Доставьте себе и своим близким радость или сделайте оригинальный подарок любимому человеку.",
+	"availability": "Да",
+	"article": "-",
+	"material": "Картон и магнитный винил",
+	"size":"",
+    "images": [
+        "/images/services/clothing/3.jpg", 
+        "/images/services/clothing/2.jpg",	
+        "/images/services/clothing/7.jpg"
+    ]	
+}

@@ -1,0 +1,16 @@
+﻿{
+	"id": "puzzle_a4_cardboard",
+	"name": "Пазл прямоугольный А4 картонный",	
+	"utensilsType": "puzzle", 
+	"price": "400 рублей",
+	"description": "Пазл прямоугольный размера А4 c Вашей фотографией, картинкой, дизайном, текстом или логотипом. Доставьте себе и своим близким радость или сделайте оригинальный подарок",
+	"availability": "Да",
+	"article": "-",
+	"material": "Картон",
+	"size":"А4, 27х18 см",
+    "images": [
+        "/images/services/clothing/3.jpg", 
+        "/images/services/clothing/2.jpg",	
+        "/images/services/clothing/7.jpg"
+    ]	
+}

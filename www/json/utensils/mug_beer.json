@@ -1,0 +1,21 @@
+﻿{
+	"id": "mug_beer",
+	"name": "Пивная кружка",	
+	"utensilsType": "utensils", 
+	"price": "Уточняйте у менеджера",
+	"description": "Пивная кружка c фотографией, картинкой, дизайном, текстом или логотипом.",
+	"availability": "Нет",
+	"article": "-",
+	"volume":"",
+	"material":"Стекло/Керамика",
+	"height":"15,5 см",
+	"diameter":"8,7 см",
+    "images": [
+        "/images/services/utensils/mug-beer/1.jpg", 
+        "/images/services/utensils/mug-beer/2.jpg",
+		"/images/services/utensils/mug-beer/3.jpg", 
+        "/images/services/utensils/mug-beer/4.jpg",		
+        "/images/services/utensils/mug-beer/5.jpg",
+		"/images/services/utensils/mug-beer/6.jpg"
+    ]	
+}

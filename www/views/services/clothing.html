@@ -1,0 +1,25 @@
+﻿<div class="services-page">        
+    <nav class="services-tab">
+        <ul>
+            <li ng-click="goTo('services.all'); filterDevice('')" ng-class="isOnState('services.all') ? 'selected' : ''">Все</li>
+            <li ng-click="goTo('services.tshirt'); filterDevice('футболк')" ng-class="isOnState('services.tshirt') ? 'selected' : ''">Футболки</li>
+            <li ng-click="goTo('services.tshirt2'); filterDevice('майк')" ng-class="isOnState('services.tshirt2') ? 'selected' : ''">Майки</li>
+        </ul>
+    </nav>
+    <div class="title-container">
+        <h1>Печать на футболках, майках и другой одежде.</h1>
+        <p>Закажите уникальную футболку с вашей фотографией, дизайном, картинкой, текстом или логотипом. Удивите своих друзей и близких.</p>
+    </div>
+    <div class="services-list ">
+        <div class="service-item" ng-repeat="service in services.clothing | filter:device">  
+                 
+            <a href="#/clothing/{{service.id}}">
+                <img ng-src="{{service.url}}" alt="{{service.name}}" width="240" />            
+                <h2>{{service.name}}</h2>
+                <p>{{service.description}}</p>
+            </a>
+            
+            
+        </div>
+</div>
+</div>

@@ -1,0 +1,281 @@
+header,
+footer {
+    padding: 0;    
+}
+
+footer {   
+    background-color: #5faea7;
+}
+
+header {
+    width: 100%;
+    height: 74px;
+	background-color: #eb7e4a;
+    position: relative;
+    /*position: fixed;
+    top: 0;*/
+    z-index: 99;
+	box-shadow: 0px 7px 5px -5px #AAA;
+}
+
+    header .logo {
+		margin-top: 10px;
+		display: inline-block;
+        opacity: 1;
+    }
+
+    /**************** MENU ********************/
+
+    header nav.menu {
+         float: right;
+    }
+
+        header nav.menu > ul > li {
+            float: left;
+            position: relative;
+            transition: all 0.5s ease-in;
+            -moz-transition: all 0.5s ease-in;
+            -webkit-transition: all 0.5s ease-in;
+        }
+		
+		header nav.menu > ul > li:hover,
+        header nav.menu > ul > li.selected {
+            background-color: #E96729;            
+        }
+		
+			header nav.menu > ul > li > a {
+                padding: 10px 20px;
+				line-height: 54px
+            }
+			
+			header nav.menu  a {
+				padding: 0 20px;
+				line-height: 30px;
+				font-size: 15px;
+				color: #fff;
+				display: block;                
+            }           
+
+        header nav.menu li ul.sub-menu {
+			padding-bottom: 5px;
+            position: absolute;
+            background-color: #E96729;
+            opacity: 0;
+            visibility: hidden;            
+        }
+		
+			header nav.menu li ul.sub-menu li:hover {
+				background-color: #eb7e4a;
+                transition: all 0.5s ease-in;
+                -moz-transition: all 0.5s ease-in;
+                -webkit-transition: all 0.5s ease-in;
+			}
+
+        header nav.menu li ul.sub-menu.products {
+            width: 254px;
+        }
+
+        header nav.menu > ul > li:hover ul.sub-menu {
+            opacity: 1;
+            visibility: visible; 
+            transition: all 0.5s ease-in;
+            -moz-transition: all 0.5s ease-in;
+            -webkit-transition: all 0.5s ease-in;
+        }
+
+    /**************** END MENU ********************/
+
+    footer {
+        overflow: hidden;
+    }
+    
+         footer .address p {
+            margin: 0;
+            color: #fff;
+        }  
+
+        footer .socials {
+            margin-top: 6px;
+        }
+        footer .socials span {
+            margin: 5px 20px 0 0;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        footer .socials a {
+            margin-right: 20px;
+            width: 30px;
+            height: 30px;            
+            display: inline-block;
+        }
+
+            footer .socials .vk {
+                background: url(../images/vk.png) no-repeat;
+            }
+
+            footer .socials .blogger {
+                background: url(../images/blogger.png) no-repeat;
+            }
+
+            footer .socials .youtube {
+                background: url(../images/youtube.png) no-repeat;
+            }
+
+            footer .footer-menu {
+				padding: 10px 0; 
+                float: left;
+            }
+
+                footer .footer-menu li {
+                     /*display: inline;*/
+                }
+
+                     footer .footer-menu li a {
+                        padding: 5px 20px;
+                        line-height: 35px;
+                        color: #fff;
+                    }
+
+.center {
+    margin: 0 auto;
+    width: 1024px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.vk-group {
+    position: fixed;
+    right: 0;
+    bottom: 0
+}
+
+.movie {
+    margin: 0 auto;
+    width: 640px;
+    min-height: 480px;
+}
+
+.margin-top {
+    margin-top: 70px;
+}
+
+.top0 {
+	margin-top: 0;
+}
+
+.top5 {
+	margin-top: 5px;
+}
+
+.top10 {
+	margin-top: 10px;
+}
+
+.top15 {
+	margin-top: 15px;
+}
+
+.top20{
+	margin-top: 25px;
+}
+
+.top25{
+	margin-top: 20px;
+}
+
+.top30{
+	margin-top: 30px;
+}
+
+.bottom0 {
+	margin-bottom: 0;
+}
+
+.without-margin {
+	margin: 0;
+}
+
+p.indent {
+    text-indent: 30px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.block-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+}
+
+.back-bt {
+    height: 40px;
+    display: block;
+}
+
+    .back-bt img {
+        margin-right: 10px;
+    }
+
+.news {
+    margin-top: 75px;
+	min-height: 900px;
+}
+
+.news .vk-group-news {
+	margin: 0 auto;
+	width: 640px;
+    position: relative;
+}
+
+.download-links a {
+	margin: 0 20px;
+}
+
+.download-link {
+	font-size: 16px;
+	display: block;
+}
+
+.faq {
+    margin-top: 65px;
+}
+
+    .faq h2, .pleimo h2 {
+        margin: 15px 0;
+        font-size: 18px;
+        color: #333;
+        text-align: center;
+    }
+
+#vk_like {
+    /*float: right;*/
+    clear: none !important;
+    margin-top: 20px;
+}
+
+.content-info {
+    padding: 10px 5px;
+    /*background-color: #f5f5f5;*/
+    /*opacity: 0.8;*/
+    overflow: hidden;
+}
+
+.default-cursor {
+    cursor: default;
+}
+
+a.reg-button {
+    margin-top: 20px;
+    color: #FFF;
+    text-align: center;
+    display: block;
+}

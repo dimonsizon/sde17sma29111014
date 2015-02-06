@@ -1,0 +1,22 @@
+﻿<div class="services-page">        
+    <nav class="services-tab">
+        <ul>
+            <li ng-click="goTo('services.all'); filterDevice('')" ng-class="isOnState('services.all') ? 'selected' : ''">Все</li>
+            <!--<li ng-click="goTo('services.a4'); filterDevice('прямоуголь')" ng-class="isOnState('services.a4') ? 'selected' : ''">Прямоугольный</li>
+            <li ng-click="goTo('services.heart'); filterDevice('сердц')" ng-class="isOnState('services.heart') ? 'selected' : ''">В форме сердца</li>-->
+        </ul>
+    </nav>
+    <div class="title-container">
+        <h1>Печать на керамической плитке.</h1>
+        <p>Закажите уникальную керамическую плитку с вашей фотографией, дизайном, картинкой, текстом или логотипом. Украсте свой дом яркими моментами из Вашей жизни.</p>
+    </div>
+    <div class="services-list ">
+        <div class="service-item" ng-repeat="service in services.tile | filter:device">                 
+            <a href="#/tile/{{service.id}}">
+                <img ng-src="{{service.url}}" alt="{{service.name}}" width="240" />            
+                <h2>{{service.name}}</h2>
+                <p>{{service.description}}</p>
+            </a>           
+        </div>
+    </div>
+</div>

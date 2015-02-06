@@ -1,0 +1,234 @@
+.services-tab {
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+    .services-tab li {
+        padding: 3px 10px 3px 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        min-width: 100px;
+        background-color: #5faea7;
+        color: #fff;
+        text-align: center;
+        float: left;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .services-tab li.selected {
+        background-color: #305C58;
+    }
+
+        /*.services-tab li .icon {
+            position: absolute;
+            top: 3px;
+            right: 10px;
+            cursor: pointer;
+        }*/
+
+.services-list {
+    overflow: hidden;
+}
+    .main-container .content-info .services-list .service-item {
+        margin: 10px 20px 10px 0;
+        width: 324px;
+        height: 180px;
+    }
+
+    
+    .services-page .services-list .service-item {
+        margin: 0 15px 15px 0;
+        width: 240px;
+        height: 240px;
+    }
+
+    .services-list .service-item {
+        float: left;
+        border-radius: 15px;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: 0.9;
+        transition: all 0.5s ease; 
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+    }
+
+    .services-list .service-item:hover {
+        opacity: 1;            
+    }    
+
+    .services-list .service-item img {
+        margin: 0;
+        transition: all 1s ease; 
+        -moz-transition: all 1s ease;
+        -webkit-transition: all 1s ease;
+    }
+
+    .main-container .content-info  .services-list .service-item img {
+        width: 324px;
+    }
+
+    .main-container .content-info  .services-list .service-item.last {
+        margin-right: 0;
+    }
+
+    .main-container .content-info .services-list .service-item:hover img {
+        margin: -20px 0 0 -20px;
+        width: 380px;            
+    }
+
+    .services-page .services-list .service-item:hover img {
+        margin: -20px 0 0 -30px;
+        width: 300px;            
+    }
+
+        .services-page .service-item p {
+            padding: 3px 16px;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            bottom: 0;
+            opacity: 0;
+            transition: all 0.8s ease; 
+            -moz-transition: all 0.8s ease;
+            -webkit-transition: all 0.8s ease;           
+        }
+
+        .services-page .service-item:hover p {
+            opacity: 1;
+            bottom: 15px;
+        }
+
+        .services-list .service-item h2 {
+            padding: 5px 0;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            transition: all 0.5s ease; 
+            -moz-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+        }
+
+        .main-container .content-info .services-list .service-item:hover h2 {
+            bottom: 30px;
+        }
+        
+        .services-page .services-list .service-item:hover h2 {
+            bottom: 130px;
+        } 
+
+
+
+/***************************service-details*****************************/
+.service-details {
+}
+
+    .service-details .service-container {
+        margin: 15px 0;
+        overflow: hidden;
+    }
+
+        .service-details .service-container .photo {
+            width: 250px;
+            height: 350px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .service-details .service-container .info {
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+            .service-details .service-container .info p {
+                margin: 0;
+            }
+
+            .service-details .service-container .info .action-buttons {
+                 margin-top: 20px;
+            }
+
+                .service-details .service-container .info .action-buttons a {
+                     min-width: 170px;
+                }
+
+        .service-details .images-list {
+            overflow: hidden;
+        }
+
+        .service-details .images-list .img {
+            margin: 0 5px 5px 0;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.5s ease; 
+            -moz-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+        }
+
+        .service-details .images-list .img:hover {
+            opacity: 1;
+        }
+
+    .images-window {
+         padding: 15px;
+         margin-left: -400px;
+         width: 800px;
+         min-height: 500px;
+         text-align: center;
+         position: absolute;
+         top: 60px;
+         left: 50%;
+         z-index: 200;
+         background-color: #fff;
+         transition: all 0.5s ease; 
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+    }
+        .images-window .close {
+             top: 15px;
+             right: 15px;             
+        }
+
+        .images-window > .icon {
+            position: absolute;
+            cursor: pointer;
+        }
+
+        .images-window .arrow {
+            width: 70px;
+            height: 80px;
+            background-image: url('/images/arrows.png');
+            background-repeat: no-repeat;
+            top: 200px;
+        }
+
+        .images-window .left-arrow {            
+            background-position: -53px center;
+            left: 0;
+        }
+
+        .images-window .right-arrow {
+           background-position: 22px center;
+           right: 0;
+        }
+
+        .images-window > img {
+            width: 400px;
+            max-width: 400px;
+            cursor: pointer;
+        }

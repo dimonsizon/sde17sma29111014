@@ -1,0 +1,21 @@
+﻿{
+	"id": "sumsung_galaxy-S3", 
+	"name": "Чехол Sumsung Galaxy S3",
+	"utensilsType": "case", 
+	"price": "600 рублей",
+	"description": "Сублимационный 3D чехол для вашего Sumsung Galaxy S3 c фотографией, картинкой, дизайном, текстом или логотипом. Изображение наносится не только на заднюю поверхность чехла, но и на боковые части чехла.",
+	"availability": "Да",
+	"article": "-",
+	"caseType": [
+		"Глянцвый,",
+		"Матовый"
+	],    
+    "images": [
+        "/images/services/cases/samsungs3/1.jpg",
+		"/images/services/cases/samsungs3/2.jpg",
+		"/images/services/cases/samsungs3/3.jpg",
+		"/images/services/cases/samsungs3/4.jpg",
+		"/images/services/cases/samsungs3/5.jpg",
+		"/images/services/cases/samsungs3/6.jpg"
+    ]	
+}
