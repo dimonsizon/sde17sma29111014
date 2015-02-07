@@ -1,13 +1,13 @@
 ﻿<div>
     <a class="back-bt" href="#/{{url}}"><img class="left" src="/images/back.png" width="30"/>НАЗАД</a>
 </div>
-<div class="service-details">
+<div class="service-details" ng-show="service.id.length>0">
     <h1>{{service.name}}</h1>
     <div class="service-container">
         <div class="photo left" ng-click="goTo('fullImage'); getImage(service.images[0])">
             <img class="left" src="{{service.images[0]}}" alt="{{service.description}}" width="250"/>
         </div>
-        <div class="info">
+        <div class="info">            
             <p><b>Цена:</b> {{service.price}}</p>
             <p><b>Описание:</b> {{service.description}}</p>
             <p><b>Наличие:</b> {{service.availability}}</p>
@@ -55,3 +55,6 @@
         </div>
     </div>    
 </div>
+<div class="loading" ng-hide="service.id.length>0">
+    <img src="images/loading.gif" alt="Загрузка..."  />
+</div>    

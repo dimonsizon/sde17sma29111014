@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 /* App Module */
 
@@ -78,5 +78,36 @@ config(['$routeProvider',
         otherwise({
             redirectTo: '/home'
         });
-}]);
+    }])
+    .run(['$rootScope',
+        function ($rootScope) {
+            $rootScope.currentService = function(location) {
+                switch (location) {
+                    case 'clothing':
+                        location = 'СlothingServices';
+                        break;
+                    case 'case':
+                        location = 'CaseServices';
+                        break;
+                    case 'utensils':
+                        location = 'UtensilsServices';
+                        break;
+                    case 'tile':
+                        location = 'TileServices';
+                        break;
+                    case 'puzzles':
+                        location = 'PuzzlesServices';
+                        break;
+                }
+                return location;
+            }
+
+            $rootScope.goTo = function (newState) {
+                currentState = newState;
+            }
+            $rootScope.isOnState = function (state) {
+                return currentState == state;
+            }
+        }
+    ]);
 

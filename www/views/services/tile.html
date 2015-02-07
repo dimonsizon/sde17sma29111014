@@ -10,7 +10,7 @@
         <h1>Печать на керамической плитке.</h1>
         <p>Закажите уникальную керамическую плитку с вашей фотографией, дизайном, картинкой, текстом или логотипом. Украсте свой дом яркими моментами из Вашей жизни.</p>
     </div>
-    <div class="services-list ">
+    <div class="services-list" ng-show="services.tile.length!=0">
         <div class="service-item" ng-repeat="service in services.tile | filter:device">                 
             <a href="#/tile/{{service.id}}">
                 <img ng-src="{{service.url}}" alt="{{service.name}}" width="240" />            
@@ -18,5 +18,8 @@
                 <p>{{service.description}}</p>
             </a>           
         </div>
+    </div>
+    <div class="loading" ng-hide="services.tile.length!=0">
+        <img src="images/loading.gif" alt="Загрузка..."  />
     </div>
 </div>

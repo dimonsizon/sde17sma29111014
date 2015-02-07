@@ -16,7 +16,7 @@
         <h1>Печать на кружках, рюмках, бакалах, тарелках и другой посуде.</h1>
         <p>Закажите уникальную кружку с вашей фотографией, дизайном, картинкой, текстом или логотипом. Удивите своих друзей и близких.</p>
     </div>
-    <div class="services-list ">
+    <div class="services-list" ng-show="services.utensils.length!=0">
         <div class="service-item" ng-repeat="service in services.utensils | filter:device">                 
             <a href="#/utensils/{{service.id}}">
                 <img ng-src="{{service.url}}" alt="{{service.name}}" width="240" />            
@@ -24,5 +24,8 @@
                 <p>{{service.description}}</p>
             </a>           
         </div>
-</div>
+    </div>
+    <div class="loading" ng-hide="services.utensils.length!=0">
+        <img src="images/loading.gif" alt="Загрузка..."  />
+    </div> 
 </div>

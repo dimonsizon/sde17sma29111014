@@ -225,6 +225,13 @@ p.indent {
         margin-right: 10px;
     }
 
+.loading {
+    margin: -37px 0 0 -35px; 
+    position: absolute;
+    top: 45%;
+    left: 50%;
+}
+
 .news {
     margin-top: 75px;
 	min-height: 900px;

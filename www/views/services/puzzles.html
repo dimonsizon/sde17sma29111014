@@ -12,7 +12,7 @@
         <h1>Печать на пазлых различной формы. Обычные и магнитные.</h1>
         <p>Закажите уникальный пазл с вашей фотографией, дизайном, картинкой, текстом или логотипом. Удивите своих друзей и близких.</p>
     </div>
-    <div class="services-list ">
+    <div class="services-list ng-hide" ng-show="services.puzzle.length!=0">
         <div class="service-item" ng-repeat="service in services.puzzle | filter:device">                 
             <a href="#/puzzles/{{service.id}}">
                 <img ng-src="{{service.url}}" alt="{{service.name}}" width="240" />            
@@ -21,4 +21,7 @@
             </a>           
         </div>
     </div>
+    <div class="loading" ng-hide="services.puzzle.length!=0">
+        <img src="images/loading.gif" alt="Загрузка..."  />
+    </div> 
 </div>
