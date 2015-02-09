@@ -232,3 +232,10 @@
             max-width: 400px;
             cursor: pointer;
         }
+
+
+    /********************Order form*********************/
+    .order-page {
+        margin: 0 auto;
+        width: 400px;
+    }

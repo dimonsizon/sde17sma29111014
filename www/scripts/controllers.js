@@ -25,6 +25,13 @@ appController.controller('serviceCtrl', ['$scope', '$rootScope', '$routeParams',
         $scope.filterDevice = function (device) {
             $scope.device = device;
         }
+
+        $scope.goTo = function (newState) {
+            currentState = newState;
+        }
+        $scope.isOnState = function (state) {
+            return currentState == state;
+        }
 }]);
 
 appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeParams', '$location', 'CaseServices', 'UtensilsServices', 'СlothingServices', 'TileServices', 'PuzzlesServices',
@@ -64,9 +71,9 @@ appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeP
         }        
     }]);
 
-appController.controller('orderCtrl', ['$scope', '$rootScope', '$routeParams', '$location', 'CaseServices', 'UtensilsServices', 'СlothingServices', 'TileServices', 'PuzzlesServices',
-    function ($scope, $rootScope, $routeParams, $location, CaseServices, UtensilsServices, СlothingServices, TileServices, PuzzlesServices) {
-        
+appController.controller('orderCtrl', ['$scope', '$rootScope', '$routeParams', '$location', '$http', 'CaseServices', 'UtensilsServices', 'СlothingServices', 'TileServices', 'PuzzlesServices',
+    function ($scope, $rootScope, $routeParams, $location, $http, CaseServices, UtensilsServices, СlothingServices, TileServices, PuzzlesServices) {
+        $scope.url = $location.path().split('/')[1];
         if ($rootScope.saveDetails) {
             $scope.service = $rootScope.saveDetails;
         } else {
@@ -74,5 +81,44 @@ appController.controller('orderCtrl', ['$scope', '$rootScope', '$routeParams', '
             var currentService = $rootScope.currentService(location);
             currentService = eval('(' + currentService + ')');
             $scope.service = currentService.get({ serviceId: $routeParams.serviceId });
+        }
+
+        $scope.result = 'hidden'
+        $scope.resultMessage;
+        $scope.formData; 
+        $scope.submitButtonDisabled = false;
+        $scope.submitted = false; 
+        $scope.formData = {
+            "serviceType": "Чехол на айфон",
+            "userVkUrl": "",
+            "userImage": "1.jpg",
+            "userMessage": ""
+        };
+        $scope.submit = function (contactform) {
+            $scope.submitted = true;
+            $scope.submitButtonDisabled = true;
+            if (contactform.$valid) {
+                $http({
+                    method: 'POST',
+                    url: '/phpmailer/contact-form.php',
+                    data: $.param($scope.formData),  //param method from jQuery
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
+                }).success(function (data) {
+                    console.log(data);
+                    if (data.success) { //success comes from the return json object
+                        $scope.submitButtonDisabled = true;
+                        $scope.resultMessage = data.message;
+                        $scope.result = 'bg-success';
+                    } else {
+                        $scope.submitButtonDisabled = false;
+                        $scope.resultMessage = data.message;
+                        $scope.result = 'bg-danger';
+                    }
+                });
+            } else {
+                $scope.submitButtonDisabled = false;
+                $scope.resultMessage = 'Failed :( Please fill out all the fields.';
+                $scope.result = 'bg-danger';
+            }
         }
     }]);

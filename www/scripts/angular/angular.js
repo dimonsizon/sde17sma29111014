@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.3.11
+ * @license AngularJS v1.3.9
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -54,7 +54,7 @@ function minErr(module, ErrorConstructor) {
       return match;
     });
 
-    message = message + '\nhttp://errors.angularjs.org/1.3.11/' +
+    message = message + '\nhttp://errors.angularjs.org/1.3.9/' +
       (module ? module + '/' : '') + code;
     for (i = 2; i < arguments.length; i++) {
       message = message + (i == 2 ? '?' : '&') + 'p' + (i - 2) + '=' +
@@ -1402,7 +1402,7 @@ function angularInit(element, bootstrap) {
  * @param {DOMElement} element DOM element which is the root of angular application.
  * @param {Array<String|Function|Array>=} modules an array of modules to load into the application.
  *     Each item in the array should be the name of a predefined module or a (DI annotated)
- *     function that will be invoked by the injector as a `config` block.
+ *     function that will be invoked by the injector as a run block.
  *     See: {@link angular.module modules}
  * @param {Object=} config an object for defining configuration options for the application. The
  *     following keys are supported:
@@ -2111,18 +2111,18 @@ function toDebugString(obj) {
  * An object that contains information about the current AngularJS version. This object has the
  * following properties:
  *
- * - `full` – `{string}` – Full version string, such as "0.9.18".
- * - `major` – `{number}` – Major version number, such as "0".
- * - `minor` – `{number}` – Minor version number, such as "9".
- * - `dot` – `{number}` – Dot version number, such as "18".
- * - `codeName` – `{string}` – Code name of the release, such as "jiggling-armfat".
+ * - `full` вЂ“ `{string}` вЂ“ Full version string, such as "0.9.18".
+ * - `major` вЂ“ `{number}` вЂ“ Major version number, such as "0".
+ * - `minor` вЂ“ `{number}` вЂ“ Minor version number, such as "9".
+ * - `dot` вЂ“ `{number}` вЂ“ Dot version number, such as "18".
+ * - `codeName` вЂ“ `{string}` вЂ“ Code name of the release, such as "jiggling-armfat".
  */
 var version = {
-  full: '1.3.11',    // all of these placeholder strings will be replaced by grunt's
+  full: '1.3.9',    // all of these placeholder strings will be replaced by grunt's
   major: 1,    // package task
   minor: 3,
-  dot: 11,
-  codeName: 'spiffy-manatee'
+  dot: 9,
+  codeName: 'multidimensional-awareness'
 };
 
 
@@ -4186,7 +4186,7 @@ function createInjector(modulesToLoad, strictDi) {
       // Check if Type is annotated and use just the given function at n-1 as parameter
       // e.g. someModule.factory('greeter', ['$window', function(renamed$window) {}]);
       // Object creation: http://jsperf.com/create-constructor/2
-      var instance = Object.create((isArray(Type) ? Type[Type.length - 1] : Type).prototype || null);
+      var instance = Object.create((isArray(Type) ? Type[Type.length - 1] : Type).prototype);
       var returnedValue = invoke(Type, instance, locals, serviceName);
 
       return isObject(returnedValue) || isFunction(returnedValue) ? returnedValue : instance;
@@ -5341,17 +5341,17 @@ function $BrowserProvider() {
  * @param {string} cacheId Name or id of the newly created cache.
  * @param {object=} options Options object that specifies the cache behavior. Properties:
  *
- *   - `{number=}` `capacity` — turns the cache into LRU cache.
+ *   - `{number=}` `capacity` вЂ” turns the cache into LRU cache.
  *
  * @returns {object} Newly created cache object with the following set of methods:
  *
- * - `{object}` `info()` — Returns id, size, and options of cache.
- * - `{{*}}` `put({string} key, {*} value)` — Puts a new key-value pair into the cache and returns
+ * - `{object}` `info()` вЂ” Returns id, size, and options of cache.
+ * - `{{*}}` `put({string} key, {*} value)` вЂ” Puts a new key-value pair into the cache and returns
  *   it.
- * - `{{*}}` `get({string} key)` — Returns cached value for `key` or undefined for cache miss.
- * - `{void}` `remove({string} key)` — Removes a key-value pair from the cache.
- * - `{void}` `removeAll()` — Removes all cached values.
- * - `{void}` `destroy()` — Removes references to this cache from $cacheFactory.
+ * - `{{*}}` `get({string} key)` вЂ” Returns cached value for `key` or undefined for cache miss.
+ * - `{void}` `remove({string} key)` вЂ” Removes a key-value pair from the cache.
+ * - `{void}` `removeAll()` вЂ” Removes all cached values.
+ * - `{void}` `destroy()` вЂ” Removes references to this cache from $cacheFactory.
  *
  * @example
    <example module="cacheExampleApp">
@@ -7165,10 +7165,6 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
           // use class as directive
           className = node.className;
-          if (isObject(className)) {
-              // Maybe SVGAnimatedString
-              className = className.animVal;
-          }
           if (isString(className) && className !== '') {
             while (match = CLASS_DIRECTIVE_REGEXP.exec(className)) {
               nName = directiveNormalize(match[2]);
@@ -8435,7 +8431,7 @@ function $ControllerProvider() {
         // Object creation: http://jsperf.com/create-constructor/2
         var controllerPrototype = (isArray(expression) ?
           expression[expression.length - 1] : expression).prototype;
-        instance = Object.create(controllerPrototype || null);
+        instance = Object.create(controllerPrototype);
 
         if (identifier) {
           addIdentifier(locals, identifier, instance, constructor || expression.name);
@@ -8808,7 +8804,7 @@ function $HttpProvider() {
      *
      *
      * ## General usage
-     * The `$http` service is a function which takes a single argument — a configuration object —
+     * The `$http` service is a function which takes a single argument вЂ” a configuration object вЂ”
      * that is used to generate an HTTP request and returns  a {@link ng.$q promise}
      * with two $http specific methods: `success` and `error`.
      *
@@ -8840,7 +8836,7 @@ function $HttpProvider() {
      *
      *
      * Since the returned value of calling the $http function is a `promise`, you can also use
-     * the `then` method to register callbacks, and these callbacks will receive a single argument –
+     * the `then` method to register callbacks, and these callbacks will receive a single argument вЂ“
      * an object representing the response. See the API signature and type info below for more
      * details.
      *
@@ -9157,34 +9153,34 @@ function $HttpProvider() {
      * @param {object} config Object describing the request to be made and how it should be
      *    processed. The object has following properties:
      *
-     *    - **method** – `{string}` – HTTP method (e.g. 'GET', 'POST', etc)
-     *    - **url** – `{string}` – Absolute or relative URL of the resource that is being requested.
-     *    - **params** – `{Object.<string|Object>}` – Map of strings or objects which will be turned
+     *    - **method** вЂ“ `{string}` вЂ“ HTTP method (e.g. 'GET', 'POST', etc)
+     *    - **url** вЂ“ `{string}` вЂ“ Absolute or relative URL of the resource that is being requested.
+     *    - **params** вЂ“ `{Object.<string|Object>}` вЂ“ Map of strings or objects which will be turned
      *      to `?key1=value1&key2=value2` after the url. If the value is not a string, it will be
      *      JSONified.
-     *    - **data** – `{string|Object}` – Data to be sent as the request message data.
-     *    - **headers** – `{Object}` – Map of strings or functions which return strings representing
+     *    - **data** вЂ“ `{string|Object}` вЂ“ Data to be sent as the request message data.
+     *    - **headers** вЂ“ `{Object}` вЂ“ Map of strings or functions which return strings representing
      *      HTTP headers to send to the server. If the return value of a function is null, the
      *      header will not be sent.
-     *    - **xsrfHeaderName** – `{string}` – Name of HTTP header to populate with the XSRF token.
-     *    - **xsrfCookieName** – `{string}` – Name of cookie containing the XSRF token.
-     *    - **transformRequest** –
-     *      `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` –
+     *    - **xsrfHeaderName** вЂ“ `{string}` вЂ“ Name of HTTP header to populate with the XSRF token.
+     *    - **xsrfCookieName** вЂ“ `{string}` вЂ“ Name of cookie containing the XSRF token.
+     *    - **transformRequest** вЂ“
+     *      `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` вЂ“
      *      transform function or an array of such functions. The transform function takes the http
      *      request body and headers and returns its transformed (typically serialized) version.
      *      See {@link ng.$http#overriding-the-default-transformations-per-request
      *      Overriding the Default Transformations}
-     *    - **transformResponse** –
-     *      `{function(data, headersGetter, status)|Array.<function(data, headersGetter, status)>}` –
+     *    - **transformResponse** вЂ“
+     *      `{function(data, headersGetter, status)|Array.<function(data, headersGetter, status)>}` вЂ“
      *      transform function or an array of such functions. The transform function takes the http
      *      response body, headers and status and returns its transformed (typically deserialized) version.
      *      See {@link ng.$http#overriding-the-default-transformations-per-request
      *      Overriding the Default Transformations}
-     *    - **cache** – `{boolean|Cache}` – If true, a default $http cache will be used to cache the
+     *    - **cache** вЂ“ `{boolean|Cache}` вЂ“ If true, a default $http cache will be used to cache the
      *      GET request, otherwise if a cache instance built with
      *      {@link ng.$cacheFactory $cacheFactory}, this cache will be used for
      *      caching.
-     *    - **timeout** – `{number|Promise}` – timeout in milliseconds, or {@link ng.$q promise}
+     *    - **timeout** вЂ“ `{number|Promise}` вЂ“ timeout in milliseconds, or {@link ng.$q promise}
      *      that should abort the request when resolved.
      *    - **withCredentials** - `{boolean}` - whether to set the `withCredentials` flag on the
      *      XHR object. See [requests with credentials](https://developer.mozilla.org/docs/Web/HTTP/Access_control_CORS#Requests_with_credentials)
@@ -9200,12 +9196,12 @@ function $HttpProvider() {
      *   these functions are destructured representation of the response object passed into the
      *   `then` method. The response object has these properties:
      *
-     *   - **data** – `{string|Object}` – The response body transformed with the transform
+     *   - **data** вЂ“ `{string|Object}` вЂ“ The response body transformed with the transform
      *     functions.
-     *   - **status** – `{number}` – HTTP status code of the response.
-     *   - **headers** – `{function([headerName])}` – Header getter function.
-     *   - **config** – `{Object}` – The configuration object that was used to generate the request.
-     *   - **statusText** – `{string}` – HTTP status text of the response.
+     *   - **status** вЂ“ `{number}` вЂ“ HTTP status code of the response.
+     *   - **headers** вЂ“ `{function([headerName])}` вЂ“ Header getter function.
+     *   - **config** вЂ“ `{Object}` вЂ“ The configuration object that was used to generate the request.
+     *   - **statusText** вЂ“ `{string}` вЂ“ HTTP status text of the response.
      *
      * @property {Array.<Object>} pendingRequests Array of config objects for currently pending
      *   requests. This is primarily meant to be used for debugging purposes.
@@ -10419,7 +10415,7 @@ function $IntervalProvider() {
  * $locale service provides localization rules for various Angular components. As of right now the
  * only public api is:
  *
- * * `id` – `{string}` – locale id formatted as `languageId-countryId` (e.g. `en-us`)
+ * * `id` вЂ“ `{string}` вЂ“ locale id formatted as `languageId-countryId` (e.g. `en-us`)
  */
 function $LocaleProvider() {
   this.$get = function() {
@@ -11196,7 +11192,7 @@ function $LocationProvider() {
    * @param {(boolean|Object)=} mode If boolean, sets `html5Mode.enabled` to value.
    *   If object, sets `enabled`, `requireBase` and `rewriteLinks` to respective values. Supported
    *   properties:
-   *   - **enabled** – `{boolean}` – (default: false) If true, will rely on `history.pushState` to
+   *   - **enabled** вЂ“ `{boolean}` вЂ“ (default: false) If true, will rely on `history.pushState` to
    *     change urls where supported. Will fall back to hash-prefixed paths in browsers that do not
    *     support `pushState`.
    *   - **requireBase** - `{boolean}` - (default: `true`) When html5Mode is enabled, specifies
@@ -11320,7 +11316,7 @@ function $LocationProvider() {
       // TODO(vojta): rewrite link when opening in new tab/window (in legacy browser)
       // currently we open nice url link and redirect then
 
-      if (!html5Mode.rewriteLinks || event.ctrlKey || event.metaKey || event.shiftKey || event.which == 2 || event.button == 2) return;
+      if (!html5Mode.rewriteLinks || event.ctrlKey || event.metaKey || event.which == 2) return;
 
       var elm = jqLite(event.target);
 
@@ -12587,17 +12583,17 @@ function getValueOf(value) {
  * @param {string} expression String expression to compile.
  * @returns {function(context, locals)} a function which represents the compiled expression:
  *
- *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+ *    * `context` вЂ“ `{object}` вЂ“ an object against which any expressions embedded in the strings
  *      are evaluated against (typically a scope object).
- *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
+ *    * `locals` вЂ“ `{object=}` вЂ“ local variables context object, useful for overriding values in
  *      `context`.
  *
  *    The returned function also has the following properties:
- *      * `literal` – `{boolean}` – whether the expression's top-level node is a JavaScript
+ *      * `literal` вЂ“ `{boolean}` вЂ“ whether the expression's top-level node is a JavaScript
  *        literal.
- *      * `constant` – `{boolean}` – whether the expression is made entirely of JavaScript
+ *      * `constant` вЂ“ `{boolean}` вЂ“ whether the expression is made entirely of JavaScript
  *        constant literals.
- *      * `assign` – `{?function(context, value)}` – if the expression is assignable, this will be
+ *      * `assign` вЂ“ `{?function(context, value)}` вЂ“ if the expression is assignable, this will be
  *        set to a function to change its value on the given context.
  *
  */
@@ -12971,16 +12967,16 @@ function $ParseProvider() {
  *
  * **Methods**
  *
- * - `resolve(value)` – resolves the derived promise with the `value`. If the value is a rejection
+ * - `resolve(value)` вЂ“ resolves the derived promise with the `value`. If the value is a rejection
  *   constructed via `$q.reject`, the promise will be rejected instead.
- * - `reject(reason)` – rejects the derived promise with the `reason`. This is equivalent to
+ * - `reject(reason)` вЂ“ rejects the derived promise with the `reason`. This is equivalent to
  *   resolving it with a rejection constructed via `$q.reject`.
  * - `notify(value)` - provides updates on the status of the promise's execution. This may be called
  *   multiple times before the promise is either resolved or rejected.
  *
  * **Properties**
  *
- * - promise – `{Promise}` – promise object associated with this deferred.
+ * - promise вЂ“ `{Promise}` вЂ“ promise object associated with this deferred.
  *
  *
  * # The Promise API
@@ -12993,7 +12989,7 @@ function $ParseProvider() {
  *
  * **Methods**
  *
- * - `then(successCallback, errorCallback, notifyCallback)` – regardless of when the promise was or
+ * - `then(successCallback, errorCallback, notifyCallback)` вЂ“ regardless of when the promise was or
  *   will be resolved or rejected, `then` calls one of the success or error callbacks asynchronously
  *   as soon as the result is available. The callbacks are called with a single argument: the result
  *   or rejection reason. Additionally, the notify callback may be called zero or more times to
@@ -13004,9 +13000,9 @@ function $ParseProvider() {
  *   `notifyCallback` method. The promise cannot be resolved or rejected from the notifyCallback
  *   method.
  *
- * - `catch(errorCallback)` – shorthand for `promise.then(null, errorCallback)`
+ * - `catch(errorCallback)` вЂ“ shorthand for `promise.then(null, errorCallback)`
  *
- * - `finally(callback, notifyCallback)` – allows you to observe either the fulfillment or rejection of a promise,
+ * - `finally(callback, notifyCallback)` вЂ“ allows you to observe either the fulfillment or rejection of a promise,
  *   but to do so without modifying the final value. This is useful to release resources or do some
  *   clean-up that needs to be done whether the promise was rejected or resolved. See the [full
  *   specification](https://github.com/kriskowal/q/wiki/API-Reference#promisefinallycallback) for
@@ -14504,7 +14500,7 @@ function $RootScopeProvider() {
        * @kind function
        *
        * @description
-       * Schedule the invocation of $apply to occur at a later time. The actual time difference
+       * Schedule the invokation of $apply to occur at a later time. The actual time difference
        * varies across browsers, but is typically around ~10 milliseconds.
        *
        * This can be used to queue up multiple expressions which need to be evaluated in the same
@@ -14955,7 +14951,7 @@ function adjustMatchers(matchers) {
  *
  * - your app is hosted at url `http://myapp.example.com/`
  * - but some of your templates are hosted on other domains you control such as
- *   `http://srv01.assets.example.com/`,  `http://srv02.assets.example.com/`, etc.
+ *   `http://srv01.assets.example.com/`,В  `http://srv02.assets.example.com/`, etc.
  * - and you have an open redirect at `http://myapp.example.com/clickThru?...`.
  *
  * Here is what a secure configuration for this scenario might look like:
@@ -15625,9 +15621,9 @@ function $SceProvider() {
      * @param {string} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` вЂ“ `{object}` вЂ“ an object against which any expressions embedded in the strings
      *      are evaluated against (typically a scope object).
-     *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
+     *    * `locals` вЂ“ `{object=}` вЂ“ local variables context object, useful for overriding values in
      *      `context`.
      */
     sce.parseAs = function sceParseAs(type, expr) {
@@ -15665,7 +15661,7 @@ function $SceProvider() {
      * @name $sce#trustAsHtml
      *
      * @description
-     * Shorthand method.  `$sce.trustAsHtml(value)` →
+     * Shorthand method.  `$sce.trustAsHtml(value)` в†’
      *     {@link ng.$sceDelegate#trustAs `$sceDelegate.trustAs($sce.HTML, value)`}
      *
      * @param {*} value The value to trustAs.
@@ -15680,7 +15676,7 @@ function $SceProvider() {
      * @name $sce#trustAsUrl
      *
      * @description
-     * Shorthand method.  `$sce.trustAsUrl(value)` →
+     * Shorthand method.  `$sce.trustAsUrl(value)` в†’
      *     {@link ng.$sceDelegate#trustAs `$sceDelegate.trustAs($sce.URL, value)`}
      *
      * @param {*} value The value to trustAs.
@@ -15695,7 +15691,7 @@ function $SceProvider() {
      * @name $sce#trustAsResourceUrl
      *
      * @description
-     * Shorthand method.  `$sce.trustAsResourceUrl(value)` →
+     * Shorthand method.  `$sce.trustAsResourceUrl(value)` в†’
      *     {@link ng.$sceDelegate#trustAs `$sceDelegate.trustAs($sce.RESOURCE_URL, value)`}
      *
      * @param {*} value The value to trustAs.
@@ -15710,7 +15706,7 @@ function $SceProvider() {
      * @name $sce#trustAsJs
      *
      * @description
-     * Shorthand method.  `$sce.trustAsJs(value)` →
+     * Shorthand method.  `$sce.trustAsJs(value)` в†’
      *     {@link ng.$sceDelegate#trustAs `$sceDelegate.trustAs($sce.JS, value)`}
      *
      * @param {*} value The value to trustAs.
@@ -15743,7 +15739,7 @@ function $SceProvider() {
      * @name $sce#getTrustedHtml
      *
      * @description
-     * Shorthand method.  `$sce.getTrustedHtml(value)` →
+     * Shorthand method.  `$sce.getTrustedHtml(value)` в†’
      *     {@link ng.$sceDelegate#getTrusted `$sceDelegate.getTrusted($sce.HTML, value)`}
      *
      * @param {*} value The value to pass to `$sce.getTrusted`.
@@ -15755,7 +15751,7 @@ function $SceProvider() {
      * @name $sce#getTrustedCss
      *
      * @description
-     * Shorthand method.  `$sce.getTrustedCss(value)` →
+     * Shorthand method.  `$sce.getTrustedCss(value)` в†’
      *     {@link ng.$sceDelegate#getTrusted `$sceDelegate.getTrusted($sce.CSS, value)`}
      *
      * @param {*} value The value to pass to `$sce.getTrusted`.
@@ -15767,7 +15763,7 @@ function $SceProvider() {
      * @name $sce#getTrustedUrl
      *
      * @description
-     * Shorthand method.  `$sce.getTrustedUrl(value)` →
+     * Shorthand method.  `$sce.getTrustedUrl(value)` в†’
      *     {@link ng.$sceDelegate#getTrusted `$sceDelegate.getTrusted($sce.URL, value)`}
      *
      * @param {*} value The value to pass to `$sce.getTrusted`.
@@ -15779,7 +15775,7 @@ function $SceProvider() {
      * @name $sce#getTrustedResourceUrl
      *
      * @description
-     * Shorthand method.  `$sce.getTrustedResourceUrl(value)` →
+     * Shorthand method.  `$sce.getTrustedResourceUrl(value)` в†’
      *     {@link ng.$sceDelegate#getTrusted `$sceDelegate.getTrusted($sce.RESOURCE_URL, value)`}
      *
      * @param {*} value The value to pass to `$sceDelegate.getTrusted`.
@@ -15791,7 +15787,7 @@ function $SceProvider() {
      * @name $sce#getTrustedJs
      *
      * @description
-     * Shorthand method.  `$sce.getTrustedJs(value)` →
+     * Shorthand method.  `$sce.getTrustedJs(value)` в†’
      *     {@link ng.$sceDelegate#getTrusted `$sceDelegate.getTrusted($sce.JS, value)`}
      *
      * @param {*} value The value to pass to `$sce.getTrusted`.
@@ -15803,15 +15799,15 @@ function $SceProvider() {
      * @name $sce#parseAsHtml
      *
      * @description
-     * Shorthand method.  `$sce.parseAsHtml(expression string)` →
+     * Shorthand method.  `$sce.parseAsHtml(expression string)` в†’
      *     {@link ng.$sce#parseAs `$sce.parseAs($sce.HTML, value)`}
      *
      * @param {string} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` вЂ“ `{object}` вЂ“ an object against which any expressions embedded in the strings
      *      are evaluated against (typically a scope object).
-     *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
+     *    * `locals` вЂ“ `{object=}` вЂ“ local variables context object, useful for overriding values in
      *      `context`.
      */
 
@@ -15820,15 +15816,15 @@ function $SceProvider() {
      * @name $sce#parseAsCss
      *
      * @description
-     * Shorthand method.  `$sce.parseAsCss(value)` →
+     * Shorthand method.  `$sce.parseAsCss(value)` в†’
      *     {@link ng.$sce#parseAs `$sce.parseAs($sce.CSS, value)`}
      *
      * @param {string} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` вЂ“ `{object}` вЂ“ an object against which any expressions embedded in the strings
      *      are evaluated against (typically a scope object).
-     *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
+     *    * `locals` вЂ“ `{object=}` вЂ“ local variables context object, useful for overriding values in
      *      `context`.
      */
 
@@ -15837,15 +15833,15 @@ function $SceProvider() {
      * @name $sce#parseAsUrl
      *
      * @description
-     * Shorthand method.  `$sce.parseAsUrl(value)` →
+     * Shorthand method.  `$sce.parseAsUrl(value)` в†’
      *     {@link ng.$sce#parseAs `$sce.parseAs($sce.URL, value)`}
      *
      * @param {string} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` вЂ“ `{object}` вЂ“ an object against which any expressions embedded in the strings
      *      are evaluated against (typically a scope object).
-     *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
+     *    * `locals` вЂ“ `{object=}` вЂ“ local variables context object, useful for overriding values in
      *      `context`.
      */
 
@@ -15854,15 +15850,15 @@ function $SceProvider() {
      * @name $sce#parseAsResourceUrl
      *
      * @description
-     * Shorthand method.  `$sce.parseAsResourceUrl(value)` →
+     * Shorthand method.  `$sce.parseAsResourceUrl(value)` в†’
      *     {@link ng.$sce#parseAs `$sce.parseAs($sce.RESOURCE_URL, value)`}
      *
      * @param {string} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` вЂ“ `{object}` вЂ“ an object against which any expressions embedded in the strings
      *      are evaluated against (typically a scope object).
-     *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
+     *    * `locals` вЂ“ `{object=}` вЂ“ local variables context object, useful for overriding values in
      *      `context`.
      */
 
@@ -15871,15 +15867,15 @@ function $SceProvider() {
      * @name $sce#parseAsJs
      *
      * @description
-     * Shorthand method.  `$sce.parseAsJs(value)` →
+     * Shorthand method.  `$sce.parseAsJs(value)` в†’
      *     {@link ng.$sce#parseAs `$sce.parseAs($sce.JS, value)`}
      *
      * @param {string} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` вЂ“ `{object}` вЂ“ an object against which any expressions embedded in the strings
      *      are evaluated against (typically a scope object).
-     *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
+     *    * `locals` вЂ“ `{object=}` вЂ“ local variables context object, useful for overriding values in
      *      `context`.
      */
 
@@ -16014,7 +16010,8 @@ var $compileMinErr = minErr('$compile');
 function $TemplateRequestProvider() {
   this.$get = ['$templateCache', '$http', '$q', function($templateCache, $http, $q) {
     function handleRequestFn(tpl, ignoreRequestError) {
-      handleRequestFn.totalPendingRequests++;
+      var self = handleRequestFn;
+      self.totalPendingRequests++;
 
       var transformResponse = $http.defaults && $http.defaults.transformResponse;
 
@@ -16032,14 +16029,13 @@ function $TemplateRequestProvider() {
       };
 
       return $http.get(tpl, httpOptions)
-        .finally(function() {
-          handleRequestFn.totalPendingRequests--;
-        })
         .then(function(response) {
+          self.totalPendingRequests--;
           return response.data;
         }, handleError);
 
       function handleError(resp) {
+        self.totalPendingRequests--;
         if (!ignoreRequestError) {
           throw $compileMinErr('tpload', 'Failed to load template: {0}', tpl);
         }
@@ -16862,7 +16858,7 @@ function currencyFilter($locale) {
  * @param {(number|string)=} fractionSize Number of decimal places to round the number to.
  * If this is not provided then the fraction size is computed from the current locale's number
  * formatting pattern. In the case of the default locale, it will be 3.
- * @returns {string} Number rounded to decimalPlaces and places a “,” after each third digit.
+ * @returns {string} Number rounded to decimalPlaces and places a вЂњ,вЂќ after each third digit.
  *
  * @example
    <example module="numberFilterExample">
@@ -17129,7 +17125,7 @@ var DATE_FORMATS_SPLIT = /((?:[^yMdHhmsaZEw']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|d
  *   * `'m'`: Minute in hour (0-59)
  *   * `'ss'`: Second in minute, padded (00-59)
  *   * `'s'`: Second in minute (0-59)
- *   * `'sss'`: Millisecond in second, padded (000-999)
+ *   * `'.sss' or ',sss'`: Millisecond in second, padded (000-999)
  *   * `'a'`: AM/PM marker
  *   * `'Z'`: 4 digit (+sign) representation of the timezone offset (-1200-+1200)
  *   * `'ww'`: Week of year, padded (00-53). Week 01 is the week with the first Thursday of the year
@@ -17665,9 +17661,6 @@ var htmlAnchorDirective = valueFn({
   compile: function(element, attr) {
     if (!attr.href && !attr.xlinkHref && !attr.name) {
       return function(scope, element) {
-        // If the linked element is not an anchor tag anymore, do nothing
-        if (element[0].nodeName.toLowerCase() !== 'a') return;
-
         // SVGAElement does not use the href attribute, but rather the 'xlinkHref' attribute.
         var href = toString.call(element.prop('href')) === '[object SVGAnimatedString]' ?
                    'xlink:href' : 'href';
@@ -18268,9 +18261,6 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
     forEach(form.$error, function(value, name) {
       form.$setValidity(name, null, control);
     });
-    forEach(form.$$success, function(value, name) {
-      form.$setValidity(name, null, control);
-    });
 
     arrayRemove(controls, control);
   };
@@ -18288,23 +18278,23 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
   addSetValidityMethod({
     ctrl: this,
     $element: element,
-    set: function(object, property, controller) {
+    set: function(object, property, control) {
       var list = object[property];
       if (!list) {
-        object[property] = [controller];
+        object[property] = [control];
       } else {
-        var index = list.indexOf(controller);
+        var index = list.indexOf(control);
         if (index === -1) {
-          list.push(controller);
+          list.push(control);
         }
       }
     },
-    unset: function(object, property, controller) {
+    unset: function(object, property, control) {
       var list = object[property];
       if (!list) {
         return;
       }
-      arrayRemove(list, controller);
+      arrayRemove(list, control);
       if (list.length === 0) {
         delete object[property];
       }
@@ -18686,21 +18676,19 @@ var inputType = {
          <script>
            angular.module('textInputExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
-               $scope.example = {
-                 text: 'guest',
-                 word: /^\s*\w*\s*$/
-               };
+               $scope.text = 'guest';
+               $scope.word = /^\s*\w*\s*$/;
              }]);
          </script>
          <form name="myForm" ng-controller="ExampleController">
-           Single word: <input type="text" name="input" ng-model="example.text"
-                               ng-pattern="example.word" required ng-trim="false">
+           Single word: <input type="text" name="input" ng-model="text"
+                               ng-pattern="word" required ng-trim="false">
            <span class="error" ng-show="myForm.input.$error.required">
              Required!</span>
            <span class="error" ng-show="myForm.input.$error.pattern">
              Single word only!</span>
 
-           <tt>text = {{example.text}}</tt><br/>
+           <tt>text = {{text}}</tt><br/>
            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -18708,9 +18696,9 @@ var inputType = {
           </form>
         </file>
         <file name="protractor.js" type="protractor">
-          var text = element(by.binding('example.text'));
+          var text = element(by.binding('text'));
           var valid = element(by.binding('myForm.input.$valid'));
-          var input = element(by.model('example.text'));
+          var input = element(by.model('text'));
 
           it('should initialize to model', function() {
             expect(text.getText()).toContain('guest');
@@ -18772,20 +18760,18 @@ var inputType = {
        <script>
           angular.module('dateInputExample', [])
             .controller('DateController', ['$scope', function($scope) {
-              $scope.example = {
-                value: new Date(2013, 9, 22)
-              };
+              $scope.value = new Date(2013, 9, 22);
             }]);
        </script>
        <form name="myForm" ng-controller="DateController as dateCtrl">
           Pick a date in 2013:
-          <input type="date" id="exampleInput" name="input" ng-model="example.value"
+          <input type="date" id="exampleInput" name="input" ng-model="value"
               placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required />
           <span class="error" ng-show="myForm.input.$error.required">
               Required!</span>
           <span class="error" ng-show="myForm.input.$error.date">
               Not a valid date!</span>
-           <tt>value = {{example.value | date: "yyyy-MM-dd"}}</tt><br/>
+           <tt>value = {{value | date: "yyyy-MM-dd"}}</tt><br/>
            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -18793,9 +18779,9 @@ var inputType = {
        </form>
      </file>
      <file name="protractor.js" type="protractor">
-        var value = element(by.binding('example.value | date: "yyyy-MM-dd"'));
+        var value = element(by.binding('value | date: "yyyy-MM-dd"'));
         var valid = element(by.binding('myForm.input.$valid'));
-        var input = element(by.model('example.value'));
+        var input = element(by.model('value'));
 
         // currently protractor/webdriver does not support
         // sending keys to all known HTML5 input controls
@@ -18865,20 +18851,18 @@ var inputType = {
       <script>
         angular.module('dateExample', [])
           .controller('DateController', ['$scope', function($scope) {
-            $scope.example = {
-              value: new Date(2010, 11, 28, 14, 57)
-            };
+            $scope.value = new Date(2010, 11, 28, 14, 57);
           }]);
       </script>
       <form name="myForm" ng-controller="DateController as dateCtrl">
         Pick a date between in 2013:
-        <input type="datetime-local" id="exampleInput" name="input" ng-model="example.value"
+        <input type="datetime-local" id="exampleInput" name="input" ng-model="value"
             placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2013-12-31T00:00:00" required />
         <span class="error" ng-show="myForm.input.$error.required">
             Required!</span>
         <span class="error" ng-show="myForm.input.$error.datetimelocal">
             Not a valid date!</span>
-        <tt>value = {{example.value | date: "yyyy-MM-ddTHH:mm:ss"}}</tt><br/>
+        <tt>value = {{value | date: "yyyy-MM-ddTHH:mm:ss"}}</tt><br/>
         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -18886,9 +18870,9 @@ var inputType = {
       </form>
     </file>
     <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "yyyy-MM-ddTHH:mm:ss"'));
+      var value = element(by.binding('value | date: "yyyy-MM-ddTHH:mm:ss"'));
       var valid = element(by.binding('myForm.input.$valid'));
-      var input = element(by.model('example.value'));
+      var input = element(by.model('value'));
 
       // currently protractor/webdriver does not support
       // sending keys to all known HTML5 input controls
@@ -18959,20 +18943,18 @@ var inputType = {
      <script>
       angular.module('timeExample', [])
         .controller('DateController', ['$scope', function($scope) {
-          $scope.example = {
-            value: new Date(1970, 0, 1, 14, 57, 0)
-          };
+          $scope.value = new Date(1970, 0, 1, 14, 57, 0);
         }]);
      </script>
      <form name="myForm" ng-controller="DateController as dateCtrl">
         Pick a between 8am and 5pm:
-        <input type="time" id="exampleInput" name="input" ng-model="example.value"
+        <input type="time" id="exampleInput" name="input" ng-model="value"
             placeholder="HH:mm:ss" min="08:00:00" max="17:00:00" required />
         <span class="error" ng-show="myForm.input.$error.required">
             Required!</span>
         <span class="error" ng-show="myForm.input.$error.time">
             Not a valid date!</span>
-        <tt>value = {{example.value | date: "HH:mm:ss"}}</tt><br/>
+        <tt>value = {{value | date: "HH:mm:ss"}}</tt><br/>
         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -18980,9 +18962,9 @@ var inputType = {
      </form>
    </file>
    <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "HH:mm:ss"'));
+      var value = element(by.binding('value | date: "HH:mm:ss"'));
       var valid = element(by.binding('myForm.input.$valid'));
-      var input = element(by.model('example.value'));
+      var input = element(by.model('value'));
 
       // currently protractor/webdriver does not support
       // sending keys to all known HTML5 input controls
@@ -19052,20 +19034,18 @@ var inputType = {
       <script>
       angular.module('weekExample', [])
         .controller('DateController', ['$scope', function($scope) {
-          $scope.example = {
-            value: new Date(2013, 0, 3)
-          };
+          $scope.value = new Date(2013, 0, 3);
         }]);
       </script>
       <form name="myForm" ng-controller="DateController as dateCtrl">
         Pick a date between in 2013:
-        <input id="exampleInput" type="week" name="input" ng-model="example.value"
+        <input id="exampleInput" type="week" name="input" ng-model="value"
             placeholder="YYYY-W##" min="2012-W32" max="2013-W52" required />
         <span class="error" ng-show="myForm.input.$error.required">
             Required!</span>
         <span class="error" ng-show="myForm.input.$error.week">
             Not a valid date!</span>
-        <tt>value = {{example.value | date: "yyyy-Www"}}</tt><br/>
+        <tt>value = {{value | date: "yyyy-Www"}}</tt><br/>
         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -19073,9 +19053,9 @@ var inputType = {
       </form>
     </file>
     <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "yyyy-Www"'));
+      var value = element(by.binding('value | date: "yyyy-Www"'));
       var valid = element(by.binding('myForm.input.$valid'));
-      var input = element(by.model('example.value'));
+      var input = element(by.model('value'));
 
       // currently protractor/webdriver does not support
       // sending keys to all known HTML5 input controls
@@ -19145,20 +19125,18 @@ var inputType = {
      <script>
       angular.module('monthExample', [])
         .controller('DateController', ['$scope', function($scope) {
-          $scope.example = {
-            value: new Date(2013, 9, 1)
-          };
+          $scope.value = new Date(2013, 9, 1);
         }]);
      </script>
      <form name="myForm" ng-controller="DateController as dateCtrl">
-       Pick a month in 2013:
-       <input id="exampleInput" type="month" name="input" ng-model="example.value"
+       Pick a month int 2013:
+       <input id="exampleInput" type="month" name="input" ng-model="value"
           placeholder="yyyy-MM" min="2013-01" max="2013-12" required />
        <span class="error" ng-show="myForm.input.$error.required">
           Required!</span>
        <span class="error" ng-show="myForm.input.$error.month">
           Not a valid month!</span>
-       <tt>value = {{example.value | date: "yyyy-MM"}}</tt><br/>
+       <tt>value = {{value | date: "yyyy-MM"}}</tt><br/>
        <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
        <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
        <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -19166,9 +19144,9 @@ var inputType = {
      </form>
    </file>
    <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "yyyy-MM"'));
+      var value = element(by.binding('value | date: "yyyy-MM"'));
       var valid = element(by.binding('myForm.input.$valid'));
-      var input = element(by.model('example.value'));
+      var input = element(by.model('value'));
 
       // currently protractor/webdriver does not support
       // sending keys to all known HTML5 input controls
@@ -19244,19 +19222,17 @@ var inputType = {
          <script>
            angular.module('numberExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
-               $scope.example = {
-                 value: 12
-               };
+               $scope.value = 12;
              }]);
          </script>
          <form name="myForm" ng-controller="ExampleController">
-           Number: <input type="number" name="input" ng-model="example.value"
+           Number: <input type="number" name="input" ng-model="value"
                           min="0" max="99" required>
            <span class="error" ng-show="myForm.input.$error.required">
              Required!</span>
            <span class="error" ng-show="myForm.input.$error.number">
              Not valid number!</span>
-           <tt>value = {{example.value}}</tt><br/>
+           <tt>value = {{value}}</tt><br/>
            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -19264,9 +19240,9 @@ var inputType = {
           </form>
         </file>
         <file name="protractor.js" type="protractor">
-          var value = element(by.binding('example.value'));
+          var value = element(by.binding('value'));
           var valid = element(by.binding('myForm.input.$valid'));
-          var input = element(by.model('example.value'));
+          var input = element(by.model('value'));
 
           it('should initialize to model', function() {
             expect(value.getText()).toContain('12');
@@ -19334,18 +19310,16 @@ var inputType = {
          <script>
            angular.module('urlExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
-               $scope.url = {
-                 text: 'http://google.com'
-               };
+               $scope.text = 'http://google.com';
              }]);
          </script>
          <form name="myForm" ng-controller="ExampleController">
-           URL: <input type="url" name="input" ng-model="url.text" required>
+           URL: <input type="url" name="input" ng-model="text" required>
            <span class="error" ng-show="myForm.input.$error.required">
              Required!</span>
            <span class="error" ng-show="myForm.input.$error.url">
              Not valid url!</span>
-           <tt>text = {{url.text}}</tt><br/>
+           <tt>text = {{text}}</tt><br/>
            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -19354,9 +19328,9 @@ var inputType = {
           </form>
         </file>
         <file name="protractor.js" type="protractor">
-          var text = element(by.binding('url.text'));
+          var text = element(by.binding('text'));
           var valid = element(by.binding('myForm.input.$valid'));
-          var input = element(by.model('url.text'));
+          var input = element(by.model('text'));
 
           it('should initialize to model', function() {
             expect(text.getText()).toContain('http://google.com');
@@ -19425,18 +19399,16 @@ var inputType = {
          <script>
            angular.module('emailExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
-               $scope.email = {
-                 text: 'me@example.com'
-               };
+               $scope.text = 'me@example.com';
              }]);
          </script>
            <form name="myForm" ng-controller="ExampleController">
-             Email: <input type="email" name="input" ng-model="email.text" required>
+             Email: <input type="email" name="input" ng-model="text" required>
              <span class="error" ng-show="myForm.input.$error.required">
                Required!</span>
              <span class="error" ng-show="myForm.input.$error.email">
                Not valid email!</span>
-             <tt>text = {{email.text}}</tt><br/>
+             <tt>text = {{text}}</tt><br/>
              <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
              <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
              <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -19445,9 +19417,9 @@ var inputType = {
            </form>
          </file>
         <file name="protractor.js" type="protractor">
-          var text = element(by.binding('email.text'));
+          var text = element(by.binding('text'));
           var valid = element(by.binding('myForm.input.$valid'));
-          var input = element(by.model('email.text'));
+          var input = element(by.model('text'));
 
           it('should initialize to model', function() {
             expect(text.getText()).toContain('me@example.com');
@@ -19494,9 +19466,7 @@ var inputType = {
          <script>
            angular.module('radioExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
-               $scope.color = {
-                 name: 'blue'
-               };
+               $scope.color = 'blue';
                $scope.specialValue = {
                  "id": "12345",
                  "value": "green"
@@ -19504,20 +19474,20 @@ var inputType = {
              }]);
          </script>
          <form name="myForm" ng-controller="ExampleController">
-           <input type="radio" ng-model="color.name" value="red">  Red <br/>
-           <input type="radio" ng-model="color.name" ng-value="specialValue"> Green <br/>
-           <input type="radio" ng-model="color.name" value="blue"> Blue <br/>
-           <tt>color = {{color.name | json}}</tt><br/>
+           <input type="radio" ng-model="color" value="red">  Red <br/>
+           <input type="radio" ng-model="color" ng-value="specialValue"> Green <br/>
+           <input type="radio" ng-model="color" value="blue"> Blue <br/>
+           <tt>color = {{color | json}}</tt><br/>
           </form>
           Note that `ng-value="specialValue"` sets radio item's value to be the value of `$scope.specialValue`.
         </file>
         <file name="protractor.js" type="protractor">
           it('should change state', function() {
-            var color = element(by.binding('color.name'));
+            var color = element(by.binding('color'));
 
             expect(color.getText()).toContain('blue');
 
-            element.all(by.model('color.name')).get(0).click();
+            element.all(by.model('color')).get(0).click();
 
             expect(color.getText()).toContain('red');
           });
@@ -19547,30 +19517,28 @@ var inputType = {
          <script>
            angular.module('checkboxExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
-               $scope.checkboxModel = {
-                value1 : true,
-                value2 : 'YES'
-              };
+               $scope.value1 = true;
+               $scope.value2 = 'YES'
              }]);
          </script>
          <form name="myForm" ng-controller="ExampleController">
-           Value1: <input type="checkbox" ng-model="checkboxModel.value1"> <br/>
-           Value2: <input type="checkbox" ng-model="checkboxModel.value2"
+           Value1: <input type="checkbox" ng-model="value1"> <br/>
+           Value2: <input type="checkbox" ng-model="value2"
                           ng-true-value="'YES'" ng-false-value="'NO'"> <br/>
-           <tt>value1 = {{checkboxModel.value1}}</tt><br/>
-           <tt>value2 = {{checkboxModel.value2}}</tt><br/>
+           <tt>value1 = {{value1}}</tt><br/>
+           <tt>value2 = {{value2}}</tt><br/>
           </form>
         </file>
         <file name="protractor.js" type="protractor">
           it('should change state', function() {
-            var value1 = element(by.binding('checkboxModel.value1'));
-            var value2 = element(by.binding('checkboxModel.value2'));
+            var value1 = element(by.binding('value1'));
+            var value2 = element(by.binding('value2'));
 
             expect(value1.getText()).toContain('true');
             expect(value2.getText()).toContain('YES');
 
-            element(by.model('checkboxModel.value1')).click();
-            element(by.model('checkboxModel.value2')).click();
+            element(by.model('value1')).click();
+            element(by.model('value2')).click();
 
             expect(value1.getText()).toContain('false');
             expect(value2.getText()).toContain('NO');
@@ -20671,9 +20639,8 @@ function classDirective(name, selector) {
  * new classes are added.
  *
  * @animations
- * **add** - happens just before the class is applied to the elements
- *
- * **remove** - happens just before the class is removed from the element
+ * add - happens just before the class is applied to the element
+ * remove - happens just before the class is removed from the element
  *
  * @element ANY
  * @param {expression} ngClass {@link guide/expression Expression} to eval. The result
@@ -20960,10 +20927,10 @@ var ngCloakDirective = ngDirective({
  *
  * MVC components in angular:
  *
- * * Model — Models are the properties of a scope; scopes are attached to the DOM where scope properties
+ * * Model вЂ” Models are the properties of a scope; scopes are attached to the DOM where scope properties
  *   are accessed through bindings.
- * * View — The template (HTML with data bindings) that is rendered into the View.
- * * Controller — The `ngController` directive specifies a Controller class; the class contains business
+ * * View вЂ” The template (HTML with data bindings) that is rendered into the View.
+ * * Controller вЂ” The `ngController` directive specifies a Controller class; the class contains business
  *   logic behind the application to decorate the scope with functions and values
  *
  * Note that you can also attach controllers to the DOM by declaring it in a route definition
@@ -22139,7 +22106,7 @@ var ngIfDirective = ['$animate', function($animate) {
  * @name ngInclude#$includeContentError
  * @eventType emit on the scope ngInclude was declared in
  * @description
- * Emitted when a template HTTP request yields an erroneous response (status < 200 || status > 299)
+ * Emitted when a template HTTP request yields an erronous response (status < 200 || status > 299)
  *
  * @param {Object} angularEvent Synthetic event object.
  * @param {String} src URL of content to load.
@@ -22279,7 +22246,7 @@ var ngIncludeFillContentDirective = ['$compile',
  * **Note**: If you have assignment in `ngInit` along with {@link ng.$filter `$filter`}, make
  * sure you have parenthesis for correct precedence:
  * <pre class="prettyprint">
- * `<div ng-init="test1 = (data | orderBy:'name')"></div>`
+ *   <div ng-init="test1 = (data | orderBy:'name')"></div>
  * </pre>
  * </div>
  *
@@ -23696,22 +23663,22 @@ function addSetValidityMethod(context) {
 
   ctrl.$setValidity = setValidity;
 
-  function setValidity(validationErrorKey, state, controller) {
+  function setValidity(validationErrorKey, state, options) {
     if (state === undefined) {
-      createAndSet('$pending', validationErrorKey, controller);
+      createAndSet('$pending', validationErrorKey, options);
     } else {
-      unsetAndCleanup('$pending', validationErrorKey, controller);
+      unsetAndCleanup('$pending', validationErrorKey, options);
     }
     if (!isBoolean(state)) {
-      unset(ctrl.$error, validationErrorKey, controller);
-      unset(ctrl.$$success, validationErrorKey, controller);
+      unset(ctrl.$error, validationErrorKey, options);
+      unset(ctrl.$$success, validationErrorKey, options);
     } else {
       if (state) {
-        unset(ctrl.$error, validationErrorKey, controller);
-        set(ctrl.$$success, validationErrorKey, controller);
+        unset(ctrl.$error, validationErrorKey, options);
+        set(ctrl.$$success, validationErrorKey, options);
       } else {
-        set(ctrl.$error, validationErrorKey, controller);
-        unset(ctrl.$$success, validationErrorKey, controller);
+        set(ctrl.$error, validationErrorKey, options);
+        unset(ctrl.$$success, validationErrorKey, options);
       }
     }
     if (ctrl.$pending) {
@@ -23739,21 +23706,20 @@ function addSetValidityMethod(context) {
     } else {
       combinedState = null;
     }
-
     toggleValidationCss(validationErrorKey, combinedState);
     parentForm.$setValidity(validationErrorKey, combinedState, ctrl);
   }
 
-  function createAndSet(name, value, controller) {
+  function createAndSet(name, value, options) {
     if (!ctrl[name]) {
       ctrl[name] = {};
     }
-    set(ctrl[name], value, controller);
+    set(ctrl[name], value, options);
   }
 
-  function unsetAndCleanup(name, value, controller) {
+  function unsetAndCleanup(name, value, options) {
     if (ctrl[name]) {
-      unset(ctrl[name], value, controller);
+      unset(ctrl[name], value, options);
     }
     if (isObjectEmpty(ctrl[name])) {
       ctrl[name] = undefined;
@@ -24072,29 +24038,6 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
  * Creating aliases for these properties is possible with {@link ng.directive:ngInit `ngInit`}.
  * This may be useful when, for instance, nesting ngRepeats.
  *
- * # Iterating over object properties
- *
- * It is possible to get `ngRepeat` to iterate over the properties of an object using the following
- * syntax:
- *
- * ```js
- * <div ng-repeat="(key, value) in myObj"> ... </div>
- * ```
- *
- * You need to be aware that the JavaScript specification does not define what order
- * it will return the keys for an object. In order to have a guaranteed deterministic order
- * for the keys, Angular versions up to and including 1.3 **sort the keys alphabetically**.
- *
- * If this is not desired, the recommended workaround is to convert your object into an array
- * that is sorted into the order that you prefer before providing it to `ngRepeat`.  You could
- * do this with a filter such as [toArrayFilter](http://ngmodules.org/modules/angular-toArrayFilter)
- * or implement a `$watch` on the object yourself.
- *
- * In version 1.4 we will remove the sorting, since it seems that browsers generally follow the
- * strategy of providing keys in the order in which they were defined, although there are exceptions
- * when keys are deleted and reinstated.
- *
- *
  * # Special repeat start and end points
  * To repeat a series of elements instead of just one parent element, ngRepeat (as well as other ng directives) supports extending
  * the range of the repeater by defining explicit start and end points by using **ng-repeat-start** and **ng-repeat-end** respectively.
@@ -24152,17 +24095,17 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
  * @param {repeat_expression} ngRepeat The expression indicating how to enumerate a collection. These
  *   formats are currently supported:
  *
- *   * `variable in expression` – where variable is the user defined loop variable and `expression`
+ *   * `variable in expression` вЂ“ where variable is the user defined loop variable and `expression`
  *     is a scope expression giving the collection to enumerate.
  *
  *     For example: `album in artist.albums`.
  *
- *   * `(key, value) in expression` – where `key` and `value` can be any user defined identifiers,
+ *   * `(key, value) in expression` вЂ“ where `key` and `value` can be any user defined identifiers,
  *     and `expression` is the scope expression giving the collection to enumerate.
  *
  *     For example: `(name, age) in {'adam':10, 'amalie':12}`.
  *
- *   * `variable in expression track by tracking_expression` – You can also provide an optional tracking function
+ *   * `variable in expression track by tracking_expression` вЂ“ You can also provide an optional tracking function
  *     which can be used to associate the objects in the collection with the DOM elements. If no tracking function
  *     is specified the ng-repeat associates elements by identity in the collection. It is an error to have
  *     more than one tracking function to resolve to the same key. (This would mean that two distinct objects are
@@ -24184,7 +24127,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
  *     For example: `item in items | filter:searchText track by item.id` is a pattern that might be used to apply a filter
  *     to items in conjunction with a tracking expression.
  *
- *   * `variable in expression as alias_expression` – You can also provide an optional alias expression which will then store the
+ *   * `variable in expression as alias_expression` вЂ“ You can also provide an optional alias expression which will then store the
  *     intermediate results of the repeater after the filters have been applied. Typically this is used to render a special message
  *     when a filter is active on the repeater, but the filtered result set is empty.
  *
@@ -24339,7 +24282,7 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
       var keyIdentifier = match[2];
 
       if (aliasAs && (!/^[$a-zA-Z_][$a-zA-Z0-9_]*$/.test(aliasAs) ||
-          /^(null|undefined|this|\$index|\$first|\$middle|\$last|\$even|\$odd|\$parent|\$root|\$id)$/.test(aliasAs))) {
+          /^(null|undefined|this|\$index|\$first|\$middle|\$last|\$even|\$odd|\$parent)$/.test(aliasAs))) {
         throw ngRepeatMinErr('badident', "alias '{0}' is invalid --- must be a valid JS identifier which is not a reserved name.",
           aliasAs);
       }

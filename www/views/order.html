@@ -1,2 +1,36 @@
-﻿<h1>Заказ</h1>
-{{service.name}}
+﻿<div>
+    <a class="back-bt" href="#/{{url}}/{{service.id}}"><img class="left" src="/images/back.png" width="30"/>НАЗАД</a>
+</div>
+<div class="order-page">
+    <h2>{{service.name}}</h2>
+    <p>Заполните форму. Мы свяжемся с вами в самый короткий промежуток времени и обговорим детали заказа.</p>
+
+
+    <form class="order-form" ng-submit="submit(contactform)" name="contactform" method="post" action="" role="form">
+        <div>
+            <input ng-model="formData.userName" type="text" id="name" name="name" placeholder="Ваше имя" ng-minlength=3 required />
+            <span ng-show="contactform.name.$error.minlength">Имя не может быть таким коротким</span> 
+        </div>
+        <div>
+            <input ng-model="formData.userEmail" type="email" id="email" name="email" placeholder="Ваш Email" required />
+            <span ng-show="contactform.email.$error.email">Введите корректный email</span> 
+        </div>
+        <div>
+            <input ng-model="formData.userPhone" type="tel" id="phone" name="phone" placeholder="Телефон" required />
+            <span ng-show="contactform.phone.$error.required && submitted">Введите корректный телефон</span> 
+        </div>
+        <div>
+            <input ng-model="formData.userVkUrl" type="url" id="userVkUrl" name="userVkUrl" placeholder="Ссылка Вконтакте" />
+            <span ng-show="contactform.userVkUrl.$error.url">Введите корректный адрес</span> 
+        </div>
+        <div>
+            <textarea ng-model="formData.userMessage" rows="4" id="userMessage" name="userMessage" placeholder="Подробности и пожелания"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default" ng-disabled="submitButtonDisabled">
+            ОТПРАВИТЬ ЗАЯВКУ
+        </button>
+    </form>
+    <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
+
+
+</div>

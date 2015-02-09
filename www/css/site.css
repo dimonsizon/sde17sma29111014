@@ -103,12 +103,13 @@ h5, h6 {
         text-decoration: none;
     }
     
-    input[type="text"], input[type="password"], textarea {
+    input[type="text"], input[type="url"], input[type="tel"], input[type="email"], input[type="password"], textarea {
+        width: 400px;
         border: none;
         padding: 10px;
-        color: #333;
+        color: #000;
         font-size: 12px;
-        background: #E6E6E6;
+        background: #eee;
     }
 
     input[type="checkbox"] {
@@ -142,6 +143,10 @@ h5, h6 {
         color: #eb7e4a;
         background-color: transparent;
         border: 1px solid #2F3031;
+    }
+
+    textarea {
+        resize: none;
     }
 
     .light-bt {
@@ -328,7 +333,9 @@ span.icon {
         box-shadow: none;
     }
 
-input:-moz-placeholder { color: #6B6F76; }
-input::-webkit-input-placeholder { color: #6B6F76; }
+input:-moz-placeholder { color: #555; }
+input::-webkit-input-placeholder { color: #555; }
+textarea:-moz-placeholder { color: #f0f0f0; }
+textarea::-webkit-input-placeholder { color: #555; }
 
 /**************end field block************/ 
