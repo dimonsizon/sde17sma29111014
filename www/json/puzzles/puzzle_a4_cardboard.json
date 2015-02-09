@@ -9,8 +9,13 @@
 	"material": "Картон",
 	"size":"А4, 27х18 см",
     "images": [
-        "/images/services/clothing/3.jpg", 
-        "/images/services/clothing/2.jpg",	
-        "/images/services/clothing/7.jpg"
+        "/images/services/puzzles/puzzle-a4-cardboard/1.jpg", 
+        "/images/services/puzzles/puzzle-a4-cardboard/2.jpg",
+		"/images/services/puzzles/puzzle-a4-cardboard/3.jpg",
+		"/images/services/puzzles/puzzle-a4-cardboard/4.jpg",
+		"/images/services/puzzles/puzzle-a4-cardboard/5.jpg",
+		"/images/services/puzzles/puzzle-a4-cardboard/6.jpg",
+		"/images/services/puzzles/puzzle-a4-cardboard/7.jpg",
+		"/images/services/puzzles/puzzle-a4-cardboard/8.jpg"
     ]	
 }

@@ -110,35 +110,35 @@
 	"tile": [
 		{
 			"id": "ceramic_tile", 
-			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"url": "/images/services/tile/min-ceramic-tile.jpg", 
 			"name": "Керамическая плитка", 
-			"description": "Керамическая плитка Вашей c фотографией, картинкой, дизайном, текстом или логотипом."
+			"description": "Керамическая плитка c Вашей c фотографией, картинкой, дизайном, текстом или логотипом."
 		}
 	],
 	"puzzle": [
 		{
 			"id": "puzzle_a4_cardboard", 
-			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"url": "/images/services/puzzles/min-puzzle-a4-cardboard.jpg", 
 			"name": "Пазлы прямоугольные картонные", 
 			"description": "Пазлы прямоугольные c Вашей фотографией, картинкой, дизайном, текстом или логотипом."
 		},
 		{
 			"id": "puzzle_a4_magnetic", 
-			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"url": "/images/services/puzzles/min-puzzle-a4-magnetic.jpg", 
 			"name": "Пазлы прямоугольные магнитные", 
-			"description": "Пазлы прямоугольные c Вашей фотографией, картинкой, дизайном, текстом или логотипом."
+			"description": "Пазлы прямоугольные магнитные c Вашей фотографией, картинкой, дизайном, текстом или логотипом."
 		},
 		{
 			"id": "puzzle_heart_cardboard", 
-			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"url": "/images/services/puzzles/min-puzzle-heart-cardboard.jpg", 
 			"name": "Пазлы в форме сердца картонные", 
 			"description": "Пазлы в форме сердца c Вашей фотографией, картинкой, дизайном, текстом или логотипом."
 		},
 		{
 			"id": "puzzle_heart_magnetic", 
-			"url": "/images/services/clothing/min-t-shirt.jpg", 
+			"url": "/images/services/puzzles/min-puzzle-heart-magnetic.jpg", 
 			"name": "Пазлы в форме сердца магнитные", 
-			"description": "Пазлы в форме сердца c Вашей фотографией, картинкой, дизайном, текстом или логотипом."
+			"description": "Пазлы в форме сердца магнитные c Вашей фотографией, картинкой, дизайном, текстом или логотипом."
 		}
 	]
 }

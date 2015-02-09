@@ -51,7 +51,10 @@
             </span>
             <span class="left-arrow arrow icon right" ng-click="prevImage(imageUrl)"></span>
             <span class="right-arrow arrow icon right" ng-click="nextImage(imageUrl)"></span>
-            <img src="{{imageUrl}}" alt="{{service.description}}" ng-click="nextImage(imageUrl)" />
+            <div class="img-container" ng-click="nextImage(imageUrl)">
+                <img src="{{imageUrl}}" alt="{{service.description}}" />
+            </div>
+            
         </div>
     </div>    
 </div>

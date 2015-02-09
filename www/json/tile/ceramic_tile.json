@@ -7,9 +7,20 @@
 	"availability": "Да",
 	"article": "-",
 	"material": "Керамика",
-	"size": "15х15 см",
+	"size": "15х15 см и другие",
     "images": [
-        "/images/services/clothing/3.jpg", 		
-        "/images/services/clothing/7.jpg"
+        "/images/services/tile/ceramic-tile/1.jpg", 		
+        "/images/services/tile/ceramic-tile/2.jpg",
+		"/images/services/tile/ceramic-tile/3.jpg",
+		"/images/services/tile/ceramic-tile/4.jpg",
+		"/images/services/tile/ceramic-tile/5.jpg",
+		"/images/services/tile/ceramic-tile/6.jpg",
+		"/images/services/tile/ceramic-tile/7.jpg",
+		"/images/services/tile/ceramic-tile/8.jpg",
+		"/images/services/tile/ceramic-tile/9.jpg",
+		"/images/services/tile/ceramic-tile/10.jpg",
+		"/images/services/tile/ceramic-tile/11.jpg",
+		"/images/services/tile/ceramic-tile/12.jpg",
+		"/images/services/tile/ceramic-tile/13.jpg"
     ]	
 }

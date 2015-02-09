@@ -9,10 +9,15 @@
 	"material": "100% хлопок",
 	"size":"XXS, XS, S, M, L, XL, XXL, 3XL, 4XL, 5XL, 6XL",
     "images": [
-        "/images/services/clothing/3.jpg", 
-        "/images/services/clothing/2.jpg",
-		"/images/services/clothing/4.jpg", 
-        "/images/services/clothing/1.jpg",		
-        "/images/services/clothing/7.jpg"
+        "/images/services/clothing/t-shirt/1.jpg", 
+        "/images/services/clothing/t-shirt/2.jpg",
+		"/images/services/clothing/t-shirt/3.jpg", 
+        "/images/services/clothing/t-shirt/4.jpg",		
+        "/images/services/clothing/t-shirt/5.jpg",
+		"/images/services/clothing/t-shirt/6.jpg", 
+        "/images/services/clothing/t-shirt/7.jpg",
+		"/images/services/clothing/t-shirt/8.jpg", 
+        "/images/services/clothing/t-shirt/9.jpg",		
+        "/images/services/clothing/t-shirt/10.jpg"
     ]	
 }

@@ -9,8 +9,14 @@
 	"material": "Картон и магнитный винил",
 	"size":"",
     "images": [
-        "/images/services/clothing/3.jpg", 
-        "/images/services/clothing/2.jpg",	
-        "/images/services/clothing/7.jpg"
+        "/images/services/puzzles/puzzle-heart-magnetic/1.jpg", 
+        "/images/services/puzzles/puzzle-heart-magnetic/2.jpg", 
+		"/images/services/puzzles/puzzle-heart-magnetic/3.jpg", 
+		"/images/services/puzzles/puzzle-heart-magnetic/4.jpg", 
+		"/images/services/puzzles/puzzle-heart-magnetic/5.jpg", 
+		"/images/services/puzzles/puzzle-heart-magnetic/6.jpg", 
+		"/images/services/puzzles/puzzle-heart-magnetic/7.jpg", 
+		"/images/services/puzzles/puzzle-heart-magnetic/8.jpg", 
+		"/images/services/puzzles/puzzle-heart-magnetic/9.jpg" 
     ]	
 }

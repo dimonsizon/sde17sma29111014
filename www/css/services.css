@@ -227,11 +227,21 @@
            right: 0;
         }
 
-        .images-window > img {
-            width: 400px;
-            max-width: 400px;
+        .images-window .img-container {
+            min-height: 450px;
             cursor: pointer;
         }
+
+            .images-window .img-container img {
+                min-width: 300px;
+                max-width: 600px;
+                max-height: 600px;
+                pointer-events: none;
+                user-select: none;    
+                -moz-user-select: none; 
+                -webkit-user-select: none; 
+                -ms-user-select: none;                       
+            }
 
 
     /********************Order form*********************/
