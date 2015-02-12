@@ -1,4 +1,6 @@
 ﻿<?php
+//header('Access-Control-Allow-Origin: *');
+//header('Content-Type: application/json');
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 require_once 'class.phpmailer.php';
@@ -14,7 +16,7 @@ if (isset($_POST['userName']) && isset($_POST['userEmail'])) {
 
     //create an instance of PHPMailer
     $mail             = new PHPMailer(); // defaults to using php "mail()"	
-	$body             = file_get_contents('contents.html');
+	//$body             = file_get_contents('contents.html');
 
 	
 	//$mail->SetFrom($_POST['email'], 'Новый заказ');	

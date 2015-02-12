@@ -6,7 +6,7 @@
     <p>Заполните форму. Мы свяжемся с вами в самый короткий промежуток времени и обговорим детали заказа.</p>
 
 
-    <form class="order-form" ng-submit="submit(contactform)" name="contactform" method="post" action="" role="form">
+    <form class="order-form" ng-submit="submit(contactform)" name="contactform" method="post" role="form">
         <div>
             <input ng-model="formData.userName" type="text" id="name" name="name" placeholder="Ваше имя" ng-minlength=3 required />
             <span ng-show="contactform.name.$error.minlength">Имя не может быть таким коротким</span> 
