@@ -15,11 +15,11 @@ appController.controller('appCtrl', function ($scope, $routeParams, $location) {
     }
 });
 
-appController.controller('serviceCtrl', ['$scope', '$rootScope', '$routeParams', 'Services',
-    function ($scope, $rootScope, $routeParams, Services) {
+appController.controller('CaseListCtrl', ['$scope', '$rootScope', '$routeParams', 'CaseService',
+    function ($scope, $rootScope, $routeParams, CaseService) {
         var currentState = 'services.all';
         //$http.get('/views/services/json/services.json').success(function (data) {
-        $scope.services = Services.query();
+        $scope.services = CaseService.query();
         //});
 
         $scope.filterDevice = function (device) {
@@ -34,8 +34,76 @@ appController.controller('serviceCtrl', ['$scope', '$rootScope', '$routeParams',
         }
 }]);
 
-appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeParams', '$location', 'CaseServices', 'UtensilsServices', 'СlothingServices', 'TileServices', 'PuzzlesServices',
-    function ($scope, $rootScope, $routeParams, $location, CaseServices, UtensilsServices, СlothingServices, TileServices, PuzzlesServices) {
+appController.controller('UtensilsListCtrl', ['$scope', '$rootScope', '$routeParams', 'UtensilsService',
+    function ($scope, $rootScope, $routeParams, UtensilsService) {
+        var currentState = 'services.all';
+        $scope.services = UtensilsService.query();
+
+        $scope.filterDevice = function (device) {
+            $scope.device = device;
+        }
+
+        $scope.goTo = function (newState) {
+            currentState = newState;
+        }
+        $scope.isOnState = function (state) {
+            return currentState == state;
+        }
+}]);
+
+appController.controller('СlothingListCtrl', ['$scope', '$rootScope', '$routeParams', 'СlothingService',
+    function ($scope, $rootScope, $routeParams, СlothingService) {
+        var currentState = 'services.all';
+        $scope.services = СlothingService.query();
+
+        $scope.filterDevice = function (device) {
+            $scope.device = device;
+        }
+
+        $scope.goTo = function (newState) {
+            currentState = newState;
+        }
+        $scope.isOnState = function (state) {
+            return currentState == state;
+        }
+}]);
+
+appController.controller('TileListCtrl', ['$scope', '$rootScope', '$routeParams', 'TileService',
+    function ($scope, $rootScope, $routeParams, TileService) {
+        var currentState = 'services.all';
+        $scope.services = TileService.query();
+
+        $scope.filterDevice = function (device) {
+            $scope.device = device;
+        }
+
+        $scope.goTo = function (newState) {
+            currentState = newState;
+        }
+        $scope.isOnState = function (state) {
+            return currentState == state;
+        }
+}]);
+
+appController.controller('PuzzleListCtrl', ['$scope', '$rootScope', '$routeParams', 'PuzzleService',
+    function ($scope, $rootScope, $routeParams, PuzzleService) {
+        var currentState = 'services.all';
+        $scope.services = PuzzleService.query();
+
+        $scope.filterDevice = function (device) {
+            $scope.device = device;
+        }
+
+        $scope.goTo = function (newState) {
+            currentState = newState;
+        }
+        $scope.isOnState = function (state) {
+            return currentState == state;
+        }
+    }]);
+
+appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeParams', '$location', 'CaseDetailsServices', 'UtensilsDetailsServices', 'СlothingDetailsServices', 'TileDetailsServices', 'PuzzlesDetailsServices',
+    function ($scope, $rootScope, $routeParams, $location, CaseDetailsServices, UtensilsDetailsServices, СlothingDetailsServices, TileDetailsServices, PuzzlesDetailsServices) {
         var currentState;
         var imgMassiv;
         var location = $location.path().split('/')[1];
@@ -44,11 +112,13 @@ appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeP
 
         $scope.url = $location.path().split('/')[1];
 
-        $rootScope.saveDetails = currentService.get({ serviceId: $routeParams.serviceId }, function (service) {
-            imgMassiv = service.images;
+        $rootScope.saveDetails = currentService.get({ gasId: $routeParams.gasId }, function (service) {
+            $scope.service = service.service[0]; //так как у меня джейсон такой (((
+            $scope.service.images = $scope.service.images.split(','); //images string to array
+            imgMassiv = $scope.service.images;            
         });
 
-        $scope.service = $rootScope.saveDetails;
+        
 
         $scope.getImage = function (url) {
             $scope.imageUrl = url;
@@ -71,16 +141,18 @@ appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeP
         }        
     }]);
 
-appController.controller('orderCtrl', ['$scope', '$rootScope', '$routeParams', '$location', '$http', 'CaseServices', 'UtensilsServices', 'СlothingServices', 'TileServices', 'PuzzlesServices',
-    function ($scope, $rootScope, $routeParams, $location, $http, CaseServices, UtensilsServices, СlothingServices, TileServices, PuzzlesServices) {
+appController.controller('orderCtrl', ['$scope', '$rootScope', '$routeParams', '$location', '$http', 'CaseDetailsServices', 'UtensilsDetailsServices', 'СlothingDetailsServices', 'TileDetailsServices', 'PuzzlesDetailsServices',
+    function ($scope, $rootScope, $routeParams, $location, $http, CaseDetailsServices, UtensilsDetailsServices, СlothingDetailsServices, TileDetailsServices, PuzzlesDetailsServices) {
         $scope.url = $location.path().split('/')[1];
         if ($rootScope.saveDetails) {
-            $scope.service = $rootScope.saveDetails;
+            $scope.service = $rootScope.saveDetails.service[0];
         } else {
             var location = $location.path().split('/')[1];
             var currentService = $rootScope.currentService(location);
             currentService = eval('(' + currentService + ')');
-            $scope.service = currentService.get({ serviceId: $routeParams.serviceId });
+            $scope.service = currentService.get({ gasId: $routeParams.gasId }, function (service) {
+                $scope.service = service.service[0];
+            });
         }
 
         $scope.result = 'hidden'

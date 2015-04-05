@@ -15,7 +15,7 @@
 
             <!-- Только для чехлов -->
             <p ng-show="service.utensilsType=='case'">
-                <b>Тип чехла:</b> <span ng-repeat="type in service.caseType">{{type}} </span>
+                <b>Тип чехла:</b> <span>{{service.caseType}} </span>
             </p>
 
             <!-- Только для кружек -->
@@ -31,7 +31,7 @@
                 <p><b>Материал:</b> {{service.material}}</p>
             </div>
             <div class="action-buttons">
-                <a class="link-button" href="#/{{url}}/{{service.id}}/order">ЗАКАЗАТЬ</a>
+                <a class="link-button" href="#/{{url}}/{{service.id}}/order/{{service.gasId}}">ЗАКАЗАТЬ</a>
                 <a class="link-button">ЗАДАТЬ ВОПРОС МЕНЕДЖЕРУ</a>
             </div>
         </div>

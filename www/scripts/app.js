@@ -31,21 +31,21 @@ config(['$routeProvider',
             templateUrl: '/views/news.html',
             controller: 'appCtrl'
         }).
-        when('/:serviceType/:serviceId/order', {
+        when('/:serviceType/:serviceId/order/:gasId', {
             templateUrl: '/views/order.html',
             controller: 'orderCtrl'
         }).
         when('/case', {
             templateUrl: '/views/services/case.html',
-            controller: 'serviceCtrl'
+            controller: 'CaseListCtrl'
         }).
-        when('/case/:serviceId', {
+        when('/case/:serviceId/:gasId', {
             templateUrl: '/views/services/service-details.html',
             controller: 'serviceDetailsCtrl'
         }).
         when('/utensils', {
             templateUrl: '/views/services/utensils.html',
-            controller: 'serviceCtrl'
+            controller: 'UtensilsListCtrl'
         }).
         when('/utensils/:serviceId', {
             templateUrl: '/views/services/service-details.html',
@@ -53,7 +53,7 @@ config(['$routeProvider',
         }).
         when('/clothing', {
             templateUrl: '/views/services/clothing.html',
-            controller: 'serviceCtrl'
+            controller: 'СlothingListCtrl'
         }).
         when('/clothing/:serviceId', {
             templateUrl: '/views/services/service-details.html',
@@ -61,7 +61,7 @@ config(['$routeProvider',
         }).
         when('/tile', {
             templateUrl: '/views/services/tile.html',
-            controller: 'serviceCtrl'
+            controller: 'TileListCtrl'
         }).
         when('/tile/:serviceId', {
             templateUrl: '/views/services/service-details.html',
@@ -69,7 +69,7 @@ config(['$routeProvider',
         }).
         when('/puzzles', {
             templateUrl: '/views/services/puzzles.html',
-            controller: 'serviceCtrl'
+            controller: 'PuzzleListCtrl'
         }).
         when('/puzzles/:serviceId', {
             templateUrl: '/views/services/service-details.html',
@@ -81,22 +81,26 @@ config(['$routeProvider',
     }])
     .run(['$rootScope',
         function ($rootScope) {
+            //$rootScope.saveGasId = function (gasId) {
+            //    $rootScope.gasId = gasId;
+            //}
+                        
             $rootScope.currentService = function(location) {
                 switch (location) {
                     case 'clothing':
-                        location = 'СlothingServices';
+                        location = 'СlothingDetailsServices';
                         break;
                     case 'case':
-                        location = 'CaseServices';
+                        location = 'CaseDetailsServices';
                         break;
                     case 'utensils':
-                        location = 'UtensilsServices';
+                        location = 'UtensilsDetailsServices';
                         break;
                     case 'tile':
-                        location = 'TileServices';
+                        location = 'TileDetailsServices';
                         break;
                     case 'puzzles':
-                        location = 'PuzzlesServices';
+                        location = 'PuzzlesDetailsServices';
                         break;
                 }
                 return location;
