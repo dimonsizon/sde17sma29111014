@@ -18,7 +18,7 @@
     </div>
     <div class="services-list" ng-show="services.utensils.length!=0">
         <div class="service-item" ng-repeat="service in services.utensils | filter:device">                 
-            <a href="#/utensils/{{service.id}}">
+            <a href="#/utensils/{{service.id}}/{{service.gasId}}">
                 <img ng-src="{{service.url}}" alt="{{service.name}}" width="240" />            
                 <h2>{{service.name}}</h2>
                 <p>{{service.description}}</p>

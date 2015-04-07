@@ -12,7 +12,7 @@
     </div>
     <div class="services-list" ng-show="services.clothing.length!=0">
         <div class="service-item" ng-repeat="service in services.clothing | filter:device">                  
-            <a href="#/clothing/{{service.id}}">
+            <a href="#/clothing/{{service.id}}/{{service.gasId}}">
                 <img ng-src="{{service.url}}" alt="{{service.name}}" width="240" />            
                 <h2>{{service.name}}</h2>
                 <p>{{service.description}}</p>

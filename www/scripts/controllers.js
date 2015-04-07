@@ -100,19 +100,19 @@ appController.controller('PuzzleListCtrl', ['$scope', '$rootScope', '$routeParam
         $scope.isOnState = function (state) {
             return currentState == state;
         }
-    }]);
+}]);
 
-appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeParams', '$location', 'CaseDetailsServices', 'UtensilsDetailsServices', 'СlothingDetailsServices', 'TileDetailsServices', 'PuzzlesDetailsServices',
-    function ($scope, $rootScope, $routeParams, $location, CaseDetailsServices, UtensilsDetailsServices, СlothingDetailsServices, TileDetailsServices, PuzzlesDetailsServices) {
+appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeParams', '$location', 'DetailsServices',
+    function ($scope, $rootScope, $routeParams, $location, DetailsServices) {
         var currentState;
         var imgMassiv;
         var location = $location.path().split('/')[1];
-        var currentService = $rootScope.currentService(location); //location.charAt(0).toUpperCase() + location.slice(1) + 'Services';
-        currentService = eval('(' + currentService + ')');
+        //var currentService = $rootScope.currentService(location);
+        //currentService = eval('(' + currentService + ')');
 
         $scope.url = $location.path().split('/')[1];
 
-        $rootScope.saveDetails = currentService.get({ gasId: $routeParams.gasId }, function (service) {
+        $rootScope.saveDetails = DetailsServices.get({ gasId: $routeParams.gasId }, function (service) {
             $scope.service = service.service[0]; //так как у меня джейсон такой (((
             $scope.service.images = $scope.service.images.split(','); //images string to array
             imgMassiv = $scope.service.images;            
@@ -141,16 +141,16 @@ appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeP
         }        
     }]);
 
-appController.controller('orderCtrl', ['$scope', '$rootScope', '$routeParams', '$location', '$http', 'CaseDetailsServices', 'UtensilsDetailsServices', 'СlothingDetailsServices', 'TileDetailsServices', 'PuzzlesDetailsServices',
-    function ($scope, $rootScope, $routeParams, $location, $http, CaseDetailsServices, UtensilsDetailsServices, СlothingDetailsServices, TileDetailsServices, PuzzlesDetailsServices) {
+appController.controller('orderCtrl', ['$scope', '$rootScope', '$routeParams', '$location', '$http', 'DetailsServices',
+    function ($scope, $rootScope, $routeParams, $location, $http, DetailsServices) {
         $scope.url = $location.path().split('/')[1];
         if ($rootScope.saveDetails) {
             $scope.service = $rootScope.saveDetails.service[0];
         } else {
             var location = $location.path().split('/')[1];
-            var currentService = $rootScope.currentService(location);
-            currentService = eval('(' + currentService + ')');
-            $scope.service = currentService.get({ gasId: $routeParams.gasId }, function (service) {
+            //var currentService = $rootScope.currentService(location);
+            //currentService = eval('(' + currentService + ')');
+            $scope.service = DetailsServices.get({ gasId: $routeParams.gasId }, function (service) {
                 $scope.service = service.service[0];
             });
         }

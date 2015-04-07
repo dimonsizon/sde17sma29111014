@@ -47,7 +47,7 @@ config(['$routeProvider',
             templateUrl: '/views/services/utensils.html',
             controller: 'UtensilsListCtrl'
         }).
-        when('/utensils/:serviceId', {
+        when('/utensils/:serviceId/:gasId', {
             templateUrl: '/views/services/service-details.html',
             controller: 'serviceDetailsCtrl'
         }).
@@ -55,7 +55,7 @@ config(['$routeProvider',
             templateUrl: '/views/services/clothing.html',
             controller: 'СlothingListCtrl'
         }).
-        when('/clothing/:serviceId', {
+        when('/clothing/:serviceId/:gasId', {
             templateUrl: '/views/services/service-details.html',
             controller: 'serviceDetailsCtrl'
         }).
@@ -63,7 +63,7 @@ config(['$routeProvider',
             templateUrl: '/views/services/tile.html',
             controller: 'TileListCtrl'
         }).
-        when('/tile/:serviceId', {
+        when('/tile/:serviceId/:gasId', {
             templateUrl: '/views/services/service-details.html',
             controller: 'serviceDetailsCtrl'
         }).
@@ -71,7 +71,7 @@ config(['$routeProvider',
             templateUrl: '/views/services/puzzles.html',
             controller: 'PuzzleListCtrl'
         }).
-        when('/puzzles/:serviceId', {
+        when('/puzzles/:serviceId/:gasId', {
             templateUrl: '/views/services/service-details.html',
             controller: 'serviceDetailsCtrl'
         }).

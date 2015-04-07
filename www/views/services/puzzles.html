@@ -14,7 +14,7 @@
     </div>
     <div class="services-list ng-hide" ng-show="services.puzzle.length!=0">
         <div class="service-item" ng-repeat="service in services.puzzle | filter:device">                 
-            <a href="#/puzzles/{{service.id}}">
+            <a href="#/puzzles/{{service.id}}/{{service.gasId}}">
                 <img ng-src="{{service.url}}" alt="{{service.name}}" width="240" />            
                 <h2>{{service.name}}</h2>
                 <p>{{service.description}}</p>

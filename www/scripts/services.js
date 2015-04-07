@@ -40,41 +40,9 @@ appServices.factory('PuzzleService', ['$resource',
     }
 ]);
 
-appServices.factory('CaseDetailsServices', ['$resource',
+appServices.factory('DetailsServices', ['$resource',
     function ($resource) {
         return $resource('https://script.google.com/macros/s/:gasId/exec', {}, {
-            query: { method: 'GET', params: { serviceId: 'services' }, isArray: true }
-        });
-    }
-]);
-
-appServices.factory('UtensilsDetailsServices', ['$resource',
-    function ($resource) {
-        return $resource('/json/utensils/:serviceId.json', {}, {
-            query: { method: 'GET', params: { serviceId: 'services' }, isArray: true }
-        });
-    }
-]);
-
-appServices.factory('СlothingDetailsServices', ['$resource',
-    function ($resource) {
-        return $resource('/json/clothing/:serviceId.json', {}, {
-            query: { method: 'GET', params: { serviceId: 'services' }, isArray: true }
-        });
-    }
-]);
-
-appServices.factory('TileDetailsServices', ['$resource',
-    function ($resource) {
-        return $resource('/json/tile/:serviceId.json', {}, {
-            query: { method: 'GET', params: { serviceId: 'services' }, isArray: true }
-        });
-    }
-]);
-
-appServices.factory('PuzzlesDetailsServices', ['$resource',
-    function ($resource) {
-        return $resource('/json/puzzles/:serviceId.json', {}, {
             query: { method: 'GET', params: { serviceId: 'services' }, isArray: true }
         });
     }
