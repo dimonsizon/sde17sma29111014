@@ -20,23 +20,26 @@
 		<meta name="SKYPE_TOOLBAR" content ="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
         <meta name="google-site-verification" content="UA-57204117-1" />
         <link rel="image_src" href="http:/печатьсчастья.рф/images/logo.png" />
+        <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+        <link href="bootstrap/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet" />
         <link href="css/site.css" type="text/css" rel="stylesheet" />
         <link href="css/general.css" type="text/css" rel="stylesheet" />
         <link href="css/services.css" type="text/css" rel="stylesheet" />
         <link href="css/home.css" type="text/css" rel="stylesheet" />
-        <link href="css/slider.css" type="text/css" rel="stylesheet" />
-        <link href="css/flexslider.css" type="text/css" rel="stylesheet" />
+        <link href="css/cart.css" type="text/css" rel="stylesheet" />
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <script src="scripts/jquery-2.0.3.min.js"></script>
         <script src="scripts/jquery-ui-1.10.3.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
 		<script src="scripts/angular/angular.js"></script>
 		<script src="scripts/angular/angular-route.js"></script>
 		<script src="scripts/angular/angular-resource.js"></script>
 		<script src="scripts/app.js"></script>
 		<script src="scripts/controllers.js"></script>
+        <script src="views/cart/cart.js"></script>
         <script src="scripts/services.js"></script>
         <script src="scripts/filters.js"></script>
-        <script src="scripts/jquery.flexslider.js"></script>
+        <script src="scripts/ngCart.js"></script>
         <!--<script src="scripts/helper.js"></script>-->
         <script type="text/javascript" src="//vk.com/js/api/openapi.js?112"></script>
 		<script>
@@ -55,6 +58,6 @@
         <section class="main-container center" ng-view>			
         </section>
 		<!--<footer ng-include="'/menufooter.html'"></footer>-->
-        
+        <div ng-include="'/views/cart/cart-templates.html'"></div>
     </body>
 </html>

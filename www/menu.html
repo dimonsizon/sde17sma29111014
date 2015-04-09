@@ -20,6 +20,19 @@
             <li ng-click="goTo('news')" ng-class="isOnState('news') ? 'selected' : ''"><a href="#/articles">СТАТЬИ</a></li>                       
             <li ng-click="goTo('faq')" ng-class="isOnState('faq') ? 'selected' : ''"><a href="#/faq">FAQ</a></li>
             <li ng-click="goTo('contacts')" ng-class="isOnState('contacts') ? 'selected' : ''"><a href="#/contacts">НАШИ КОНТАКТЫ</a></li>
+            <li ng-click="goTo('cart')" ng-class="isOnState('cart') ? 'selected' : ''">
+                <a class="cart-icon" href="#/cart">
+                    <img src="/images/cart.png" alt="Корзина" />
+                    <ngcart-summary></ngcart-summary>
+                </a>
+            </li>
         </ul>
     </nav>
 </div>
+<script type="text/ng-template" id="template/ngCart/summary.html">
+    <span class="item-count" title="{{ ngCart.totalCost() }} руб">
+        {{ ngCart.getTotalItems() }}
+    </span>        
+    <!--<span class="total-cost">{{ ngCart.totalCost() }} руб</span>-->
+
+</script>

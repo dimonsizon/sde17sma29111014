@@ -2,18 +2,19 @@
 
 var appController = angular.module('appController', []);
 
-appController.controller('appCtrl', function ($scope, $routeParams, $location) {
-    var currentState = $location.path().split('/')[1];
-    if ($location.path()=='') {
-        currentState = 'home';
-    }
-    $scope.goTo = function (newState) {
-        currentState = newState;
-    }
-    $scope.isOnState = function (state) {
-        return currentState == state;
-    }
-});
+appController.controller('appCtrl', ['$scope', '$routeParams', '$location', 'ngCart',
+    function ($scope, $routeParams, $location, ngCart) {
+        var currentState = $location.path().split('/')[1];
+        if ($location.path()=='') {
+            currentState = 'home';
+        }
+        $scope.goTo = function (newState) {
+            currentState = newState;
+        }
+        $scope.isOnState = function (state) {
+            return currentState == state;
+        }
+}]);
 
 appController.controller('CaseListCtrl', ['$scope', '$rootScope', '$routeParams', 'CaseService',
     function ($scope, $rootScope, $routeParams, CaseService) {

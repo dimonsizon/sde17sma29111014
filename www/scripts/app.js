@@ -7,6 +7,7 @@ angular.module('app', [
   'appController',
   'appServices',
   'appFilters',
+  'ngCart'
 ]).
 config(['$routeProvider',
     function ($routeProvider) {
@@ -74,6 +75,10 @@ config(['$routeProvider',
         when('/puzzles/:serviceId/:gasId', {
             templateUrl: '/views/services/service-details.html',
             controller: 'serviceDetailsCtrl'
+        }).
+        when('/cart', {
+            templateUrl: '/views/cart/cart.html',
+            controller: 'cartCtrl'
         }).
         otherwise({
             redirectTo: '/home'
