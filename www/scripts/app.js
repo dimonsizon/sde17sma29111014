@@ -36,6 +36,10 @@ config(['$routeProvider',
             templateUrl: '/views/order.html',
             controller: 'orderCtrl'
         }).
+        when('/:serviceType/:serviceId/create/:gasId', {
+            templateUrl: '/views/services/create-case.html',
+            controller: 'createCaseCtrl'
+        }).
         when('/case', {
             templateUrl: '/views/services/case.html',
             controller: 'CaseListCtrl'

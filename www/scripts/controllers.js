@@ -197,3 +197,8 @@ appController.controller('orderCtrl', ['$scope', '$rootScope', '$routeParams', '
             }
         }
     }]);
+
+appController.controller('createCaseCtrl', ['$scope', '$rootScope', '$routeParams', '$location', '$http',
+    function ($scope, $rootScope, $routeParams, $location, $http) {
+
+    }]);
