@@ -16,6 +16,7 @@ $(function() {
     function it(n) {
         if (t.beginPath(),
             t.globalAlpha = 1,
+            //рисуем конуты чехла
             t.moveTo(411, 158),
             t.lineTo(545, 158),
             t.quadraticCurveTo(590, 158, 590, 203),
@@ -41,10 +42,11 @@ $(function() {
                 t.drawImage(r.img, 0, 0, r.img.width, r.img.height, -r.imageWidth / 2, -r.imageHeight / 2, r.imageRight - r.imageX, r.imageBottom - r.imageY),
                 t.restore()
             }
-        t.drawImage(w, 278, 111, 400, 563),
+        t.drawImage(w, 278, 111, 400, 563), //рисуем нашку картинку чехла с тенью, которую делали в фотошопе
         t.save(),
         t.beginPath(),
         t.globalAlpha = 1,
+        //опять рисую контур чехла для тени
         t.moveTo(411, 158),
         t.lineTo(545, 158),
         t.quadraticCurveTo(590, 158, 590, 203),
@@ -63,6 +65,7 @@ $(function() {
     function k(n, r) {
         if (t.beginPath(),
             t.globalAlpha = 1,
+            //рисуем синюю оконтовку
             t.moveTo(371, 121),
             t.lineTo(385, 121),
             t.quadraticCurveTo(390, 121, 390, 131),
@@ -91,13 +94,14 @@ $(function() {
             t.lineTo(329, 163),
             t.quadraticCurveTo(329, 121, 371, 121),
             t.lineWidth = 1, t.strokeStyle = v, t.stroke(), t.fillStyle = v, t.fill(), t.stroke(), t.closePath(), t.beginPath(), t.lineWidth = 1, t.globalCompositeOperation = "destination-out",
-            t.moveTo(399, 171),
-            t.lineTo(425, 171),
-            t.quadraticCurveTo(450, 171, 450, 192),
-            t.quadraticCurveTo(450, 213, 425, 213),
-            t.lineTo(399, 213),
-            t.quadraticCurveTo(374, 213, 374, 192),
-            t.quadraticCurveTo(374, 171, 399, 171),
+            //рисуем красную оконтовку камеры
+            t.moveTo(409, 167),
+            t.lineTo(428, 167),
+            t.quadraticCurveTo(453, 167, 453, 186),
+            t.quadraticCurveTo(453, 205, 428, 205),
+            t.lineTo(409, 205),
+            t.quadraticCurveTo(383, 205, 383, 186),
+            t.quadraticCurveTo(383, 167, 409, 167),
             t.strokeStyle = "#ff00ff", t.stroke(), t.fill(), t.globalAlpha = 1, t.closePath(), n)
             for (i = u.length - 1; i < u.length; i++) {
                 var f = u[i];
@@ -113,6 +117,7 @@ $(function() {
                 r || (t.save(), t.translate(f.cx, f.cy), t.rotate(f.rotate), t.globalCompositeOperation = "destination-over", t.globalAlpha = .2, t.drawImage(f.img, 0, 0, f.img.width, f.img.height, -f.imageWidth / 2, -f.imageHeight / 2, f.imageRight - f.imageX, f.imageBottom - f.imageY), t.restore())
             }
         t.beginPath(), t.globalCompositeOperation = "source-over", t.globalAlpha = 1,
+        //рисуем красную оконтовку чехла
         t.moveTo(411, 158),
         t.lineTo(545, 158),
         t.quadraticCurveTo(590, 158, 590, 203),
@@ -124,6 +129,7 @@ $(function() {
         t.quadraticCurveTo(366, 158, 411, 158),
         t.lineWidth = 2,
         t.strokeStyle = "#ff00ff", t.stroke(), t.closePath(), t.beginPath(), t.globalCompositeOperation = "source-over", t.globalAlpha = 1,
+        //рисуем синюю
         t.moveTo(371, 121),
         t.lineTo(385, 121),
         t.quadraticCurveTo(390, 121, 390, 131),
@@ -152,13 +158,14 @@ $(function() {
         t.lineTo(329, 163),
         t.quadraticCurveTo(329, 121, 371, 121),
         t.lineWidth = 2, t.strokeStyle = "#0096ff", t.stroke(), t.closePath(), t.beginPath(), t.globalAlpha = 1, t.lineWidth = 2, t.globalCompositeOperation = "source-over",
-        t.moveTo(399, 171),
-        t.lineTo(425, 171),
-        t.quadraticCurveTo(450, 171, 450, 192),
-        t.quadraticCurveTo(450, 213, 425, 213),
-        t.lineTo(399, 213),
-        t.quadraticCurveTo(374, 213, 374, 192),
-        t.quadraticCurveTo(374, 171, 399, 171),
+        //рисем камеру
+        t.moveTo(409, 167),
+        t.lineTo(428, 167),
+        t.quadraticCurveTo(453, 167, 453, 186),
+        t.quadraticCurveTo(453, 205, 428, 205),
+        t.lineTo(409, 205),
+        t.quadraticCurveTo(383, 205, 383, 186),
+        t.quadraticCurveTo(383, 167, 409, 167),
         t.strokeStyle = "#ff00ff", t.stroke(), t.closePath()
     }
 
