@@ -10,4 +10,5 @@ appController.controller('cartCtrl', function ($scope, $routeParams, $location) 
     $scope.isOnState = function (state) {
         return currentState == state;
     }
+
 });

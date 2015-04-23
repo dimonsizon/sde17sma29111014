@@ -34,6 +34,7 @@
                 <a class="link-button" href="#/{{url}}/{{service.id}}/create/{{service.gasId}}">СОЗДАТЬ СВОЙ ЧЕХОЛ</a>
                 <a class="link-button" href="#/{{url}}/{{service.id}}/order/{{service.gasId}}">ЗАКАЗАТЬ</a>
                 <a class="link-button">ЗАДАТЬ ВОПРОС МЕНЕДЖЕРУ</a>
+                <ngcart-addtocart id="{{service.id + initId}}" name="{{service.name}}" price="{{service.price}}" quantity="1">ДОБАВИТЬ В КОРЗИНУ</ngcart-addtocart>
             </div>
         </div>
     </div>    

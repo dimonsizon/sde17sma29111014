@@ -103,8 +103,8 @@ appController.controller('PuzzleListCtrl', ['$scope', '$rootScope', '$routeParam
         }
 }]);
 
-appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeParams', '$location', 'DetailsServices',
-    function ($scope, $rootScope, $routeParams, $location, DetailsServices) {
+appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeParams', '$location', '$interval', 'DetailsServices',
+    function ($scope, $rootScope, $routeParams, $location, $interval, DetailsServices) {
         var currentState;
         var imgMassiv;
         var location = $location.path().split('/')[1];
@@ -139,7 +139,14 @@ appController.controller('serviceDetailsCtrl', ['$scope', '$rootScope', '$routeP
             }
             var prevImg = imgMassiv[prevImgIndex];
             $scope.imageUrl = prevImg;
-        }        
+        }
+
+        $scope.initId = '_' + Math.round(Math.random() * 9999999999);
+        $interval(function () {
+            $scope.initId = '_' + Math.round(Math.random() * 9999999999)
+        }, 5000); //для дополнения к id при добавлении в корзину
+        
+
     }]);
 
 appController.controller('orderCtrl', ['$scope', '$rootScope', '$routeParams', '$location', '$http', 'DetailsServices',
