@@ -2,15 +2,19 @@
 
 angular.module('app.home', ['ngRoute'])
 
-.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/home', {
-        templateUrl: '/views/home/home.html',
-        controller: 'HomeCtrl',
-        reloadOnSearch: false,
-        access: {
-            isFree: false
-        }
-    });
+.config(['$stateProvider', function ($stateProvider) {
+    $stateProvider
+        .state('home', {
+            url: "/home",
+            templateUrl: '/views/home/home.html',
+            controller: 'HomeCtrl'            
+        })
+        /*.state('state1.list', {
+            url: "/list",
+            templateUrl: "/views/home/home.html",
+            
+        })*/
+    ;
 }])
 
 .controller('HomeCtrl', ['$scope', '$http', '$rootScope', 'appConfig',

@@ -68,6 +68,7 @@
     <Content Include="js\libraries\angular-route.min.js" />
     <Content Include="js\libraries\angular-sanitize.min.js" />
     <Content Include="js\libraries\angular-touch.min.js" />
+    <Content Include="js\libraries\angular-ui-router.min.js" />
     <Content Include="js\libraries\angular.min.js" />
     <Content Include="js\libraries\angulartics-google-analytics.min.js" />
     <Content Include="js\libraries\angulartics.min.js" />
@@ -138,6 +139,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

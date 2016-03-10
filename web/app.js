@@ -6,6 +6,7 @@ angular.module('app', [
     'ngResource',
     'ngSanitize',
     'ngTouch',
+    'ui.router',
     'ui.bootstrap.tpls',
     'ui.bootstrap.carousel',
     'ui.bootstrap.tooltip',
@@ -18,10 +19,10 @@ angular.module('app', [
     'angulartics.google.analytics',
     'app.home'
 ]).config([
-    '$routeProvider', '$locationProvider', '$httpProvider',
-    function ($routeProvider, $locationProvider, $httpProvider) {
+    '$stateProvider', '$urlRouterProvider', '$httpProvider',
+    function ($stateProvider, $urlRouterProvider, $httpProvider) {
         //$httpProvider.defaults.withCredentials = true;
-        $routeProvider.otherwise({ redirectTo: '/home' });
+        $urlRouterProvider.otherwise("/home");
 
         /*$locationProvider.html5Mode({
             enabled: true,
