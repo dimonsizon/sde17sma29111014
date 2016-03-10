@@ -1,0 +1,6 @@
+C:\MyWebPages\home\printtaganrog.ru\www\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+C:\MyWebPages\home\printtaganrog.ru\www\bin\WebApplication1.dll.config
+C:\MyWebPages\home\printtaganrog.ru\www\bin\WebApplication1.dll
+C:\MyWebPages\home\printtaganrog.ru\www\bin\WebApplication1.pdb
+C:\MyWebPages\home\printtaganrog.ru\www\obj\Debug\WebApplication1.dll
+C:\MyWebPages\home\printtaganrog.ru\www\obj\Debug\WebApplication1.pdb
