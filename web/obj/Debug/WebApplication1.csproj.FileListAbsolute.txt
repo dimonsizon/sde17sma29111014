@@ -1,0 +1,5 @@
+D:\3D бизнесс\INOPRINT\inoprint.ru\web\bin\WebApplication1.dll
+D:\3D бизнесс\INOPRINT\inoprint.ru\web\bin\WebApplication1.pdb
+D:\3D бизнесс\INOPRINT\inoprint.ru\web\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+D:\3D бизнесс\INOPRINT\inoprint.ru\web\obj\Debug\WebApplication1.dll
+D:\3D бизнесс\INOPRINT\inoprint.ru\web\obj\Debug\WebApplication1.pdb

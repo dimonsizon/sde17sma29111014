@@ -1,0 +1,32 @@
+﻿<header class="header-bar col-xs-12">
+    <div class="row content clearfix">
+        <div class="col-xs-12 top-box">
+
+        </div>
+        <nav class="col-xs-12 padding0">
+            <ul class="nav nav-tabs">
+                <li ng-class="setActive('/') ? 'active' : ''">
+                    <a href="/">Home</a>
+                </li>
+                <!--<li ng-class="setActive('/tag/in-cinema') ? 'active' : ''">
+                    <a href="/tag/in-cinema">Page 1</a>
+                </li>
+                <li ng-class="setActive('/tag/Streaming') ? 'active' : ''">
+                    <a href="/tag/Streaming">Page2</a>
+                </li>
+                <li ng-class="setActive('/tag/on-tv') ? 'active' : ''">
+                    <a href="/tag/on-tv">Page3</a>
+                </li>-->
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="content main-container clearfix" ng-view>
+</div>
+<footer>
+	<div class="row content clearfix">
+		<div class="col-xs-12">
+			<span>© 2015-2016 INOPRINT All right reserved. </span>
+		</div>
+	</div>
+</footer>

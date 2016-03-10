@@ -1,0 +1,73 @@
+﻿'use strict';
+
+angular.module('app', [
+    'ngRoute',
+    'ngCookies',
+    'ngResource',
+    'ngSanitize',
+    'ngTouch',
+    'ui.bootstrap.tpls',
+    'ui.bootstrap.carousel',
+    'ui.bootstrap.tooltip',
+    'ui.bootstrap.popover',
+    'ui.bootstrap.datepicker',
+    'ui.bootstrap.modal',
+    'ui.bootstrap.buttons',
+    'ui.bootstrap.dropdown',  
+    'angulartics',
+    'angulartics.google.analytics',
+    'app.home'
+]).config([
+    '$routeProvider', '$locationProvider', '$httpProvider',
+    function ($routeProvider, $locationProvider, $httpProvider) {
+        //$httpProvider.defaults.withCredentials = true;
+        $routeProvider.otherwise({ redirectTo: '/home' });
+
+        /*$locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });*/        
+    }
+]).value("appConfig", {
+    clientUrl: ''
+}).run(['$rootScope', '$http', 'appConfig', '$location', '$sce', '$timeout', '$routeParams', '$window', '$filter',
+    function ($rootScope, $http, appConfig, $location, $sce, $timeout, $routeParams, $window, $filter) {
+        
+        $rootScope.encodeURIComponent = encodeURIComponent;
+
+        $rootScope.locationBack = function () {
+            window.history.back();
+        }
+
+        $rootScope.setActive = function (localPath) {
+            return $location.path() === localPath;
+        }
+
+        $rootScope.$on('$routeChangeStart', function (e, current, pre) {
+            
+        });
+
+        $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
+
+        });
+
+    }])
+    .filter('replace', function () {
+        return function (value, find, replace) {
+            if (!value) return '';
+            return value.replace(new RegExp(find, 'g'), replace);
+        }
+    })	
+    .filter('limitText', function () {
+        return function (value, limit) {
+            if (!value) return '';
+            if (!limit) return value;
+            if (value.length <= limit) {
+                return value;
+            } else {
+                value = value.substr(0, limit) + '...';
+            }
+            return value;
+        }
+    })
+;
