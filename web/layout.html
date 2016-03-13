@@ -1,12 +1,33 @@
 ﻿<header class="header-bar col-xs-12">
     <div class="row content clearfix">
-        <div class="col-xs-12 top-box">
-
-        </div>
         <nav class="col-xs-12 padding0">
             <ul class="nav nav-tabs">
-                <li ng-class="setActive('/') ? 'active' : ''">
-                    <a href="/">Home</a>
+                <li class="logo pull-left">
+                    <img src="/images/logo.png" alt="INOPRINT" />
+                </li>
+                <li class="active">
+                    <a href="/">ГЛАВНАЯ</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        НАША ПРОДУКЦИЯ <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/">ЧЕХЛЫ</a></li>
+                        <li><a href="/">БРЕЛКИ</a></li>
+                        <li><a href="/">КРУЖКИ</a></li>
+                        <li><a href="/">ФУТБОЛКИ</a></li>
+                        <li><a href="/">ПОДУШКИ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/">НАША ПРОДУКЦИЯ</a>
+                </li>
+                <li>
+                    <a href="/">ЧЕХОЛ С ФОТО</a>
+                </li>
+                <li>
+                    <a href="/">КОНТАКТЫ</a>
                 </li>
                 <!--<li ng-class="setActive('/tag/in-cinema') ? 'active' : ''">
                     <a href="/tag/in-cinema">Page 1</a>
@@ -21,8 +42,8 @@
         </nav>
     </div>
 </header>
-<div class="content main-container clearfix" ui-view>
-</div>
+<section class="content main-container clearfix" ui-view>
+</section>
 <footer>
 	<div class="row content clearfix">
 		<div class="col-xs-12">

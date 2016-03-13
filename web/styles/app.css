@@ -1,13 +1,28 @@
 ﻿@font-face {
-    /*font-family: AktivGroteskLight;
-    src: url(/fonts/AktivGrotesk-Light.ttf);*/
+    font-family: HelveticaLight;
+    src: url(/styles/fonts/helvetica/HelveticaLight.ttf);
+}
+
+@font-face {
+    font-family: HelveticaMedium;
+    src: url(/styles/fonts/helvetica/HelveticaMedium.ttf);
+}
+
+@font-face {
+    font-family: HelveticaRegular;
+    src: url(/styles/fonts/helvetica/HelveticaRegular.ttf);
 }
 
 body {
     min-width: 320px;
     overflow-y: scroll;
-    /*font-family: AktivGroteskRegular;*/
+    font-family: HelveticaRegular;
     background-color: #fff;
+}
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
 }
 
 h1, h2, h3 {
@@ -76,46 +91,6 @@ input::-webkit-input-placeholder {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
 }
-
-.nav-tabs {
-    margin: 0 auto 1px;
-    border-bottom: none;
-    font-family: AktivGroteskLight;
-    text-align: center;
-}
-
-    .nav-tabs > li {
-        float: none;
-        display: inline-block;
-    }
-
-        .nav-tabs > li > a,
-        .nav-tabs > li.active > a,
-        .nav-tabs > li.active > a:hover,
-        .nav-tabs > li.active > a:focus {
-            padding: 15px;
-            color: #fff;
-            border: none;
-            background-color: transparent;
-        }
-
-            .nav-tabs > li > a:hover,
-            .nav-tabs > li > a:focus {
-                background-color: transparent;
-            }
-
-            .nav-tabs > li.active > a,
-            .nav-tabs > li.active > a:hover,
-            .nav-tabs > li.active > a:focus {
-                font-family: AktivGroteskMedium;
-                border-bottom: 3px solid #fff;
-            }
-
-            .nav-tabs > li > a:hover {
-                color: #fff;
-            }
-
-
 
 .clearfix:after {
     content: "";
