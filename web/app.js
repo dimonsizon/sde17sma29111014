@@ -17,6 +17,7 @@ angular.module('app', [
     'ui.bootstrap.dropdown',  
     'angulartics',
     'angulartics.google.analytics',
+    'app.route',
     'app.home'
 ]).config([
     '$stateProvider', '$urlRouterProvider', '$httpProvider',
