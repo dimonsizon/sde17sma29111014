@@ -9,10 +9,10 @@ angular.module('app.route', ['ngRoute'])
             templateUrl: '/views/home/home.html',
             controller: 'HomeCtrl'
         })
-    /*.state('state1.list', {
-        url: "/list",
-        templateUrl: "/views/home/home.html",
-        
-    })*/
+        .state('case', {
+            url: "/case",
+            templateUrl: "/views/products/case/case.html",
+            controller: 'CaseCtrl'
+        })
     ;
 }]);

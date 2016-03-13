@@ -18,7 +18,8 @@ angular.module('app', [
     'angulartics',
     'angulartics.google.analytics',
     'app.route',
-    'app.home'
+    'app.home',
+    'app.case'
 ]).config([
     '$stateProvider', '$urlRouterProvider', '$httpProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider) {
