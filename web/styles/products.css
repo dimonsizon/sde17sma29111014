@@ -1,0 +1,48 @@
+﻿.product-list {
+    padding-top: 10px;
+}
+
+    .product-list .product-item {
+        margin-bottom: 10px;
+        padding: 0 5px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+        
+    }
+
+        .product-list .product-item a {
+            height: 100%;
+            display: block;
+            position: relative;
+        }
+
+            .product-list .product-item a img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+
+            .product-list .product-item a h2 {
+                margin: 0;
+                padding: 10px 0;
+                width: 100%;
+                color: #fff;
+                font-size: 16px;
+                background-color: rgba(0, 0, 0, 0.6);
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+            }
+
+            .product-list .product-item a p {
+                margin: 0;
+                padding: 10px 15px;
+                color: #fff;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                top: 30px;
+                left: 0;
+            }

@@ -18,6 +18,7 @@ angular.module('app', [
     'angulartics',
     'angulartics.google.analytics',
     'app.route',
+    'app.services',
     'app.home',
     'app.case'
 ]).config([
@@ -33,8 +34,8 @@ angular.module('app', [
     }
 ]).value("appConfig", {
     clientUrl: ''
-}).run(['$rootScope', '$http', 'appConfig', '$location', '$sce', '$timeout', '$routeParams', '$window', '$filter',
-    function ($rootScope, $http, appConfig, $location, $sce, $timeout, $routeParams, $window, $filter) {
+}).run(['$rootScope', '$http', '$state', 'appConfig', '$location', '$sce', '$timeout', '$routeParams', '$window', '$filter',
+    function ($rootScope, $http, $state, appConfig, $location, $sce, $timeout, $routeParams, $window, $filter) {
         
         $rootScope.encodeURIComponent = encodeURIComponent;
 
@@ -42,9 +43,13 @@ angular.module('app', [
             window.history.back();
         }
 
-        $rootScope.setActive = function (localPath) {
-            return $location.path() === localPath;
+        $rootScope.isState = function(state) {
+            return $state.is(state);
         }
+
+        //$rootScope.setActive = function (localPath) {
+        //    return $location.path() === localPath;
+        //}
 
         $rootScope.$on('$routeChangeStart', function (e, current, pre) {
             

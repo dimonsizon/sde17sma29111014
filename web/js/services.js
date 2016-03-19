@@ -1,8 +1,8 @@
-﻿var appServices = angular.module('appServices', ['ngResource']);
+﻿var appServices = angular.module('app.services', ['ngResource']);
 
 appServices.factory('CaseService', ['$resource',
     function ($resource) {
-        return $resource('https://script.google.com/macros/s/AKfycbxqCLaeL4Wwfg7UrNhmbYtoF6VHUoFqVj0I0cdL6_BHXRnx870/exec', {}, {
+        return $resource('https://script.google.com/macros/s/AKfycbym-L4i30NlGXch9CBNZOqjDHhVh55dOW3E0NOj2QnU487qzc3n/exec', {}, {
             query: { method: 'GET', isArray: false }
         });
     }

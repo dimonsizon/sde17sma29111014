@@ -1,1 +1,13 @@
-﻿Case {{test}}
+﻿<div class="row">
+    <div class="col-xs-12 product-list">
+        <div class="row">
+            <div class="col-xs-3 product-item" ng-repeat="product in productList">
+                <a href="#">
+                    <img ng-src="{{product.url}}" alt="{{product.name}}" width="100%" />
+                    <h2>{{product.name}}</h2>
+                    <p>{{product.description}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
