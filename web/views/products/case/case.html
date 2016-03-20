@@ -1,11 +1,18 @@
 ﻿<div class="row">
-    
+    <div class="col-xs-12 filter-panel">
+        <div class="row">
+            <button class="btn btn-default" ng-class="{'active' : productMainFilter == ''}" ng-click="filterByProduct('', true)">Все</button>
+            <button class="btn btn-default" ng-class="{'active' : productMainFilter == filter}"  ng-repeat="filter in mainFilters" ng-click="filterByProduct(filter, true)">{{filter}}</button>
+        </div>
+    </div>
+
     <product-filters class="col-xs-12 filter-panel"
                      products-list="productList"
                      root-scope="$root">
     </product-filters>  
-    <product-list class="col-xs-12 product-list" 
-                    products-list="productList" 
-                    product-filter="productFilter">
+    <product-list class="col-xs-12 product-list"
+                  products-list="productList"
+                  product-main-filter="productMainFilter"
+                  product-filter="productFilter">
     </product-list>    
 </div>

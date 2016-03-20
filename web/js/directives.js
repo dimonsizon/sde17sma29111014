@@ -23,6 +23,7 @@ appDirectives.directive('productList', [function () {
         templateUrl: "/views/directives-template/product-list-template.html",
         scope: {
             productsList: '=',
+            productMainFilter: '=',
             productFilter: '='
         },
         link: function (scope, element, attrs) {

@@ -37,6 +37,7 @@ angular.module('app', [
     clientUrl: ''
 }).run(['$rootScope', '$http', '$state', 'appConfig', '$location', '$sce', '$timeout', '$routeParams', '$window', '$filter',
     function ($rootScope, $http, $state, appConfig, $location, $sce, $timeout, $routeParams, $window, $filter) {
+        $rootScope.productMainFilter = '';
         $rootScope.productFilter = '';
         $rootScope.encodeURIComponent = encodeURIComponent;
 
@@ -52,8 +53,14 @@ angular.module('app', [
             $state.go(state);
         }
 
-        $rootScope.filterByProduct = function (productName) {
-            $rootScope.productFilter = productName;
+        $rootScope.filterByProduct = function (productName, mainFilter) {
+            if (mainFilter) {
+                $rootScope.productMainFilter = productName;
+                $rootScope.productFilter = ''; //reset productFilter
+            } else {
+                $rootScope.productFilter = productName;
+            }
+            
         }
 
         //$rootScope.setActive = function (localPath) {

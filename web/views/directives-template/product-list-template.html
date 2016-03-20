@@ -1,5 +1,5 @@
 ﻿<div class="row">
-    <div class="col-xs-3 product-item" ng-repeat="product in productsList | filter:productFilter">
+    <div class="col-xs-3 product-item" ng-repeat="product in productsList | filter:productMainFilter | filter:productFilter">
         <a href="#">
             <img ng-src="{{product.url}}" alt="{{product.name}}" width="100%" />
             <h2>{{product.name}}</h2>

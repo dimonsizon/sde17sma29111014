@@ -1,4 +1,4 @@
 ﻿<div class="row">
-    <button class="btn btn-default" ng-class="{'active' : item.name == rootScope.productFilter}" ng-repeat="item in productsList" ng-click="rootScope.filterByProduct(item.name)">{{item.name}}</button>
+    <button class="btn btn-default" ng-class="{'active' : item.name == rootScope.productFilter}" ng-repeat="item in productsList | filter:rootScope.productMainFilter" ng-click="rootScope.filterByProduct(item.name)">{{item.name}}</button>
     <input ng-model="productFilter" ng-hide="true" />
 </div>
