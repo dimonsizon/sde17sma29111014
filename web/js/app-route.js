@@ -14,5 +14,10 @@ angular.module('app.route', ['ngRoute'])
             templateUrl: "/views/products/case/case.html",
             controller: 'CaseCtrl'
         })
+        .state('details', {
+            url: "/:productType/:productId",
+            templateUrl: "/views/products/product-details.html",
+            controller: 'ProductDetailsCtrl'
+        })
     ;
 }]);

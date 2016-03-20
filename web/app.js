@@ -21,7 +21,8 @@ angular.module('app', [
     'app.services',
     'app.directives',
     'app.home',
-    'app.case'
+    'app.case',
+    'app.productDetails'
 ]).config([
     '$stateProvider', '$urlRouterProvider', '$httpProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider) {
