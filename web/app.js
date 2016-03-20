@@ -19,6 +19,7 @@ angular.module('app', [
     'angulartics.google.analytics',
     'app.route',
     'app.services',
+    'app.directives',
     'app.home',
     'app.case'
 ]).config([

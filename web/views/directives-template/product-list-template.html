@@ -1,0 +1,9 @@
+﻿<div class="row">
+    <div class="col-xs-3 product-item" ng-repeat="product in productsList | filter:productFilter">
+        <a href="#">
+            <img ng-src="{{product.url}}" alt="{{product.name}}" width="100%" />
+            <h2>{{product.name}}</h2>
+            <p>{{product.description}}</p>
+        </a>
+    </div>
+</div>
