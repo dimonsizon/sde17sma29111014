@@ -8,7 +8,8 @@
 
     <product-filters class="col-xs-12 filter-panel"
                      products-list="productList"
-                     root-scope="$root">
+                     root-scope="$root"
+                     ng-hide="productMainFilter == ''">
     </product-filters>  
     <product-list class="col-xs-12 product-list"
                   products-list="productList"
