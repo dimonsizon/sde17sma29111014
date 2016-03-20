@@ -76,8 +76,8 @@ input::-webkit-input-placeholder {
 }
 
 .btn-default {
-    background: #fff;
-    border: 1px solid #f0f0f0;
+    /*background: #fff;
+    border: 1px solid #f0f0f0;*/
 }
 
 .btn-primary, .btn-primary:hover, btn-primary:focus, btn-primary:active {

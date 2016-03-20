@@ -1,4 +1,12 @@
-﻿.product-list {
+﻿.filter-panel {
+    margin: 10px 0;
+}
+
+    .filter-panel .btn {
+        margin: 0 10px 10px 0;
+    }
+
+.product-list {
     padding-top: 10px;
 }
 

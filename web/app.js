@@ -36,7 +36,7 @@ angular.module('app', [
     clientUrl: ''
 }).run(['$rootScope', '$http', '$state', 'appConfig', '$location', '$sce', '$timeout', '$routeParams', '$window', '$filter',
     function ($rootScope, $http, $state, appConfig, $location, $sce, $timeout, $routeParams, $window, $filter) {
-        
+        $rootScope.productFilter = '';
         $rootScope.encodeURIComponent = encodeURIComponent;
 
         $rootScope.locationBack = function () {
@@ -45,6 +45,14 @@ angular.module('app', [
 
         $rootScope.isState = function(state) {
             return $state.is(state);
+        }
+
+        $rootScope.goState = function (state) {
+            $state.go(state);
+        }
+
+        $rootScope.filterByProduct = function (productName) {
+            $rootScope.productFilter = productName;
         }
 
         //$rootScope.setActive = function (localPath) {

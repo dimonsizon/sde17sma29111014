@@ -1,7 +1,13 @@
 ﻿<div class="row">
+    <div class="col-xs-12 filter-panel">
+        <div class="row">
+            <button class="btn btn-default" ng-class="{'active' : item.name == productFilter}" ng-repeat="item in productList" ng-click="filterByProduct(item.name)">{{item.name}}</button>
+            <input ng-model="productFilter" ng-hide="true" />
+        </div>
+    </div>
     <div class="col-xs-12 product-list">
         <div class="row">
-            <div class="col-xs-3 product-item" ng-repeat="product in productList">
+            <div class="col-xs-3 product-item" ng-repeat="product in productList | filter:productFilter">
                 <a href="#">
                     <img ng-src="{{product.url}}" alt="{{product.name}}" width="100%" />
                     <h2>{{product.name}}</h2>
