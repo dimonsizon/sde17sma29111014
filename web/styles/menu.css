@@ -45,7 +45,7 @@
             .nav-tabs .dropdown.open > a {
                 background-color: #f4184c;
                 border-radius: 0;
-                border-bottom: 3px solid transparent;
+                /*border-bottom: 3px solid transparent;*/
             }
 
             .nav-tabs .dropdown-menu {
