@@ -8,6 +8,14 @@ appServices.factory('CaseService', ['$resource',
     }
 ]);
 
+appServices.factory('DetailsServices', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/:gasId/exec', {}, {
+            query: { method: 'GET', params: { serviceId: 'services' }, isArray: true }
+        });
+    }
+]);
+
 /*appServices.factory('UtensilsService', ['$resource',
     function ($resource) {
         return $resource('https://script.google.com/macros/s/AKfycbw2-WoE7UtKsx1GAfOVy5yL7tvnXj1SxcxuMy_bYjSwD5BZ6XYy/exec', {}, {
