@@ -104,6 +104,14 @@ input::-webkit-input-placeholder {
     white-space: nowrap;
 }
 
+.loading {
+    margin: 50px 0;
+    height: 90px;
+    background-image: url(/images/loading.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .no-active {
     cursor: default !important;
     opacity: 0.7;

@@ -1,8 +1,8 @@
-﻿<div class="row">
+﻿<div class="row" ng-if="!productsLoading">
     <div class="col-xs-12 filter-panel">
         <div class="row">
             <button class="btn btn-default" ng-class="{'active' : productMainFilter == ''}" ng-click="filterByProduct('', true)">Все</button>
-            <button class="btn btn-default" ng-class="{'active' : productMainFilter == filter}"  ng-repeat="filter in mainFilters" ng-click="filterByProduct(filter, true)">{{filter}}</button>
+            <button class="btn btn-default" ng-class="{'active' : productMainFilter == filter}" ng-repeat="filter in mainFilters" ng-click="filterByProduct(filter, true)">{{filter}}</button>
         </div>
     </div>
 
@@ -10,10 +10,11 @@
                      products-list="productList"
                      root-scope="$root"
                      ng-hide="productMainFilter == ''">
-    </product-filters>  
+    </product-filters>
     <product-list class="col-xs-12 product-list"
                   products-list="productList"
                   product-main-filter="productMainFilter"
                   product-filter="productFilter">
-    </product-list>    
+    </product-list>
 </div>
+<div class="loading" ng-if="productsLoading"></div>

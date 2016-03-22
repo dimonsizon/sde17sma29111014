@@ -15,7 +15,7 @@ angular.module('app.route', ['ngRoute'])
             controller: 'CaseCtrl'
         })
         .state('details', {
-            url: "/:productType/:productId",
+            url: "/:productType/:gasId",
             templateUrl: "/views/products/product-details.html",
             controller: 'ProductDetailsCtrl'
         })
