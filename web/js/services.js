@@ -16,6 +16,15 @@ appServices.factory('DetailsServices', ['$resource',
     }
 ]);
 
+//отзывы
+appServices.factory('ReviewsServices', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbzNkh7xSbSFOG7NitSB3uJuLxjOJGjkXXIiVwbshgr7f2AmHCo/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
+
 /*appServices.factory('UtensilsService', ['$resource',
     function ($resource) {
         return $resource('https://script.google.com/macros/s/AKfycbw2-WoE7UtKsx1GAfOVy5yL7tvnXj1SxcxuMy_bYjSwD5BZ6XYy/exec', {}, {

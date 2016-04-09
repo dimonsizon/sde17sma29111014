@@ -2,12 +2,14 @@
 
 angular.module('app.productDetails', ['ngRoute'])
 
-.controller('ProductDetailsCtrl', ['$scope', '$http', '$rootScope', '$stateParams', 'DetailsServices',
-    function ($scope, $http, $rootScope, $stateParams, DetailsServices) {
+.controller('ProductDetailsCtrl', ['$scope', '$http', '$rootScope', '$stateParams', 'DetailsServices', 'ReviewsServices',
+    function ($scope, $http, $rootScope, $stateParams, DetailsServices, ReviewsServices) {
         $scope.productList = [];
         $scope.product = [];
-        $scope.showProductIndex = 0;
+        $scope.reviews = [];
         $scope.productLoading = true;
+        $scope.reviewsLoading = true;
+        $scope.showProductIndex = 0;
 
 
         DetailsServices.get({ gasId: $stateParams.gasId }, function (product) {
@@ -20,7 +22,12 @@ angular.module('app.productDetails', ['ngRoute'])
             
             $scope.setProduct(0); //show first product
             $scope.productLoading = false;
-            //imgMassiv = $scope.service.images;
+        });
+
+        ReviewsServices.get(function (data) {
+            $scope.reviews = data.items;
+
+            $scope.reviewsLoading = false;
         });
 
         $scope.setProduct = function (index) {
