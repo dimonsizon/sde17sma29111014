@@ -1,6 +1,10 @@
 ﻿.product-datails {
 
 }
+    .product-datails .product-photo {
+        cursor: pointer;
+    }
+
     .product-datails .type {
         margin-bottom: 10px;
     }
@@ -19,8 +23,17 @@
             height: 160px;
             overflow: hidden;
             float: left;
+            cursor: pointer;
         }
 
             .product-datails .image-list  .product-image img {
                 width: 100%;
             }
+
+.product-images-window {
+
+}
+
+    .product-images-window .modal-body {
+        padding: 3px;
+    }

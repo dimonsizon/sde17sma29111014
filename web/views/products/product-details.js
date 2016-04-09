@@ -2,8 +2,8 @@
 
 angular.module('app.productDetails', ['ngRoute'])
 
-.controller('ProductDetailsCtrl', ['$scope', '$http', '$rootScope', '$stateParams', 'DetailsServices', 'ReviewsServices',
-    function ($scope, $http, $rootScope, $stateParams, DetailsServices, ReviewsServices) {
+.controller('ProductDetailsCtrl', ['$scope', '$http', '$rootScope', '$stateParams', '$modal', 'DetailsServices', 'ReviewsServices',
+    function ($scope, $http, $rootScope, $stateParams, $modal, DetailsServices, ReviewsServices) {
         $scope.productList = [];
         $scope.product = [];
         $scope.reviews = [];
@@ -33,5 +33,39 @@ angular.module('app.productDetails', ['ngRoute'])
         $scope.setProduct = function (index) {
             $scope.product = $scope.productList[index];
             $scope.showProductIndex = index;
+        }
+
+        //images window
+        $scope.openImagesWindow = function (imageIndex) {
+            var modalInstance = $modal.open({
+                templateUrl: '/views/modal-template/product-images-window.html',
+                windowClass: 'product-images-window',
+                //size: 'sm',
+                controller: [
+                    '$scope', '$modalInstance', 'productImages', function ($scope, $modalInstance, productImages) {
+                        $scope.images = productImages;
+                        $scope.close = function () {
+                            $modalInstance.dismiss();
+                        };
+
+                        $scope.interval = 5000;
+                    }
+                ],
+                resolve: {
+                    productImages: function () {      
+                        var beforeIndex = $scope.product.images.slice();
+                        var afterIndex = $scope.product.images.slice();
+                        beforeIndex.splice(0, imageIndex); //array before index
+                        var newImagesArray = afterIndex.splice(imageIndex, beforeIndex.length); //array after index
+                        newImagesArray = newImagesArray.concat(beforeIndex); //change array, added "before index" to the end of array
+
+                        return newImagesArray;
+                    }
+                }
+            });
+            modalInstance.result.then(function () {
+            }, function () {
+            });
+
         }
     }]);

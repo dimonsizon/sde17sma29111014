@@ -1,0 +1,10 @@
+﻿<div class="modal-body">
+    <uib-carousel interval="interval">
+        <uib-slide ng-repeat="slide in images track by $index" index="$index">
+            <img ng-src="{{slide}}" style="margin:auto;">
+            <div class="carousel-caption">
+                            
+            </div>
+        </uib-slide>
+    </uib-carousel>
+</div>
