@@ -1,1 +1,26 @@
-﻿
+﻿.product-datails {
+
+}
+    .product-datails .type {
+        margin-bottom: 10px;
+    }
+    
+        .product-datails .type button {
+            margin: 0 5px;
+        }
+
+    .product-datails .image-list {
+        margin-top: 15px;
+    }
+
+        .product-datails .image-list  .product-image {
+            margin-right: 10px;
+            width: 160px;
+            height: 160px;
+            overflow: hidden;
+            float: left;
+        }
+
+            .product-datails .image-list  .product-image img {
+                width: 100%;
+            }

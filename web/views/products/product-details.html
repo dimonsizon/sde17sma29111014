@@ -1,22 +1,59 @@
-﻿<div class="row" ng-if="!productLoading">
+﻿<div class="product-datails row" ng-if="!productLoading">
     <div class="col-xs-12 filter-panel">
         <div class="row">
-            <button class="btn btn-default" 
-                    ng-class="{'active' : showProductIndex == $index}" 
-                    ng-click="setProduct($index)" 
-                    ng-repeat="filter in productList">{{filter.filterTitle}}
-            </button>
+            <div class="col-xs-12">
+                <button class="btn btn-default"
+                        ng-class="{'active' : showProductIndex == $index}"
+                        ng-click="setProduct($index)"
+                        ng-repeat="filter in productList">
+                    {{filter.filterTitle}}
+                </button>
+            </div>            
         </div>
     </div>
 
     <div class="col-md-12">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-4 col-xs-6">
                 <img ng-src="{{product.images[0]}}" alt="" width="100%" />
             </div>
-            <div class="col-md-9">
-                <h1></h1>
-                {{product.description}}
+            <div class="col-md-9 col-sm-8 col-xs-6">
+                <h1 class="product-title">{{product.name}}</h1>
+                <p>{{product.description}}</p>  
+
+
+                <div class="type" ng-if="product.color != ''">
+                    <span class="label-title">Цвет:</span>
+                    <button class="btn btn-default" ng-repeat="color in product.color">{{color}}</button>
+                </div>
+                <div class="type" ng-if="product.secondType != ''">
+                    <span class="label-title">Тип:</span>
+                    <button class="btn btn-default" ng-repeat="secondType in product.secondType">{{secondType}}</button>
+                </div>
+
+                <p><span class="label-title">Цена:</span> {{product.price}} руб.</p>
+
+                <div class="buttons-container">
+                    <button class="btn btn-primary">Добавить в корзину</button>
+                    <button class="btn btn-primary">Связаться с менеджером</button>
+                    <button class="btn btn-primary">Создать в редакторе</button>
+                </div>              
+            </div>
+        </div>
+
+        <!--Images-->
+        <div class="row">
+            <div class="col-md-12 image-list clearfix">
+                <div class="product-image" ng-repeat="image in product.images">
+                    <img ng-src="{{image}}" alt="{{product.name}} {{product.description}}" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Отзывы</h1>
+                <p>Тут будут отзывы с ВК</p>
             </div>
         </div>
     </div>
