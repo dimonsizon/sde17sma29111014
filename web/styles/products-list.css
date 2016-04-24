@@ -1,10 +1,22 @@
 ﻿.filter-panel {
-    margin: 10px 0;
-}
+    border-right: 1px solid #262a2e;
+}   
 
-    .filter-panel .btn {
-        margin: 0 10px 10px 0;
+    .filter-panel .filter-items {
+        margin-top: 10px;
+        padding-top: 10px;
     }
+
+    .filter-panel .sub-filters {
+        padding-top: 15px;
+        border-top: 1px solid #262a2e;
+    }
+
+        .filter-panel .filter-items .btn {
+            margin: 0 10px 10px 0;
+            width: 100%;
+            display: block;
+        }
 
 .product-list {
     padding-top: 10px;
@@ -13,7 +25,7 @@
     .product-list .product-item {
         margin-bottom: 10px;
         padding: 0 5px;
-        height: 244px;
+        height: 233px;
         overflow: hidden;
         position: relative;
         
@@ -34,10 +46,11 @@
 
             .product-list .product-item a h2 {
                 margin: 0;
-                padding: 10px 0;
+                padding: 5px;
                 width: 100%;
                 color: #fff;
                 font-size: 16px;
+                text-align: center;
                 background-color: rgba(0, 0, 0, 0.5);
                 position: absolute;
                 bottom: 10px;

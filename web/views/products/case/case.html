@@ -1,20 +1,34 @@
-﻿<div class="" ng-if="!productsLoading">
-    <div class="row filter-panel">
-        <div class="col-xs-12">
-            <button class="btn btn-default" ng-class="{'active' : productMainFilter == ''}" ng-click="filterByProduct('', true)">Все</button>
-            <button class="btn btn-default" ng-class="{'active' : productMainFilter == filter}" ng-repeat="filter in mainFilters" ng-click="filterByProduct(filter, true)">{{filter}}</button>
+﻿<div class="row" ng-if="!productsLoading">
+    <div class="filter-panel col-xs-3">
+        <div class="row main-filters filter-items">
+            <div class="col-xs-12">
+                <button class="btn btn-default" ng-class="{'active' : productMainFilter == ''}" 
+                        ng-click="filterByProduct('', true); showAllFilters(true)" 
+                        ng-show="showAllMainFilters || productMainFilter == ''">Все
+                </button>
+                <button class="btn btn-default" ng-class="{'active' : productMainFilter == filter}" 
+                        ng-repeat="filter in mainFilters" 
+                        ng-click="filterByProduct(filter, true); showAllFilters(false)"
+                        ng-show="showAllMainFilters || productMainFilter == filter">{{filter}}
+                </button>
+                <a ng-if="!showAllMainFilters" ng-click="showAllFilters(true)">Показать все</a>
+            </div>            
         </div>
+        <div class="row sub-filters filter-items" ng-hide="productMainFilter == ''">
+            <product-filters products-list="productList"
+                             root-scope="$root">
+            </product-filters>
+        </div>
+        
     </div>
-
-    <product-filters class="row filter-panel"
-                     products-list="productList"
-                     root-scope="$root"
-                     ng-hide="productMainFilter == ''">
-    </product-filters>
-    <product-list class="row product-list"
-                  products-list="productList"
-                  product-main-filter="productMainFilter"
-                  product-filter="productFilter">
-    </product-list>
+    <div class="col-xs-9">
+        <product-list class="row product-list"
+                      products-list="productList"
+                      product-main-filter="productMainFilter"
+                      product-filter="productFilter">
+        </product-list>
+    </div>
+    
+    
 </div>
 <div class="loading" ng-if="productsLoading"></div>

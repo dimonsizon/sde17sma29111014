@@ -52,12 +52,12 @@ a:focus,
 a:active,
 .btn-link {
     cursor: pointer;
-    color: #02B2FF;
+    color: #f55d68;
     text-decoration: none;
 }
 
     a:hover {
-        color: #02B2FF;
+        color: #f55d68;
         text-decoration: none !important;
     }
 
