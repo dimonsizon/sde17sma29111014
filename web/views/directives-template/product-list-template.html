@@ -1,9 +1,11 @@
-﻿<div class="row">
-    <div class="col-xs-3 product-item" ng-repeat="product in productsList | filter:productMainFilter | filter:productFilter">
-        <a ui-sref="details({productType: 'case', gasId: product.gasId})">
-            <img ng-src="{{product.url}}" alt="" width="100%" />
-            <h2>{{product.name}}</h2>
-            <p>{{product.description}}</p>
-        </a>
-    </div>
+﻿<div class="col-xs-12">
+    <div class="row">
+        <div class="col-xs-3 product-item" ng-repeat="product in productsList | filter:productMainFilter | filter:productFilter">
+            <a ui-sref="details({productType: 'case', gasId: product.gasId})">
+                <img ng-src="{{product.url}}" alt="" width="100%" />
+                <h2>{{product.name}}</h2>
+                <p>{{product.description}}</p>
+            </a>
+        </div>
+    </div>    
 </div>
