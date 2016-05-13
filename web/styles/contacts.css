@@ -1,0 +1,22 @@
+﻿.contacts {
+    padding-top: 25px;
+}
+    .contacts-info {
+
+    }
+
+        .contacts .contacts-info .contact-title {
+            margin: 30px 0 15px;
+            font-size: 18px;
+        }
+
+        .contacts .contacts-info i.fa {
+            margin-right: 10px;
+            font-size: 18px;
+            color: #f55d68;
+        }
+
+        .contacts .contacts-info p .btn-primary {
+            margin-left: 10px;
+            padding: 0px 10px;
+        }

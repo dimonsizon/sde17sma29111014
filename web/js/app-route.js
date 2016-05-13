@@ -19,5 +19,28 @@ angular.module('app.route', ['ngRoute'])
             templateUrl: "/views/products/product-details.html",
             controller: 'ProductDetailsCtrl'
         })
+        .state('reviews', {
+            url: "/reviews",
+            templateUrl: "/views/reviews/reviews.html",
+            controller: 'ReviewsCtrl'
+        })
+        .state('faq', {
+            url: "/faq",
+            templateUrl: "/views/faq/faq.html"
+        })
+        .state('news', {
+            url: "/news",
+            templateUrl: "/views/news/news.html",
+            controller: 'NewsCtrl'
+        })
+        .state('delivery', {
+            url: "/delivery",
+            templateUrl: "/views/delivery/delivery.html"
+        })
+        .state('contacts', {
+            url: "/contacts",
+            templateUrl: "/views/contacts/contacts.html",
+            controller: 'ContactsCtrl'
+        })
     ;
 }]);

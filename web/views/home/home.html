@@ -1,1 +1,99 @@
-﻿Home {{test}}
+﻿<div class="home row">
+    <div class="">
+        <uib-carousel interval="7000">
+            <uib-slide ng-repeat="slide in sliderImages track by $index" index="$index">
+                <img ng-src="{{slide}}" style="margin:auto;">
+                <div class="carousel-caption">
+                </div>
+            </uib-slide>
+        </uib-carousel>
+    </div> 
+
+    <div class="col-md-12 about-us">
+        <h1 class="title">НАШИ ДОСТОИНСТВА:</h1>
+        <div class="list-items row">
+            <div class="item col-md-3 col-sm-4 col-xs-6">
+                <i class="fa fa-cubes"></i>
+                <h3>Самый широкий ассортимент</h3>
+            </div>
+            <div class="item col-md-3 col-sm-4 col-xs-6">
+                <i class="fa fa-thumbs-up"></i>
+                <h3>Наилучшее качество</h3>
+            </div>
+            <div class="item col-md-3 col-sm-4 col-xs-6">
+                <i class="fa fa-truck"></i>
+                <h3>Оперативные отправки в любые уголки планеты</h3>
+            </div>
+            <div class="item col-md-3 col-sm-4 col-xs-6">
+                <i class="fa fa-rub"></i>
+                <h3>Доступные цены</h3>
+            </div>
+            <div class="item col-md-3 col-sm-4 col-xs-6">
+                <i class="fa fa-smile-o"></i>
+                <h3>Индивидуальный подход к каждому клиенту</h3>
+            </div>
+            <div class="item col-md-3 col-sm-4 col-xs-6">
+                <i class="fa fa-comments"></i>
+                <h3>Приятный сервис</h3>
+            </div>
+            <div class="item col-md-3 col-sm-4 col-xs-6">
+                <i class="fa fa-percent"></i>
+                <h3>Постоянные скидки и акции</h3>
+            </div>
+            <div class="item col-md-3 col-sm-4 col-xs-6">
+                <i class="fa fa-line-chart"></i>
+                <h3>Огромный опыт работы</h3>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-12 top20">
+        <div class="row">
+            <div class="col-md-9 col-sm-8" >
+                <h1 class="title">ПОСЛЕДНИЕ НОВОСТИ</h1>
+                <div class="news-item" ng-repeat="item in news" ng-if="$index < 2">
+                    <h3>{{item.title}}</h3>
+                    <p>{{item.text}}</p>
+                    <span class="date">{{item.date | date:'dd.MM.yyyy'}}</span>
+                </div>
+                <a ui-sref="news" class="btn btn-primary top10">ПОКАЗАТЬ БОЛЬШЕ НОВОСТЕЙ</a>
+                <p ng-if="!news">Загрузка...</p>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <!-- VK Widget -->
+                <div id="vk_groups" class="pull-right top20"></div>
+                <script type="text/javascript">
+                    VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "320", color1: 'FFFFFF', color2: '333333', color3: 'f55d68'}, 85074509);
+                </script>
+            </div>
+        </div>        
+    </div> 
+
+    <div class="reviews col-md-12" ng-if="reviews">
+        <h1 class="title">ОТЗЫВЫ</h1>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-md-10 col-md-offset-1">
+                <div class="review" ng-repeat="review in reviews" ng-if="$index < 5">
+                    <div class="user-photo">
+                        <img ng-src="{{review.vkPhoto}}" alt="" width="50" />
+                    </div>
+                    <div class="review-info">
+                        <h3 class="name">{{review.userName}}</h3>
+                        <p class="text">{{review.text}}</p>
+                        <img class="review-photo" ng-src="{{review.images}}" alt="" width="300" ng-if="review.images" />
+                    </div>
+                </div>
+                <a ui-sref="reviews" class="btn btn-primary">ПОКАЗАТЬ БОЛЬШЕ ОТЗЫВОВ</a>
+            </div>
+        </div>
+    </div> 
+
+    <div class="col-md-12 price-download">
+        <a target="_self" href="/doc/Price-List.xlsx" download="alopto-price-{{currentDate}}.xlsx"><i class="fa fa-file-excel-o"></i> Скачать прайс-лист</a>
+    </div> 
+
+    <div class="col-md-12 contact-us">
+        <h1 class="title">ХОТИТЕ ЗНАТЬ БОЛЬШЕ?</h1>
+        <a ui-sref="contacts" class="btn btn-primary"><i class="fa fa-envelope"></i> Напишите нам!</a>
+    </div> 
+</div>

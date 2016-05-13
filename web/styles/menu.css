@@ -27,6 +27,10 @@
             background-color: transparent;
         }
 
+        .nav-tabs > li.logo > a {
+            padding: 0;
+        }
+
             .nav-tabs > li > a:hover,
             .nav-tabs > li > a:focus {
                 background-color: transparent;
@@ -61,3 +65,13 @@
                 .nav-tabs .dropdown-menu > li > a:hover {
                     background: #f4184c !important;
                 }
+
+@media (max-width: 580px) {
+    .nav-tabs > li.logo {
+        margin-bottom: 15px;
+    } 
+	.nav-tabs > li {
+        width: 100%;
+        display: block;
+	}
+}

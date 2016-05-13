@@ -1,0 +1,64 @@
+﻿<div class="row contacts">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="contacts-info col-md-7">
+                <h2>г. Таганрог</h2>
+                <p>ул. Чехова 134</p>
+                <p>Понедельник суббота 10:00-18:00, воскресенье и понедельник выходной. Доступы в онлайн режиме 7 дней в неделю c 10:00-22:00.</p>
+                
+                <h3 class="contact-title">Отдел продаж</h3>
+                <p><i class="fa fa-user"></i> Милана <a class="btn btn-primary" href="http://vk.com/write287490269" target="_blank">Написать в ВК</a></p>
+                <p><i class="fa fa-phone"></i> +7 988 99-44-22-5</p>
+                <p><i class="fa fa-vk"></i> <a href="https://vk.com/id287490269" target="_blank">vk.com/id287490269</a></p>  
+                <p><i class="fa fa-envelope"></i> <a href="mailto:manager@alopto.ru">info@inoprint.ru</a></p>
+
+                <!--<h3 class="contact-title">Руководство и сотрудничество</h3>
+                <p><i class="fa fa-user"></i> Дмитрий <a class="btn btn-primary" href="http://vk.com/write221939883" target="_blank">Написать в ВК</a></p>                 
+                <p><i class="fa fa-phone"></i> +7 988 99-55-100, +7 988 99-11-761 (whatsapp)</p>
+                <p><i class="fa fa-vk"></i> <a href="https://vk.com/sublimation.blank" target="_blank">vk.com/sublimation.blank</a></p> 
+                <p><i class="fa fa-envelope"></i> <a href="mailto:director@alopto.ru">director@alopto.ru</a></p>-->           
+            </div>
+            <div class="col-md-5">
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=TSseWAHLyR8twffSilEZPipeou0DGgsf&width=350&height=300&lang=ru_RU&sourceType=constructor&scroll=true"></script>
+            </div>            
+        </div>        
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="contact-form col-md-6 top20">
+                <form class="order-form" ng-submit="submit(contactform)" name="contactform" method="post" role="form">
+                    <div class="form-group">
+                        <input class="form-control" ng-model="formData.userName" type="text" id="name" name="name" placeholder="Ваше имя" ng-minlength=3 required />
+                        <p class="text-danger" ng-show="contactform.name.$error.minlength">Имя не может быть таким коротким</p>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" ng-model="formData.userEmail" type="email" id="email" name="email" placeholder="Ваш Email" required />
+                        <p class="text-danger" ng-show="contactform.email.$error.email">Введите корректный email</p>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" ng-model="formData.userPhone" type="tel" id="phone" name="phone" placeholder="Телефон" required />
+                        <p class="text-danger" ng-show="contactform.phone.$error.required && submitted">Введите корректный телефон</p>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" ng-model="formData.userVkUrl" type="url" id="userVkUrl" name="userVkUrl" placeholder="Ссылка Вконтакте" />
+                        <p class="text-danger" ng-show="contactform.userVkUrl.$error.url">Введите корректный адрес</p>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" ng-model="formData.userMessage" rows="4" id="userMessage" name="userMessage" placeholder="Подробности и пожелания"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" ng-disabled="contactform.$invalid">
+                        ОТПРАВИТЬ ЗАЯВКУ
+                    </button>
+                    <p>{{resultMessage}}</p>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <!-- VK Widget -->
+                <div id="vk_groups" class="pull-right top20"></div>
+                <script type="text/javascript">
+                    VK.Widgets.Group("vk_groups", {mode: 0, width: "350", height: "320", color1: 'FFFFFF', color2: '333333', color3: 'f55d68'}, 85074509);
+                </script>
+            </div> 
+        </div>
+    </div>    
+</div>

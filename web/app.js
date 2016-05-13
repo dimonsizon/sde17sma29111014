@@ -22,7 +22,10 @@ angular.module('app', [
     'app.directives',
     'app.home',
     'app.case',
-    'app.productDetails'
+    'app.productDetails',
+    'app.reviews',
+    'app.news',
+    'app.contacts'
 ]).config([
     '$stateProvider', '$urlRouterProvider', '$httpProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider) {

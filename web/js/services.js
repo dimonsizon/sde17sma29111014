@@ -25,6 +25,15 @@ appServices.factory('ReviewsServices', ['$resource',
     }
 ]);
 
+//news (from alopto)
+appServices.factory('NewsServices', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbwB7-oR5Ea04z8X1dPwSYJCMQFf8EaVV60CMuP59hS6J9HWczY/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
+
 /*appServices.factory('UtensilsService', ['$resource',
     function ($resource) {
         return $resource('https://script.google.com/macros/s/AKfycbw2-WoE7UtKsx1GAfOVy5yL7tvnXj1SxcxuMy_bYjSwD5BZ6XYy/exec', {}, {

@@ -1,9 +1,11 @@
 ﻿<header class="header-bar">
-    <div class="row content clearfix">
+    <div class="row content container clearfix">
         <nav class="col-xs-12 padding0">
             <ul class="nav nav-tabs">
                 <li class="logo pull-left">
-                    <img src="/images/logo.png" alt="INOPRINT" />
+                    <a ui-sref="home">
+                        <img src="/images/logo.png" alt="INOPRINT" />
+                    </a>
                 </li>
                 <li ng-class="{'active' : isState('home')}">
                     <a ui-sref="home">ГЛАВНАЯ</a>
@@ -23,21 +25,24 @@
                 <li>
                     <a href="/">ЧЕХОЛ С ФОТО</a>
                 </li>
-                <li>
-                    <a href="/">FAQ</a>
+                <li ng-class="{'active' : isState('reviews')}">
+                    <a ui-sref="reviews">ОТЗЫВЫ</a>
                 </li>
-                <li>
-                    <a href="/">КОНТАКТЫ</a>
+                <li ng-class="{'active' : isState('faq')}">
+                    <a ui-sref="faq">FAQ</a>
+                </li>
+                <li ng-class="{'active' : isState('contacts')}">
+                    <a ui-sref="contacts">КОНТАКТЫ</a>
                 </li>
             </ul>
         </nav>
     </div>
 </header>
-<section class="content main-container clearfix" ui-view>
+<section class="content container main-container clearfix" ui-view>
 </section>
 <footer>
-	<div class="row content clearfix">
-		<div class="col-xs-12">
+	<div class="row content container clearfix">
+		<div class="col-xs-12 text-center">
 			<span>© 2015-2016 INOPRINT All right reserved. </span>
 		</div>
 	</div>
