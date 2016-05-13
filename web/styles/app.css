@@ -262,3 +262,8 @@ footer {
         .faq .faq-item.contact-us-item .btn {
             width: 300px
         }
+
+/***************NEWS*****************/
+.news {
+    padding-bottom: 25px;
+}

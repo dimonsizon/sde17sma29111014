@@ -25,10 +25,10 @@ appServices.factory('ReviewsServices', ['$resource',
     }
 ]);
 
-//news (from alopto)
+//news
 appServices.factory('NewsServices', ['$resource',
     function ($resource) {
-        return $resource('https://script.google.com/macros/s/AKfycbwB7-oR5Ea04z8X1dPwSYJCMQFf8EaVV60CMuP59hS6J9HWczY/exec', {}, {
+        return $resource('https://script.google.com/macros/s/AKfycbzCql9QpVH8qDO5xK5LFaTHcUTPctRT3w0vMdl_Y_nJeeoRw_Ci/exec', {}, {
             query: { method: 'GET', isArray: false }
         });
     }
