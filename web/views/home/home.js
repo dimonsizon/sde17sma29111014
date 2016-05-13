@@ -12,7 +12,13 @@ angular.module('app.home', ['ngRoute'])
             '/images/slider-images/4.jpg',
             '/images/slider-images/5.jpg',
             '/images/slider-images/6.jpg',
-            '/images/slider-images/7.jpg'
+            '/images/slider-images/7.jpg',
+            '/images/slider-images/8.jpg',
+            '/images/slider-images/9.jpg',
+            '/images/slider-images/10.jpg',
+            '/images/slider-images/11.jpg',
+            '/images/slider-images/12.jpg',
+            '/images/slider-images/13.jpg'
         ];
 
         NewsServices.get(function (data) {
