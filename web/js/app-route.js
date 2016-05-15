@@ -42,5 +42,10 @@ angular.module('app.route', ['ngRoute'])
             templateUrl: "/views/contacts/contacts.html",
             controller: 'ContactsCtrl'
         })
+        .state('cart', {
+            url: "/cart",
+            templateUrl: "/views/cart/cart.html",
+            controller: 'CartCtrl'
+        })
     ;
 }]);

@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,6 +60,8 @@
   <ItemGroup>
     <Content Include="app.js" />
     <Content Include="index.html" />
+    <Content Include="js\app-route.js" />
+    <Content Include="js\directives.js" />
     <Content Include="js\libraries\angular-animate.min.js" />
     <Content Include="js\libraries\angular-cookies.min.js" />
     <Content Include="js\libraries\angular-i18n\angular-locale_en-us.js" />
@@ -76,17 +79,36 @@
     <Content Include="js\libraries\jquery-1.12.1.min.js" />
     <Content Include="js\libraries\jquery-ui.min.js" />
     <Content Include="js\libraries\linq.min.js" />
+    <Content Include="js\libraries\ngCart.js" />
     <Content Include="js\libraries\ui-bootstrap-tpls-0.14.3.js" />
     <Content Include="js\libraries\ui-bootstrap-tpls-0.14.3.min.js" />
+    <Content Include="js\phpmailer\class.phpmailer.php" />
+    <Content Include="js\phpmailer\contact-form.php" />
+    <Content Include="js\services.js" />
     <Content Include="layout.html" />
     <Content Include="styles\app.css" />
     <Content Include="styles\bootstrap\bootstrap-theme.css" />
     <Content Include="styles\bootstrap\bootstrap.min.css" />
+    <Content Include="styles\cart.css" />
+    <Content Include="styles\contacts.css" />
     <Content Include="styles\font-awesome-4.2.0\css\font-awesome.css" />
     <Content Include="styles\font-awesome-4.2.0\css\font-awesome.min.css" />
     <Content Include="styles\font-awesome-4.2.0\fonts\fontawesome-webfont.svg" />
     <Content Include="styles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="styles\home.css" />
     <Content Include="styles\media-styles.css" />
+    <Content Include="styles\menu.css" />
+    <Content Include="styles\product-details.css" />
+    <Content Include="styles\products-list.css" />
+    <Content Include="views\cart\cart-templates.html" />
+    <Content Include="views\cart\cart.html" />
+    <Content Include="views\cart\cart.js" />
+    <Content Include="views\contacts\contacts.html" />
+    <Content Include="views\contacts\contacts.js" />
+    <Content Include="views\delivery\delivery.html" />
+    <Content Include="views\directives-template\product-filters-template.html" />
+    <Content Include="views\directives-template\product-list-template.html" />
+    <Content Include="views\faq\faq.html" />
     <Content Include="views\home\home.html" />
     <Content Include="views\home\home.js" />
   </ItemGroup>
@@ -138,9 +160,23 @@
     <Content Include="styles\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="doc\" />
     <Folder Include="images\" />
+    <Folder Include="views\products\keychain\" />
+    <Folder Include="views\products\mug\" />
+    <Folder Include="views\products\pillow\" />
+    <Folder Include="views\products\t-shirt\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="views\news\news.html" />
+    <Content Include="views\news\news.js" />
+    <Content Include="views\products\case\case-ctrl.js" />
+    <Content Include="views\products\case\case.html" />
+    <Content Include="views\products\product-details.html" />
+    <Content Include="views\products\product-details.js" />
+    <Content Include="views\modal-template\product-images-window.html" />
+    <Content Include="views\reviews\reviews.html" />
+    <Content Include="views\reviews\reviews.js" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

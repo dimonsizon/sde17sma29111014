@@ -5,7 +5,7 @@ angular.module('app', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngTouch',
+    'ngTouch',    
     'ui.router',
     'ui.bootstrap.tpls',
     'ui.bootstrap.carousel',
@@ -25,7 +25,9 @@ angular.module('app', [
     'app.productDetails',
     'app.reviews',
     'app.news',
-    'app.contacts'
+    'app.contacts',
+    'app.cart',
+    'ngCart'
 ]).config([
     '$stateProvider', '$urlRouterProvider', '$httpProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -39,8 +41,8 @@ angular.module('app', [
     }
 ]).value("appConfig", {
     clientUrl: ''
-}).run(['$rootScope', '$http', '$state', 'appConfig', '$location', '$sce', '$timeout', '$routeParams', '$window', '$filter',
-    function ($rootScope, $http, $state, appConfig, $location, $sce, $timeout, $routeParams, $window, $filter) {
+}).run(['$rootScope', '$http', '$state', 'appConfig', '$location', '$sce', '$timeout', '$interval', '$routeParams', '$window', '$filter',
+    function ($rootScope, $http, $state, appConfig, $location, $sce, $timeout, $interval, $routeParams, $window, $filter) {
         $rootScope.productMainFilter = '';
         $rootScope.productFilter = '';
         $rootScope.encodeURIComponent = encodeURIComponent;
@@ -63,9 +65,15 @@ angular.module('app', [
                 $rootScope.productFilter = ''; //reset productFilter
             } else {
                 $rootScope.productFilter = productName;
-            }
-            
+            }            
         }
+
+        /************************************/
+        $rootScope.initId = '_' + Math.round(Math.random() * 9999999999);
+        $interval(function () {
+            $rootScope.initId = '_' + Math.round(Math.random() * 9999999999)
+        }, 5000); //для дополнения к id при добавлении в корзину
+        /*****************Old logic from old site*********************/
 
         //$rootScope.setActive = function (localPath) {
         //    return $location.path() === localPath;

@@ -34,6 +34,12 @@
                 <li ng-class="{'active' : isState('contacts')}">
                     <a ui-sref="contacts">КОНТАКТЫ</a>
                 </li>
+                <li ng-class="{'active' : isState('cart')}">
+                    <a class="cart-icon" ui-sref="cart">
+                        <img src="/images/cart.png" alt="Корзина" />
+                        <ngcart-summary></ngcart-summary>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -47,3 +53,10 @@
 		</div>
 	</div>
 </footer>
+
+<!-- Cart info -->
+<script type="text/ng-template" id="template/ngCart/summary.html">
+    <span class="item-count" title="{{ ngCart.totalCost() }} руб">
+        {{ ngCart.getTotalItems() }}
+    </span>
+</script>

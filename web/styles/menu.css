@@ -66,6 +66,34 @@
                     background: #f4184c !important;
                 }
 
+        .nav-tabs > li .cart-icon {
+            padding: 12px !important;
+            position: relative;
+            border: none !important;
+            opacity: 0.8;
+        }
+
+        .nav-tabs > li.active .cart-icon {
+            opacity: 1;
+        }
+
+            .nav-tabs > li .cart-icon .item-count {
+                width: 23px;
+                height: 23px;
+                color: #eb7e4a;
+                line-height: 23px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: bold;
+                background-color: #fff;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            }
+
 @media (max-width: 580px) {
     .nav-tabs > li.logo {
         margin-bottom: 15px;

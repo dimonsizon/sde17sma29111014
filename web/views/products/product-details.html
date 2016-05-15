@@ -34,9 +34,10 @@
                 <p><span class="label-title">Цена:</span> {{product.price}} руб.</p>
 
                 <div class="buttons-container">
-                    <button class="btn btn-primary">Добавить в корзину</button>
+                    <!--<button class="btn btn-primary">Добавить в корзину</button>-->                    
                     <button class="btn btn-primary">Связаться с менеджером</button>
                     <button class="btn btn-primary">Создать в редакторе</button>
+                    <ngcart-addtocart id="{{product.id + initId}}" name="{{product.name}}" price="{{product.price}}" quantity="1">Добавить в корзину</ngcart-addtocart>
                 </div>              
             </div>
         </div>
