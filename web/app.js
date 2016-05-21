@@ -22,6 +22,7 @@ angular.module('app', [
     'app.directives',
     'app.home',
     'app.case',
+    'app.keychain',
     'app.productDetails',
     'app.reviews',
     'app.news',

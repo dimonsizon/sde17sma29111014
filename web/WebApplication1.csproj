@@ -162,16 +162,17 @@
   <ItemGroup>
     <Folder Include="doc\" />
     <Folder Include="images\" />
-    <Folder Include="views\products\keychain\" />
-    <Folder Include="views\products\mug\" />
-    <Folder Include="views\products\pillow\" />
-    <Folder Include="views\products\t-shirt\" />
+    <Folder Include="views\products\mugs\" />
+    <Folder Include="views\products\pillows\" />
+    <Folder Include="views\products\t-shirts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="views\news\news.html" />
     <Content Include="views\news\news.js" />
     <Content Include="views\products\case\case-ctrl.js" />
     <Content Include="views\products\case\case.html" />
+    <Content Include="views\products\keychain\keychain.html" />
+    <Content Include="views\products\keychain\keychain.js" />
     <Content Include="views\products\product-details.html" />
     <Content Include="views\products\product-details.js" />
     <Content Include="views\modal-template\product-images-window.html" />
