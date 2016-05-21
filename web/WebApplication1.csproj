@@ -162,20 +162,33 @@
   <ItemGroup>
     <Folder Include="doc\" />
     <Folder Include="images\" />
-    <Folder Include="views\products\mugs\" />
-    <Folder Include="views\products\pillows\" />
-    <Folder Include="views\products\t-shirts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="views\news\news.html" />
     <Content Include="views\news\news.js" />
     <Content Include="views\products\case\case-ctrl.js" />
     <Content Include="views\products\case\case.html" />
+    <Content Include="views\products\clocks\clocks.html" />
+    <Content Include="views\products\clocks\clocks.js" />
     <Content Include="views\products\keychain\keychain.html" />
     <Content Include="views\products\keychain\keychain.js" />
+    <Content Include="views\products\mugs\mugs.html" />
+    <Content Include="views\products\mugs\mugs.js" />
+    <Content Include="views\products\photo-frame\photo-frame.html" />
+    <Content Include="views\products\photo-frame\photo-frame.js" />
+    <Content Include="views\products\photo-stone\photo-stone.html" />
+    <Content Include="views\products\photo-stone\photo-stone.js" />
+    <Content Include="views\products\pillows\pillows.html" />
+    <Content Include="views\products\pillows\pillows.js" />
+    <Content Include="views\products\plates\plates.html" />
+    <Content Include="views\products\plates\plates.js" />
     <Content Include="views\products\product-details.html" />
     <Content Include="views\products\product-details.js" />
     <Content Include="views\modal-template\product-images-window.html" />
+    <Content Include="views\products\puzzles\puzzles.html" />
+    <Content Include="views\products\puzzles\puzzles.js" />
+    <Content Include="views\products\t-shirts\t-shirts.html" />
+    <Content Include="views\products\t-shirts\t-shirts.js" />
     <Content Include="views\reviews\reviews.html" />
     <Content Include="views\reviews\reviews.js" />
     <Content Include="web.config" />

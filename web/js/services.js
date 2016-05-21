@@ -8,6 +8,14 @@ appServices.factory('CaseService', ['$resource',
     }
 ]);
 
+appServices.factory('KeychainService', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbzrViu7YbV3ujI77hGvAfQnWxNRDCBOh4vz2rMTu8D4GGFPKN4/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
+
 appServices.factory('DetailsServices', ['$resource',
     function ($resource) {
         return $resource('https://script.google.com/macros/s/:gasId/exec', {}, {
