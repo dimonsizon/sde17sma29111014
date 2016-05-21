@@ -12,12 +12,12 @@ angular.module('app.route', ['ngRoute'])
 
         .state('case', {
             url: "/case",
-            templateUrl: "/views/products/case/case.html",
+            templateUrl: "/views/products/products-list.html",
             controller: 'CaseCtrl'
         })
         .state('keychain', {
             url: "/keychain",
-            templateUrl: "/views/products/keychain/keychain.html",
+            templateUrl: "/views/products/products-list.html",
             controller: 'KeychainCtrl'
         })
 
