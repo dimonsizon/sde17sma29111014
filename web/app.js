@@ -17,6 +17,7 @@ angular.module('app', [
     'ui.bootstrap.dropdown',  
     'angulartics',
     'angulartics.google.analytics',
+    'angularFileUpload',
     'app.route',
     'app.services',
     'app.directives',
@@ -28,6 +29,7 @@ angular.module('app', [
     'app.news',
     'app.contacts',
     'app.cart',
+    'app.editor',
     'ngCart'
 ]).config([
     '$stateProvider', '$urlRouterProvider', '$httpProvider',

@@ -21,6 +21,12 @@ angular.module('app.route', ['ngRoute'])
             controller: 'KeychainCtrl'
         })
 
+        .state('editor', {
+            url: "/editor",
+            templateUrl: "/views/editor/editor.html",
+            controller: 'EditorCtrl'
+        })
+
 
 
         .state('details', {
