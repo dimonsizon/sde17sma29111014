@@ -71,21 +71,25 @@ appDirectives.directive('ngThumb', ['$window', function($window) {
     };
 
     return {
-        restrict: 'A',
+        restrict: 'E',
         template: '<canvas/>',
+        scope: {
+            file: '=',
+            height: '='
+        },
         link: function(scope, element, attributes) {
             if (!helper.support) return;
 
             var params = scope.$eval(attributes.ngThumb);
 
-            if (!helper.isFile(params.file)) return;
-            if (!helper.isImage(params.file)) return;
+            if (!helper.isFile(scope.file)) return;
+            if (!helper.isImage(scope.file)) return;
 
             var canvas = element.find('canvas');
             var reader = new FileReader();
 
             reader.onload = onLoadFile;
-            reader.readAsDataURL(params.file);
+            reader.readAsDataURL(scope.file);
 
             function onLoadFile(event) {
                 var img = new Image();
@@ -94,8 +98,8 @@ appDirectives.directive('ngThumb', ['$window', function($window) {
             }
 
             function onLoadImage() {
-                var width = params.width || this.width / this.height * params.height;
-                var height = params.height || this.height / this.width * params.width;
+                var width = scope.width || this.width / this.height * scope.height;
+                var height = scope.height || this.height / this.width * scope.width;
                 canvas.attr({ width: width, height: height });
                 canvas[0].getContext('2d').drawImage(this, 0, 0, width, height);
             }

@@ -4,15 +4,12 @@ angular.module('app.editor', ['ngRoute'])
 
 .controller('EditorCtrl', ['$scope', '$http', '$rootScope', 'FileUploader',
     function ($scope, $http, $rootScope, FileUploader) {
-        $scope.test = 'test';
-
 
         var uploader = $scope.uploader = new FileUploader({
             url: 'uploader/upload.php'
         });
 
         // FILTERS
-
         uploader.filters.push({
             name: 'customFilter',
             fn: function (item /*{File|FileLikeObject}*/, options) {
@@ -21,11 +18,11 @@ angular.module('app.editor', ['ngRoute'])
         });
 
         // CALLBACKS
-
         uploader.onWhenAddingFileFailed = function (item /*{File|FileLikeObject}*/, filter, options) {
             console.info('onWhenAddingFileFailed', item, filter, options);
         };
         uploader.onAfterAddingFile = function (fileItem) {
+            fileItem.upload(); //auto upload after additing
             console.info('onAfterAddingFile', fileItem);
         };
         uploader.onAfterAddingAll = function (addedFileItems) {
@@ -70,7 +67,11 @@ angular.module('app.editor', ['ngRoute'])
         };
 
 
+        $scope.setImgToEditor = function (item) {
+            $scope.selectedImg = '/uploader/uploads/' + item.file.name;
 
+
+        }
 
 
     }]);
