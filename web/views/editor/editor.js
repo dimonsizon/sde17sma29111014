@@ -69,8 +69,16 @@ angular.module('app.editor', ['ngRoute'])
 
         $scope.setImgToEditor = function (item) {
             $scope.selectedImg = '/uploader/uploads/' + item.file.name;
+        }
 
-
+        $scope.createCanvas = function () {
+            html2canvas($('.editor-container'), {
+                onrendered: function (canvas) {
+                    document.body.appendChild(canvas);
+                }//,
+                //width: 300,
+                //height: 300
+            });
         }
 
 
