@@ -2,7 +2,9 @@
     <div class="row">
         <div class="editor-container col-md-8">
             <img ng-src="{{selectedImg}}" />
+            <img ng-src="/images/mockup_iphone5.png" style="width: 200px; position: absolute; top: 0; left: 0" />
         </div>
+
         <div class="col-md-4">
             <div ng-show="uploader.isHTML5">
                 <div class="over-zone" nv-file-over="" uploader="uploader">
@@ -53,9 +55,14 @@
                 <!--<button class="btn btn-primary" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">Cancel all</button>-->
                 <button class="btn btn-primary" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length"><i class="fa fa-trash"></i> Удалить все</button>
             </div>
+
+            <div id="canvasRes">
+
+            </div>
         </div>
     </div>   
     
-    <button ng-click="createCanvas()">Сделать канвасом</button>
+    <button class="btn btn-primary" ng-click="createCanvas()">Сделать канвасом</button>
+    <button class="btn btn-primary" ng-click="uploadCanvas()">Загрузить канвас на серв</button>
     
 </div>

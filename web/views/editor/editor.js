@@ -2,8 +2,8 @@
 
 angular.module('app.editor', ['ngRoute'])
 
-.controller('EditorCtrl', ['$scope', '$http', '$rootScope', 'FileUploader',
-    function ($scope, $http, $rootScope, FileUploader) {
+.controller('EditorCtrl', ['$scope', '$http', '$rootScope', 'FileUploader', '$filter',
+    function ($scope, $http, $rootScope, FileUploader, $filter) {
 
         var uploader = $scope.uploader = new FileUploader({
             url: 'uploader/upload.php'
@@ -22,6 +22,11 @@ angular.module('app.editor', ['ngRoute'])
             console.info('onWhenAddingFileFailed', item, filter, options);
         };
         uploader.onAfterAddingFile = function (fileItem) {
+            var fileName = fileItem.file.name,
+                extension = '.' + fileName.split('.')[fileName.split('.').length - 1],
+                date = $filter('date')(new Date().getTime(), 'dd-MM-yy_HH-mm-ss');
+
+            fileItem.file.name = date + extension;
             fileItem.upload(); //auto upload after additing
             console.info('onAfterAddingFile', fileItem);
         };
@@ -74,12 +79,24 @@ angular.module('app.editor', ['ngRoute'])
         $scope.createCanvas = function () {
             html2canvas($('.editor-container'), {
                 onrendered: function (canvas) {
-                    document.body.appendChild(canvas);
-                }//,
-                //width: 300,
-                //height: 300
+                    document.getElementById('canvasRes').appendChild(canvas);
+
+                    $scope.uploadCanvas();
+                },
+                width: 300,
+                height: 300
             });
         }
+
+        $scope.uploadCanvas = function () {
+            var canvas = $("#canvasRes canvas")[0];
+            var canvasData = canvas.toDataURL('image/jpeg');
+            var ajax = new XMLHttpRequest();
+            ajax.open("POST", '/uploader/upload-canvas.php', false);
+            ajax.setRequestHeader('Content-Type', 'application/upload');
+            ajax.send(canvasData);
+        }
+
 
 
     }]);
