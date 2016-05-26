@@ -35,16 +35,33 @@
 
 
     .editor-container {
+        height: 600px;
         position: relative;
+        border: 1px solid #eee;
+        overflow: hidden;
     }
 
-        .editor-container img {
-            width: 100%;
+        .editor-container .editor-buttons {
+            position: absolute;
+            bottom: 0;
         }
+
+        .editor-container .main-img {
+            width: 80%;
+            position: absolute;            
+            top: 0;
+            left: 0
+        }
+
+            .editor-container .main-img img {
+                width: 100%;
+            }
+
 
 
 
     .editor .uploaded-image {
+        margin-right: 10px;
         width: auto;
         display: inline-block;
         position: relative;

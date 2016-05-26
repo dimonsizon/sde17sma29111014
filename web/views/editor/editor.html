@@ -1,14 +1,27 @@
 ﻿<div class="editor" nv-file-drop="" uploader="uploader">
-    <div class="row">
+    <div class="row top10">
         <div class="editor-container col-md-8">
-            <img ng-src="{{selectedImg}}" />
-            <img ng-src="/images/mockup_iphone5.png" style="width: 200px; position: absolute; top: 0; left: 0" />
+            <div id="mainImg" class="main-img">
+                <img ng-src="{{selectedImg}}" />
+            </div>
+            <div class="mockup-img">
+                <img ng-src="/images/mockup_iphone5.png" style="width: 200px; position: absolute; top: 0; left: 0" />
+            </div>
+            <div class="editor-buttons">
+                <button class="btn btn-primary" ng-click="editor.plus()"><i class="fa fa-search-plus" title="Увеличить"></i></button>
+                <button class="btn btn-primary" ng-click="editor.minus()"><i class="fa fa-search-minus" title="Уменьшить"></i></button>
+
+                <button class="btn btn-primary" ng-click="editor.moveUp()"><i class="fa fa-arrow-up" title="Сдвинуть вверх"></i></button>
+                <button class="btn btn-primary" ng-click="editor.moveDown()"><i class="fa fa-arrow-down" title="Сдвинуть вниз"></i></button>
+                <button class="btn btn-primary" ng-click="editor.moveLeft()"><i class="fa fa-arrow-left" title="Сдвинуть влево"></i></button>
+                <button class="btn btn-primary" ng-click="editor.moveRight()"><i class="fa fa-arrow-right" title="Сдвинуть вправо"></i></button>
+            </div>
         </div>
 
         <div class="col-md-4">
             <div ng-show="uploader.isHTML5">
                 <div class="over-zone" nv-file-over="" uploader="uploader">
-                    Base drop zone indication
+                    Перетащите сюда изображение или нажмите кнопку "Загрузить изображение"
                 </div>
                 <!-- Example: ng-file-drop | ng-file-drop="options" -->
                 <!--<div nv-file-drop="" nv-file-over="" uploader="uploader" options="{url: '/foo'}" over-class="other-over-zone" class="other-drop-zone zone" style="float: right;">
@@ -16,35 +29,48 @@
                 </div>
                 <div style="clear: both;"></div>-->
             </div>
-            <input type="file" nv-file-select="" uploader="uploader" multiple />
+            <label class="btn btn-primary top10">
+                <input type="file" nv-file-select="" uploader="uploader" multiple ng-hide="true" />
+                Загрузить изображение
+            </label>
+            
+
+            <div class="top15">
+                <button class="btn btn-primary" ng-click="createCanvas()">Сделать канвасом и загрузить на серв</button>
+                <!--<button class="btn btn-primary" ng-click="uploadCanvas()">Загрузить канвас на серв</button>-->
+            </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <h2>Загружено: {{ uploader.queue.length }}</h2>
-            <div class="uploaded-image" ng-repeat="item in uploader.queue">
-                <!--<div>Name: {{ item.file.name }}</div>
-                    <div>Size: {{ item.file.size/1024/1024|number:2 }} Mb</div>-->
-                <div class="pointer" ng-if="controller.isImage(item._file)" ng-click="setImgToEditor(item)" title="Нажмите, чтобы добавить в редактор">
-                    <ng-thumb file="item._file" height="100"></ng-thumb>
-                </div>
+            <h2>Ваши изображения: {{ uploader.queue.length }} 
+                <button class="btn btn-primary" ng-click="uploader.clearQueue()" ng-hide="!uploader.queue.length"><i class="fa fa-trash"></i> Удалить все</button>
+            </h2>
+            <div>
+                <div class="uploaded-image" ng-repeat="item in uploader.queue">
+                    <!--<div>Name: {{ item.file.name }}</div>
+            <div>Size: {{ item.file.size/1024/1024|number:2 }} Mb</div>-->
+                    <div class="pointer" ng-if="controller.isImage(item._file)" ng-click="setImgToEditor(item)" title="Нажмите, чтобы добавить в редактор">
+                        <ng-thumb file="item._file" height="100"></ng-thumb>
+                    </div>
 
-                <div class="progress-box" ng-show="uploader.isHTML5">
-                    <!--Progress: {{ item.progress }}-->
-                    <div class="item-progress-box">
-                        <div class="item-progress" ng-style="{ 'width': item.progress + '%' }"></div>
+                    <div class="progress-box" ng-show="uploader.isHTML5">
+                        <!--Progress: {{ item.progress }}-->
+                        <div class="item-progress-box">
+                            <div class="item-progress" ng-style="{ 'width': item.progress + '%' }"></div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <!--<button class="btn btn-primary" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">Upload</button>-->
+                        <!--<button class="btn btn-primary" ng-click="item.cancel()" ng-disabled="!item.isUploading">Cancel</button>-->
+                        <button class="btn btn-primary" ng-click="item.remove()"><i class="fa fa-trash"></i></button>
                     </div>
                 </div>
-                
-                <div class="action-buttons">
-                    <!--<button class="btn btn-primary" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">Upload</button>-->
-                    <!--<button class="btn btn-primary" ng-click="item.cancel()" ng-disabled="!item.isUploading">Cancel</button>-->
-                    <button class="btn btn-primary" ng-click="item.remove()"><i class="fa fa-trash"></i></button>
-                </div>
-            </div>
+            </div>            
 
-            <div>
+            <div class="top10">
                 <!--<div>
                         Total progress: {{ uploader.progress }}
                         <div class="total-progress-box">
@@ -53,7 +79,7 @@
                     </div>-->
                 <!--<button class="btn btn-primary" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">Upload all</button>-->
                 <!--<button class="btn btn-primary" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">Cancel all</button>-->
-                <button class="btn btn-primary" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length"><i class="fa fa-trash"></i> Удалить все</button>
+                
             </div>
 
             <div id="canvasRes">
@@ -62,7 +88,6 @@
         </div>
     </div>   
     
-    <button class="btn btn-primary" ng-click="createCanvas()">Сделать канвасом</button>
-    <button class="btn btn-primary" ng-click="uploadCanvas()">Загрузить канвас на серв</button>
+    
     
 </div>

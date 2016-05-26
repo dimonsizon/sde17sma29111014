@@ -28,6 +28,10 @@ angular.module('app.editor', ['ngRoute'])
 
             fileItem.file.name = date + extension;
             fileItem.upload(); //auto upload after additing
+            if (!$scope.selectedImg) {
+                $scope.setImgToEditor(fileItem); //add first img to editor
+            }
+
             console.info('onAfterAddingFile', fileItem);
         };
         uploader.onAfterAddingAll = function (addedFileItems) {
@@ -98,5 +102,34 @@ angular.module('app.editor', ['ngRoute'])
         }
 
 
+        //editor
+        var img = document.getElementById("mainImg");
+        var step = 10;
+        
+        $scope.editor = {
+            init: function() {
+                img.style.width = img.offsetWidth;
+            },
+            plus: function () {
+                img.style.width = img.offsetWidth + step + 'px';
+            },
+            minus: function () {
+                img.style.width = img.offsetWidth - step + 'px';
+            },
+            moveUp: function () {
+                img.style.top = img.offsetTop - step + 'px';
+            },
+            moveDown: function () {
+                img.style.top = img.offsetTop + step + 'px';
+            },
+            moveLeft: function () {
+                img.style.left = img.offsetLeft - step + 'px';
+            },
+            moveRight: function () {
+                img.style.left = img.offsetLeft + step + 'px';
+            }
+        }
+
+        $scope.editor.init();
 
     }]);
