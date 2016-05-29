@@ -26,6 +26,11 @@ angular.module('app.route', ['ngRoute'])
             templateUrl: "/views/editor/editor.html",
             controller: 'EditorCtrl'
         })
+        .state('editor.product', {
+            url: "/editor/:product",
+            templateUrl: "/views/editor/editor.html",
+            controller: 'EditorCtrl'
+        })
 
 
 
@@ -34,6 +39,7 @@ angular.module('app.route', ['ngRoute'])
             templateUrl: "/views/products/product-details.html",
             controller: 'ProductDetailsCtrl'
         })
+
         .state('reviews', {
             url: "/reviews",
             templateUrl: "/views/reviews/reviews.html",
