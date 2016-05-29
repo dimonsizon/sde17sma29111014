@@ -149,7 +149,15 @@ angular.module('app.editor', ['ngRoute'])
                 "twoD": [
              
                 ]
-            }
+            },
+            "keychain": [],
+            "clocks": [],
+            "mugs": [],
+            "photo-frame": [],
+            "photo-stone": [],
+            "pillows": [],
+            "puzzles": [],
+            "t-shirts": []
         }
 
         $scope.setMackup = function (item) {
