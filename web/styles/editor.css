@@ -43,8 +43,12 @@
 
         .editor-container .editor-buttons {
             position: absolute;
-            bottom: 0;
+            bottom: 0;            
         }
+
+            .editor-container .editor-buttons button {
+                font-size: 18px;
+            }
 
         .editor-container .main-img {
             width: 80%;
@@ -55,6 +59,18 @@
 
             .editor-container .main-img img {
                 width: 100%;
+            }
+
+        .editor-container .mockup-img {
+
+        }
+
+
+            .editor-container .mockup-img img {
+                width: 100%; 
+                position: absolute; 
+                top: 0; 
+                left: 0
             }
 
 

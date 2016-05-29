@@ -5,7 +5,7 @@
                 <img ng-src="{{selectedImg}}" />
             </div>
             <div class="mockup-img">
-                <img ng-src="/images/mockup_iphone5.png" style="width: 200px; position: absolute; top: 0; left: 0" />
+                <img ng-src="{{mockupImg}}" />
             </div>
             <div class="editor-buttons">
                 <button class="btn btn-primary" ng-click="editor.plus()"><i class="fa fa-search-plus" title="Увеличить"></i></button>
@@ -28,6 +28,17 @@
                     One more drop zone with its own settings (and indication)
                 </div>
                 <div style="clear: both;"></div>-->
+            </div>
+            <div>
+                <h3>Выбирите продукт</h3>
+                <div>
+                    <h3>Чехол 3D</h3>
+                    <ul class="list-unstyled">
+                        <li ng-repeat="item in productMockup.case.threeD">
+                            <a ng-click="setMackup(item)">{{item.name}}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <label class="btn btn-primary top10">
                 <input type="file" nv-file-select="" uploader="uploader" multiple ng-hide="true" />
