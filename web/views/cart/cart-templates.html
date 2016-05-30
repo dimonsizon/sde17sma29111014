@@ -51,7 +51,7 @@
         <tr ng-repeat="item in ngCart.getCart().items track by $index">
             <td><span ng-click="ngCart.removeItemById(item.getId())" class="glyphicon glyphicon-remove"></span></td>
 
-            <td>{{ item.getName() }}</td>
+            <td><img ng-src="{{item.getImage()}}" width="100" />  {{ item.getName() }}</td>
             <td><span class="glyphicon glyphicon-minus" ng-class="{'disabled':item.getQuantity()==1}"
                       ng-click="item.setQuantity(-1, true)"></span>&nbsp;&nbsp;
                 {{ item.getQuantity() | number }}&nbsp;&nbsp;
@@ -75,7 +75,7 @@
             <input id="quantity" type="number" name="quantity" ng-model="q" />
         </span>
         <a class="btn btn-primary"
-           ng-click="ngCart.addItem(id, name, price, q, data)"
+           ng-click="ngCart.addItem(id, name, price, q, data, image)"
            ng-transclude></a>
     </div>
     <mark  ng-show="inCart()">

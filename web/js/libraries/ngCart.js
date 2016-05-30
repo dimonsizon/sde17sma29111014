@@ -38,7 +38,7 @@ angular.module('ngCart', ['ngCart.directives'])
             };
         };
 
-        this.addItem = function (id, name, price, quantity, data) {
+        this.addItem = function (id, name, price, quantity, data, image) {
 
             var inCart = this.getItemById(id);
 
@@ -46,7 +46,7 @@ angular.module('ngCart', ['ngCart.directives'])
                 //Update quantity of an item if it's already in the cart
                 inCart.setQuantity(quantity, false);
             } else {
-                var newItem = new ngCartItem(id, name, price, quantity, data);
+                var newItem = new ngCartItem(id, name, price, quantity, data, image);
                 this.$cart.items.push(newItem);
                 $rootScope.$broadcast('ngCart:itemAdded', newItem);
             }
@@ -180,7 +180,7 @@ angular.module('ngCart', ['ngCart.directives'])
             _self.$cart.tax = storedCart.tax;
 
             angular.forEach(storedCart.items, function (item) {
-                _self.$cart.items.push(new ngCartItem(item._id,  item._name, item._price, item._quantity, item._data));
+                _self.$cart.items.push(new ngCartItem(item._id,  item._name, item._price, item._quantity, item._data, item._image));
             });
             this.$save();
         };
@@ -193,12 +193,13 @@ angular.module('ngCart', ['ngCart.directives'])
 
     .factory('ngCartItem', ['$rootScope', '$log', function ($rootScope, $log) {
 
-        var item = function (id, name, price, quantity, data) {
+        var item = function (id, name, price, quantity, data, image) {
             this.setId(id);
             this.setName(name);
             this.setPrice(price);
             this.setQuantity(quantity);
             this.setData(data);
+            this.setImage(image);
         };
 
 
@@ -222,6 +223,16 @@ angular.module('ngCart', ['ngCart.directives'])
         };
         item.prototype.getName = function(){
             return this._name;
+        };
+
+        item.prototype.setImage = function (image) {
+            if (image) this._image = image;
+            else {
+                $log.error('img error');
+            }
+        };
+        item.prototype.getImage = function () {
+            return this._image;
         };
 
         item.prototype.setPrice = function(price){
@@ -286,7 +297,8 @@ angular.module('ngCart', ['ngCart.directives'])
                 price: this.getPrice(),
                 quantity: this.getQuantity(),
                 data: this.getData(),
-                total: this.getTotal()
+                total: this.getTotal(),
+                image: this.getImage()
             }
         };
 
@@ -344,8 +356,9 @@ angular.module('ngCart.directives', ['ngCart.fulfilment'])
                 name:'@',
                 quantity:'@',
                 quantityMax:'@',
-                price:'@',
-                data:'='
+                price: '@',                
+                data: '=',
+                image: '@',
             },
             transclude: true,
             templateUrl: 'template/ngCart/addtocart.html',
