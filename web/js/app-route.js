@@ -27,7 +27,7 @@ angular.module('app.route', ['ngRoute'])
             controller: 'EditorCtrl'
         })
             .state('editor.product', {
-                url: "/:product",
+                url: "/:productType/:productId",
                 templateUrl: "/views/editor/editor.html",
                 controller: 'EditorCtrl'
             })

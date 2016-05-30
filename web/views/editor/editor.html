@@ -31,16 +31,65 @@
             </div>
             <div>
                 <h3>Выбирите продукт</h3>
-                <div>
+                <!--<div>
                     <h3>Чехол 3D</h3>
                     <ul class="list-unstyled">
                         <li ng-repeat="item in productMockup.case.threeD">
                             <a ng-click="setMackup(item)">{{item.name}}</a>
                         </li>
                     </ul>
+                </div>-->
+                <div>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a ng-click="loadProducts('case')">Чехлы</a>
+                        </li>
+                        <li>
+                            <a ng-click="loadProducts('keychain')">Брелки</a>
+                        </li>
+                    </ul>
+                    <div class="btn-group" ng-show="productList">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            {{selectedProduct || 'Выбирите продукт'}}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="item in productList">
+                                <a ng-click="setProduct(item)">{{item.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group" ng-show="productTypes">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            {{selectedType || 'Выбирите тип'}}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="filter in productTypes">
+                                <a ng-click="setProductType($index)">{{filter.filterTitle}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group" ng-show="selectedSecondType">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            {{selectedSecondType}}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="secondType in product.secondType">
+                                <a ng-click="setSecondType($index)">{{secondType}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
-            <label class="btn btn-primary top10">
+
+
+
+            <label class="btn btn-primary top80">
                 <input type="file" nv-file-select="" uploader="uploader" multiple ng-hide="true" />
                 Загрузить изображение
             </label>
@@ -51,7 +100,7 @@
                 <!--<button class="btn btn-primary" ng-click="uploadCanvas()">Загрузить канвас на серв</button>-->
             </div>
 
-            <ngcart-addtocart id="s3dh3sdd33w3" name="С редактора" price="100" quantity="1" image="/uploader/uploads/P1180801.JPG">Добавить в корзину</ngcart-addtocart>
+            <ngcart-addtocart id="{{product.id + initId}}" name="{{product.name}}" price="{{product.price}}" quantity="1" image="/uploader/uploads/P1180801.JPG">Добавить в корзину</ngcart-addtocart>
         </div>
     </div>
 
@@ -102,5 +151,5 @@
     </div>   
     
     
-    
+    <div class="editor-loading loading" ng-if="editorLoading"></div>
 </div>

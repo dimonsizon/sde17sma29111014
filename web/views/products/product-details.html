@@ -36,7 +36,7 @@
                 <div class="buttons-container">
                     <!--<button class="btn btn-primary">Добавить в корзину</button>-->                    
                     <button class="btn btn-primary">Связаться с менеджером</button>
-                    <a class="btn btn-primary" ui-sref="editor.product({product: product.id})">Создать в редакторе</a>
+                    <a class="btn btn-primary" ui-sref="editor.product({productType: 'case', productId: product.id})">Создать в редакторе</a>
                     <ngcart-addtocart id="{{product.id + initId}}" name="{{product.name}}" price="{{product.price}}" quantity="1">Добавить в корзину</ngcart-addtocart>
                 </div>              
             </div>

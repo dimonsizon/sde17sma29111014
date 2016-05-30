@@ -2,13 +2,39 @@
 
 angular.module('app.editor', ['ngRoute'])
 
-.controller('EditorCtrl', ['$scope', '$http', '$rootScope', '$state', '$stateParams', 'FileUploader', '$filter',
-    function ($scope, $http, $rootScope, $state, $stateParams, FileUploader, $filter) {
+.controller('EditorCtrl', ['$scope', '$http', '$rootScope', '$state', '$stateParams', 'FileUploader', '$filter', 'CaseService', 'DetailsServices',
+    function ($scope, $http, $rootScope, $state, $stateParams, FileUploader, $filter, CaseService, DetailsServices) {
 
-        var currentProduct = $state.params.product;
+        var currentProduct = $state.params.productId;
+        var currentProductType = $state.params.productType;
+
+        $scope.loadProducts = function (type, findFromRoute) {
+            $scope.editorLoading = true;
+            switch (type) {
+                case 'case':
+                    CaseService.query(function (data) {
+                        $scope.productList = data.products;
+                        $scope.editorLoading = false;
+
+                        if (findFromRoute) {
+                            $scope.setProduct(_.find($scope.productList, { 'id': currentProduct }));
+                        }
+                    });
+                    break;
+                case 'keychain':
+
+                    break;
+                case 'mug':
+
+                    break;
+                default:
+
+            }
+        }
 
         if (currentProduct) {
-            $scope.mockupImg = _.find(mockupsJson, { 'id': currentProduct }).url;
+            $scope.loadProducts(currentProductType, true); //load product for current product type
+            //$scope.mockupImg = _.find(mockupsJson, { 'id': currentProduct }).url;
         } else {
             //alert('нету');
         }
@@ -46,6 +72,40 @@ angular.module('app.editor', ['ngRoute'])
         }
 
         $scope.editor.init();
+
+        
+
+        $scope.setProduct = function (product) {
+            $scope.selectedProduct = product.name;
+            $scope.editorLoading = true;
+
+            DetailsServices.get({ gasId: product.gasId }, function (product) {
+                $scope.productTypes = product.product;
+                for (var i = 0; i < $scope.productTypes.length; i++) {
+                    $scope.productTypes[i].color = $scope.productTypes[i].color.split(',');           //color string to array
+                    $scope.productTypes[i].secondType = $scope.productTypes[i].secondType.split(','); //secondType string to array
+                }
+
+                $scope.setProductType(0); //show first product
+                $scope.editorLoading = false;
+            });
+        }
+        $scope.setProductType = function (index) {
+            $scope.product = $scope.productTypes[index];
+            $scope.showProductIndex = index;
+
+            $scope.selectedType = $scope.product.filterTitle;           //selected type
+            $scope.selectedSecondType = $scope.product.secondType[0]; //set first secomd type
+            $scope.mockupImg = $scope.product.mockupUrl;
+        }
+
+        $scope.setSecondType = function (index) {
+            $scope.selectedSecondType = $scope.product.secondType[index]; //set first secomd type
+        }
+
+
+
+
 
         $scope.productMockup = {
             "case": {
