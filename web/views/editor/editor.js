@@ -2,8 +2,16 @@
 
 angular.module('app.editor', ['ngRoute'])
 
-.controller('EditorCtrl', ['$scope', '$http', '$rootScope', 'FileUploader', '$filter',
-    function ($scope, $http, $rootScope, FileUploader, $filter) {
+.controller('EditorCtrl', ['$scope', '$http', '$rootScope', '$state', '$stateParams', 'FileUploader', '$filter',
+    function ($scope, $http, $rootScope, $state, $stateParams, FileUploader, $filter) {
+
+        var currentProduct = $state.params.product;
+
+        if (currentProduct) {
+            $scope.mockupImg = _.find(mockupsJson, { 'id': currentProduct }).url;
+        } else {
+            //alert('нету');
+        }
 
         $scope.setImgToEditor = function (item) {
             $scope.selectedImg = '/uploader/uploads/' + item.file.name;
