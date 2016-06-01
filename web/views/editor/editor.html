@@ -34,7 +34,7 @@
                 Загрузить изображение
             </label>
 
-            <div>
+            <div class="choose-product">
                 <h3>Выбирите продукт</h3>
 
                 <div>
@@ -48,7 +48,7 @@
                     </ul>
                     <div class="btn-group" ng-show="productList">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            {{selectedProduct || 'Выбирите продукт'}}
+                            {{selectedProduct || 'Выберите продукт'}}
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -60,7 +60,7 @@
 
                     <div class="btn-group" ng-show="productTypes">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            {{selectedType || 'Выбирите тип'}}
+                            {{selectedType || 'Выберите тип'}}
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -95,19 +95,22 @@
             
 
             <div class="top15">
-                <button class="btn btn-primary" ng-click="createCanvas()">ПРОДОЛЖИТЬ</button>
+                <button class="btn btn-primary bottom10" ng-click="createCanvas()" ng-disabled="!selectedSecondType">ПРОДОЛЖИТЬ</button>
                 <!--<button class="btn btn-primary" ng-click="uploadCanvas()">Загрузить канвас на серв</button>-->
+
+                <ngcart-addtocart id="{{product.id + initId}}"
+                                  name="{{product.name}}"
+                                  price="{{product.price}}" quantity="1"
+                                  data="additionalInfo"
+                                  image="{{product.canvasImg}}"
+                                  ng-show="product.canvasImg">
+                    ДОБАВИТЬ В КОРЗИНУ
+                </ngcart-addtocart>
             </div>
 
-            <ngcart-addtocart id="{{product.id + initId}}" 
-                              name="{{product.name}}" 
-                              price="{{product.price}}" quantity="1" 
-                              data="additionalInfo"
-                              image="{{product.canvasImg}}">
-                ДОБАВИТЬ В КОРЗИНУ
-            </ngcart-addtocart>
+            
 
-            <div id="canvasRes">
+            <div class="top10" id="canvasRes">
 
             </div>
 

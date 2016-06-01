@@ -96,6 +96,15 @@
             left: 0;
         }
 
+    .choose-product {
+        margin-top: 10px;
+    }
+
+        .choose-product .dropdown-menu {
+            height: 200px;
+            overflow-y: auto;
+        }
+
 
 .editor-loading {
     width: 100%;

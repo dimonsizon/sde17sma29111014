@@ -190,8 +190,10 @@ angular.module('app.editor', ['ngRoute'])
         /*****************************Create and upload canvas**********************************/
 
         $scope.createCanvas = function () {
+            $scope.editorLoading = true;
             html2canvas($('.editor-container'), {
                 onrendered: function (canvas) {
+                    document.getElementById('canvasRes').innerHTML = '';
                     document.getElementById('canvasRes').appendChild(canvas);
 
                     $scope.uploadCanvas();
@@ -207,6 +209,7 @@ angular.module('app.editor', ['ngRoute'])
             var ajax = new XMLHttpRequest();
             ajax.onload = function () {
                 $scope.product.canvasImg = '/uploader/uploads/canvas-editor/' + JSON.parse(this.response).file;
+                $scope.editorLoading = false;
             }
             ajax.open("POST", '/uploader/upload-canvas.php', false);
             ajax.setRequestHeader('Content-Type', 'application/upload');
