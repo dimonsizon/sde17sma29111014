@@ -2,10 +2,8 @@
 
 angular.module('app.contacts', ['ngRoute'])
 
-.controller('ContactsCtrl', ['$scope', '$http', '$rootScope', 'appConfig',
-    function ($scope, $http, $rootScope, appConfig) {
-
-
+.controller('ContactsCtrl', ['$scope', '$http', '$rootScope', 'appConfig', 'toastr',
+    function ($scope, $http, $rootScope, appConfig, toastr) {
 
         $scope.submit = function (contactform) {
             //if (contactform.$valid) {
@@ -16,6 +14,7 @@ angular.module('app.contacts', ['ngRoute'])
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
                 }).success(function (data) {
                     console.log(data);
+                    toastr.success('Сообщение отправлено. Вам ответят в ближайшее время');
                     $scope.resultMessage = data.message;
                     //if (data.success) { //success comes from the return json object
                     //    $scope.submitButtonDisabled = true;

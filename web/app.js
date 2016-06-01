@@ -30,7 +30,8 @@ angular.module('app', [
     'app.contacts',
     'app.cart',
     'app.editor',
-    'ngCart'
+    'ngCart',
+    'toastr'
 ]).config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
         //$httpProvider.defaults.withCredentials = true;
@@ -44,7 +45,19 @@ angular.module('app', [
             requireBase: false
         });*/        
     }
-]).value("appConfig", {
+]).config(function (toastrConfig) {
+    angular.extend(toastrConfig, {
+        autoDismiss: false,
+        containerId: 'toast-container',
+        maxOpened: 0,
+        newestOnTop: true,
+        positionClass: 'toast-center-center',
+        preventDuplicates: false,
+        preventOpenDuplicates: false,
+        timeOut: 3500,
+        target: 'body'
+    });
+}).value("appConfig", {
     clientUrl: ''
 }).run(['$rootScope', '$http', '$state', 'appConfig', '$location', '$sce', '$timeout', '$interval', '$routeParams', '$window', '$filter',
     function ($rootScope, $http, $state, appConfig, $location, $sce, $timeout, $interval, $routeParams, $window, $filter) {
