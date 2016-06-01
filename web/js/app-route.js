@@ -35,7 +35,7 @@ angular.module('app.route', ['ngRoute'])
 
 
         .state('details', {
-            url: "/:productType/:gasId",
+            url: "/product/:productType/:gasId",
             templateUrl: "/views/products/product-details.html",
             controller: 'ProductDetailsCtrl'
         })
@@ -63,9 +63,15 @@ angular.module('app.route', ['ngRoute'])
             templateUrl: "/views/contacts/contacts.html",
             controller: 'ContactsCtrl'
         })
+
         .state('cart', {
             url: "/cart",
             templateUrl: "/views/cart/cart.html",
+            controller: 'CartCtrl'
+        })
+        .state('cartPay', {
+            url: "/cart/pay",
+            templateUrl: "/views/cart/cart-pay.html",
             controller: 'CartCtrl'
         })
     ;

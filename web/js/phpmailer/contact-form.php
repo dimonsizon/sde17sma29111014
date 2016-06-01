@@ -21,9 +21,9 @@ if (isset($_POST['userName']) && isset($_POST['userEmail'])) {
 	
 	//$mail->SetFrom($_POST['email'], 'Новый заказ');	
 	$mail->From = $_POST['userEmail'];
-    $mail->FromName = 'ALOPTO';
-	$mail->AddAddress("manager@alopto.ru", "Manager");
-	$mail->Subject    = 'ALOPTO Message (' .$_POST['userEmail']. ')';	
+    $mail->FromName = 'INOPRINT';
+	$mail->AddAddress("inoprint.info@gmail.com", "Manager");
+	$mail->Subject    = 'INOPRINT Message (' .$_POST['userEmail']. ')';	
 	$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // Alt Body	
 	
 	//$mail->MsgHTML($body);

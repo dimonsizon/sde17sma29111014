@@ -1,3 +1,10 @@
 .add-to-cart {
     display: inline-block;
 }
+
+.cart {
+
+}
+    .cart .glyphicon {
+        color: #f55d68;
+    }

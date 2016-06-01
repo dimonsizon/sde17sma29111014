@@ -102,6 +102,7 @@
     <Content Include="styles\menu.css" />
     <Content Include="styles\product-details.css" />
     <Content Include="styles\products-list.css" />
+    <Content Include="views\cart\cart-pay.html" />
     <Content Include="views\cart\cart-templates.html" />
     <Content Include="views\cart\cart.html" />
     <Content Include="views\cart\cart.js" />
@@ -170,6 +171,7 @@
     <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="views\modal-template\contact-window.html" />
     <Content Include="views\news\news.html" />
     <Content Include="views\news\news.js" />
     <Content Include="views\products\case\case-ctrl.js" />
