@@ -24,11 +24,11 @@
 
                 <div class="type" ng-if="product.color != ''">
                     <span class="label-title">Цвет:</span>
-                    <button class="btn btn-default" ng-repeat="color in product.color">{{color}}</button>
+                    <button class="btn btn-default" ng-repeat="color in product.color" ng-click="setSecondType(color)">{{color}}</button>
                 </div>
                 <div class="type" ng-if="product.secondType != ''">
                     <span class="label-title">Тип:</span>
-                    <button class="btn btn-default" ng-repeat="secondType in product.secondType">{{secondType}}</button>
+                    <button class="btn btn-default" ng-repeat="secondType in product.secondType" ng-click="setSecondType(secondType)">{{secondType}}</button>
                 </div>
 
                 <p><span class="label-title">Цена:</span> {{product.price}} руб.</p>
@@ -37,7 +37,11 @@
                     <!--<button class="btn btn-primary">Добавить в корзину</button>-->                    
                     <button class="btn btn-primary">Связаться с менеджером</button>
                     <a class="btn btn-primary" ui-sref="editor.product({productType: 'case', productId: product.id})">Создать в редакторе</a>
-                    <ngcart-addtocart id="{{product.id + initId}}" name="{{product.name}}" price="{{product.price}}" quantity="1">Добавить в корзину</ngcart-addtocart>
+                    <ngcart-addtocart id="{{product.id + initId}}" name="{{product.name}}" 
+                                      price="{{product.price}}" quantity="1" 
+                                      data="{'productType': product.filterTitle, 'productSecondType': selectedSecondType}">
+                        Добавить в корзину
+                    </ngcart-addtocart>
                 </div>              
             </div>
         </div>

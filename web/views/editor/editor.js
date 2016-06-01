@@ -103,14 +103,14 @@ angular.module('app.editor', ['ngRoute'])
             $scope.selectedType = $scope.product.filterTitle;           //selected type
             $scope.additionalInfo.productType = $scope.selectedType;    //save for cart
 
-            $scope.selectedSecondType = $scope.product.secondType[0]; //set first secomd type
+            $scope.selectedSecondType = $scope.product.secondType[0] || $scope.product.color[0]; //set first secomd type
             $scope.additionalInfo.productSecondType = $scope.selectedSecondType;
 
             $scope.mockupImg = $scope.product.mockupUrl;
         }
 
         $scope.setSecondType = function (index) {
-            $scope.selectedSecondType = $scope.product.secondType[index];           //set first secomd type
+            $scope.selectedSecondType = $scope.product.secondType[index] || $scope.product.color[index];           //set first secomd type
             $scope.additionalInfo.productSecondType = $scope.selectedSecondType;    //save for cart
         }
                          

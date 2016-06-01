@@ -61,6 +61,7 @@
     <Content Include="app.js" />
     <Content Include="index.html" />
     <Content Include="js\app-route.js" />
+    <Content Include="js\component.js" />
     <Content Include="js\directives.js" />
     <Content Include="js\libraries\angular-animate.min.js" />
     <Content Include="js\libraries\angular-cookies.min.js" />
@@ -91,6 +92,7 @@
     <Content Include="styles\bootstrap\bootstrap.min.css" />
     <Content Include="styles\cart.css" />
     <Content Include="styles\contacts.css" />
+    <Content Include="styles\editor.css" />
     <Content Include="styles\font-awesome-4.2.0\css\font-awesome.css" />
     <Content Include="styles\font-awesome-4.2.0\css\font-awesome.min.css" />
     <Content Include="styles\font-awesome-4.2.0\fonts\fontawesome-webfont.svg" />
@@ -108,6 +110,10 @@
     <Content Include="views\delivery\delivery.html" />
     <Content Include="views\directives-template\product-filters-template.html" />
     <Content Include="views\directives-template\product-list-template.html" />
+    <Content Include="views\directives-template\products-container.html" />
+    <Content Include="views\editor\editor.html" />
+    <Content Include="views\editor\editor.js" />
+    <Content Include="views\editor\mockups-json.js" />
     <Content Include="views\faq\faq.html" />
     <Content Include="views\home\home.html" />
     <Content Include="views\home\home.js" />
@@ -185,6 +191,7 @@
     <Content Include="views\products\product-details.html" />
     <Content Include="views\products\product-details.js" />
     <Content Include="views\modal-template\product-images-window.html" />
+    <Content Include="views\products\products-list.html" />
     <Content Include="views\products\puzzles\puzzles.html" />
     <Content Include="views\products\puzzles\puzzles.js" />
     <Content Include="views\products\t-shirts\t-shirts.html" />

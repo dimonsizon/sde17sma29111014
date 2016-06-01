@@ -131,7 +131,6 @@ angular.module('ngCart', ['ngCart.directives'])
             this.$cart.items.splice(index, 1);
             $rootScope.$broadcast('ngCart:itemRemoved', {});
             $rootScope.$broadcast('ngCart:change', {});
-
         };
 
         this.removeItemById = function (id) {
@@ -427,6 +426,7 @@ angular.module('ngCart.directives', ['ngCart.fulfilment'])
             templateUrl: 'template/ngCart/checkout.html'
         };
     }]);;
+
 angular.module('ngCart.fulfilment', [])
     .service('fulfilmentProvider', ['$injector', function($injector){
 

@@ -35,6 +35,10 @@ angular.module('app.productDetails', ['ngRoute'])
             $scope.showProductIndex = index;
         }
 
+        $scope.setSecondType = function (item) {
+            $scope.selectedSecondType = item; //type, color or size for cart
+        }
+
         //images window
         $scope.openImagesWindow = function (imageIndex) {
             var modalInstance = $modal.open({
