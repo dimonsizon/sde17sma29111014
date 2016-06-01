@@ -31,11 +31,12 @@ angular.module('app', [
     'app.cart',
     'app.editor',
     'ngCart'
-]).config([
-    '$stateProvider', '$urlRouterProvider', '$httpProvider',
-    function ($stateProvider, $urlRouterProvider, $httpProvider) {
+]).config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',
+    function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
         //$httpProvider.defaults.withCredentials = true;
         $urlRouterProvider.otherwise("/home");
+
+        $locationProvider.html5Mode(true);
 
         /*$locationProvider.html5Mode({
             enabled: true,
