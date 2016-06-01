@@ -36,6 +36,7 @@ angular.module('app', [
         //$httpProvider.defaults.withCredentials = true;
         $urlRouterProvider.otherwise("/home");
 
+        //$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         $locationProvider.html5Mode(true);
 
         /*$locationProvider.html5Mode({
