@@ -95,7 +95,11 @@
                 <!--<button class="btn btn-primary" ng-click="uploadCanvas()">Загрузить канвас на серв</button>-->
             </div>
 
-            <ngcart-addtocart id="{{product.id + initId}}" name="{{product.name}}" price="{{product.price}}" quantity="1" image="{{product.canvasImg}}" ng-show="product.canvasImg">
+            <ngcart-addtocart id="{{product.id + initId}}" 
+                              name="{{product.name}}" 
+                              price="{{product.price}}" quantity="1" 
+                              data="additionalInfo"
+                              image="{{product.canvasImg}}">
                 ДОБАВИТ В КОРЗИНУ
             </ngcart-addtocart>
 

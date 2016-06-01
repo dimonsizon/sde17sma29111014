@@ -73,7 +73,12 @@ angular.module('app.editor', ['ngRoute'])
 
         $scope.editor.init();
 
-        
+
+        /************************************/
+        $scope.additionalInfo = {
+            'productType': '',
+            'productSecondType': ''
+        };
 
         $scope.setProduct = function (product) {
             $scope.selectedProduct = product.name;
@@ -90,17 +95,23 @@ angular.module('app.editor', ['ngRoute'])
                 $scope.editorLoading = false;
             });
         }
+
         $scope.setProductType = function (index) {
             $scope.product = $scope.productTypes[index];
             $scope.showProductIndex = index;
 
             $scope.selectedType = $scope.product.filterTitle;           //selected type
+            $scope.additionalInfo.productType = $scope.selectedType;    //save for cart
+
             $scope.selectedSecondType = $scope.product.secondType[0]; //set first secomd type
+            $scope.additionalInfo.productSecondType = $scope.selectedSecondType;
+
             $scope.mockupImg = $scope.product.mockupUrl;
         }
 
         $scope.setSecondType = function (index) {
-            $scope.selectedSecondType = $scope.product.secondType[index]; //set first secomd type
+            $scope.selectedSecondType = $scope.product.secondType[index];           //set first secomd type
+            $scope.additionalInfo.productSecondType = $scope.selectedSecondType;    //save for cart
         }
                          
 

@@ -2,13 +2,11 @@
 
 angular.module('app.cart', ['ngRoute'])
 
-.controller('CartCtrl', function ($scope, $routeParams, $location) {
-    $scope.aaa = 'test';
-    //$scope.goTo = function (newState) {
-    //    currentState = newState;
-    //}
-    //$scope.isOnState = function (state) {
-    //    return currentState == state;
-    //}
+.controller('CartCtrl', ['$scope', '$http', '$rootScope', 'ngCart',
+    function ($scope, $http, $rootScope, ngCart) {
+        $scope.clearCart = function () {
+            ngCart.empty();
+        }
 
-});
+        
+    }]);
