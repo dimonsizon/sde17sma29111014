@@ -102,42 +102,7 @@ angular.module('app.editor', ['ngRoute'])
         $scope.setSecondType = function (index) {
             $scope.selectedSecondType = $scope.product.secondType[index]; //set first secomd type
         }
-
-
-
-
-
-        $scope.productMockup = {
-            "case": {
-                "threeD": [
-                    { "id": "iphone4", "name": "iPhone 4/4S", "url": "/images/mockups/case/3d/mockup_iphone4.png" },
-                    { "id": "iphone5", "name": "iPhone 5/5S/5SE", "url": "/images/mockups/case/3d/mockup_iphone5.png"},
-                    { "id": "iphone5c", "name": "iPhone 5C", "url": "/images/mockups/case/3d/mockup_iphone5c.png" },
-                    { "id": "iphone6", "name": "iPhone 6/6S", "url": "/images/mockups/case/3d/mockup_iphone6.png" },
-                    { "id": "iphone6plus", "name": "iPhone 6 plus", "url": "/images/mockups/case/3d/mockup_iphone6plus.png" },
-                    { "id": "samsungS3", "name": "Samsung S3", "url": "/images/mockups/case/3d/mockup_samsungS3.png" },
-                    { "id": "samsungS4", "name": "Samsung S4", "url": "/images/mockups/case/3d/mockup_samsungS4.png" },
-                    { "id": "samsungS5", "name": "Samsung S5", "url": "/images/mockups/case/3d/mockup_samsungS5.png" },
-                    { "id": "samsungS5mini", "name": "Samsung S5 mini", "url": "/images/mockups/case/3d/mockup_samsungS5mini.png" },
-                ],
-                "twoD": [
-             
-                ]
-            },
-            "keychain": [],
-            "clocks": [],
-            "mugs": [],
-            "photo-frame": [],
-            "photo-stone": [],
-            "pillows": [],
-            "puzzles": [],
-            "t-shirts": []
-        }
-
-        $scope.setMackup = function (item) {
-            $scope.mockupImg = item.url;
-        }
-
+                         
 
         /************************************* Uploader *******************************************/
 
@@ -219,9 +184,9 @@ angular.module('app.editor', ['ngRoute'])
                     document.getElementById('canvasRes').appendChild(canvas);
 
                     $scope.uploadCanvas();
-                },
-                width: 300,
-                height: 300
+                }//,
+                //width: 300,
+                //height: 300
             });
         }
 
@@ -229,9 +194,13 @@ angular.module('app.editor', ['ngRoute'])
             var canvas = $("#canvasRes canvas")[0];
             var canvasData = canvas.toDataURL('image/jpeg');
             var ajax = new XMLHttpRequest();
+            ajax.onload = function () {
+                $scope.product.canvasImg = '/uploader/uploads/canvas-editor/' + JSON.parse(this.response).file;
+            }
             ajax.open("POST", '/uploader/upload-canvas.php', false);
             ajax.setRequestHeader('Content-Type', 'application/upload');
             ajax.send(canvasData);
+            
         }
 
     }]);

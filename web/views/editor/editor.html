@@ -29,16 +29,14 @@
                 </div>
                 <div style="clear: both;"></div>-->
             </div>
+            <label class="btn btn-primary top10">
+                <input type="file" nv-file-select="" uploader="uploader" multiple ng-hide="true" />
+                Загрузить изображение
+            </label>
+
             <div>
                 <h3>Выбирите продукт</h3>
-                <!--<div>
-                    <h3>Чехол 3D</h3>
-                    <ul class="list-unstyled">
-                        <li ng-repeat="item in productMockup.case.threeD">
-                            <a ng-click="setMackup(item)">{{item.name}}</a>
-                        </li>
-                    </ul>
-                </div>-->
+
                 <div>
                     <ul class="list-unstyled">
                         <li>
@@ -89,18 +87,22 @@
 
 
 
-            <label class="btn btn-primary top80">
-                <input type="file" nv-file-select="" uploader="uploader" multiple ng-hide="true" />
-                Загрузить изображение
-            </label>
+            
             
 
             <div class="top15">
-                <button class="btn btn-primary" ng-click="createCanvas()">Сделать канвасом и загрузить на серв</button>
+                <button class="btn btn-primary" ng-click="createCanvas()">ПРОДОЛЖИТЬ</button>
                 <!--<button class="btn btn-primary" ng-click="uploadCanvas()">Загрузить канвас на серв</button>-->
             </div>
 
-            <ngcart-addtocart id="{{product.id + initId}}" name="{{product.name}}" price="{{product.price}}" quantity="1" image="/uploader/uploads/P1180801.JPG">Добавить в корзину</ngcart-addtocart>
+            <ngcart-addtocart id="{{product.id + initId}}" name="{{product.name}}" price="{{product.price}}" quantity="1" image="{{product.canvasImg}}" ng-show="product.canvasImg">
+                ДОБАВИТ В КОРЗИНУ
+            </ngcart-addtocart>
+
+            <div id="canvasRes">
+
+            </div>
+
         </div>
     </div>
 
@@ -142,11 +144,7 @@
                 <!--<button class="btn btn-primary" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">Upload all</button>-->
                 <!--<button class="btn btn-primary" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">Cancel all</button>-->
                 
-            </div>
-
-            <div id="canvasRes">
-
-            </div>
+            </div>            
         </div>
     </div>   
     
