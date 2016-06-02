@@ -32,7 +32,22 @@ if (isset($_POST['userName']) && isset($_POST['userEmail'])) {
 					<p>E-mail: " . stripslashes($_POST['userEmail']) . "</p>
 					<p>Телефон: " . stripslashes($_POST['userPhone']) . "</p>
 					<p>Вконтакте: " . stripslashes($_POST['userVkUrl']) . "</p>
-					<p>Сообщение: " . stripslashes($_POST['userMessage']) . "</p>";
+					<p>Сообщение: " . stripslashes($_POST['userMessage']) . "</p>
+					<p></p>";
+	
+	if(isset($_POST['cartItems'])) {
+		$mail->Body .= "<p><b>ЗАКАЗ:</b></p>";
+	
+		foreach ($_POST['cartItems'] as $item) {
+			$mail->Body .= "<p>".$item["name"].", 
+								количество ".$item["quantity"].", 
+								тип: ".$item["data"]->productType." ".$item["data"]->productSecondType.", 
+								картинка: ".$item["image"].
+							"</p>";
+		}
+	}
+					
+					
     //$mail->AddAttachment("images/" . stripslashes($_POST['userImage']));      // attachment
     //$mail->AddAttachment("images/2.jpg"); // attachment
 

@@ -134,11 +134,11 @@ angular.module('app.editor', ['ngRoute'])
             console.info('onWhenAddingFileFailed', item, filter, options);
         };
         uploader.onAfterAddingFile = function (fileItem) {
-            //var fileName = fileItem.file.name,
-            //    extension = '.' + fileName.split('.')[fileName.split('.').length - 1],
-            //    date = $filter('date')(new Date().getTime(), 'dd-MM-yy_HH-mm-ss');
+            var fileName = fileItem.file.name,
+                extension = '.' + fileName.split('.')[fileName.split('.').length - 1],
+                date = $filter('date')(new Date().getTime(), 'dd-MM-yy_HH-mm-ss');
 
-            //fileItem.file.name = date + extension;
+            fileItem.file.name = date + extension;
             fileItem.upload(); //auto upload after additing            
 
             console.info('onAfterAddingFile', fileItem);

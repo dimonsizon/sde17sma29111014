@@ -1,6 +1,33 @@
 ﻿<div class="cart row">
     <div class="col-md-12">
-        {{cartItems}}
+        <div class="contact-form col-md-6 top20">
+            <form class="order-form" ng-submit="submit(contactform)" name="contactform" method="post" role="form">
+                <div class="form-group">
+                    <input class="form-control" ng-model="formData.userName" type="text" id="name" name="name" placeholder="Ваше имя" ng-minlength=3 required />
+                    <p class="text-danger" ng-show="contactform.name.$error.minlength">Имя не может быть таким коротким</p>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" ng-model="formData.userEmail" type="email" id="email" name="email" placeholder="Ваш Email" required />
+                    <p class="text-danger" ng-show="contactform.email.$error.email">Введите корректный email</p>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" ng-model="formData.userPhone" type="tel" id="phone" name="phone" placeholder="Телефон" required />
+                    <p class="text-danger" ng-show="contactform.phone.$error.required && submitted">Введите корректный телефон</p>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" ng-model="formData.userVkUrl" type="url" id="userVkUrl" name="userVkUrl" placeholder="Ссылка Вконтакте" />
+                    <p class="text-danger" ng-show="contactform.userVkUrl.$error.url">Введите корректный адрес</p>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" ng-model="formData.userMessage" rows="4" id="userMessage" name="userMessage" placeholder="Подробности и пожелания"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="contactform.$invalid">
+                    ОТПРАВИТЬ ЗАЯВКУ
+                </button>
+
+                <p>{{resultMessage}}</p>
+            </form>
+        </div>
     </div>
 </div>
 
