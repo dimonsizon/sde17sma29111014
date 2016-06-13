@@ -60,6 +60,7 @@
             .product-list .product-item a p {
                 margin: 0;
                 padding: 10px 15px;
+                width: 100%;
                 color: #fff;
                 text-align: center;
                 background-color: rgba(0, 0, 0, 0.5);

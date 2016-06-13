@@ -24,7 +24,13 @@ appServices.factory('ClockService', ['$resource',
     }
 ]);
 
-//
+appServices.factory('MugService', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbwyj6kYMd3gpC1fhCcFfBeoMHgKInOTsNXL2hwZxfxRx_5rres_/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
 
 
 

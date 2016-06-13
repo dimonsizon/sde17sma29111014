@@ -1,7 +1,7 @@
 ﻿<div class="col-xs-12">
     <div class="row">
         <div class="col-md-4 col-sm-6 product-item" ng-repeat="product in productsList | filter:productMainFilter | filter:productFilter">
-            <a ui-sref="details({productType: 'case', gasId: product.gasId})">
+            <a ui-sref="details({productType: product.type, gasId: product.gasId})">
                 <img ng-src="{{product.url}}" alt="" width="100%" />
                 <h2>{{product.name}}</h2>
                 <p>{{product.description}}</p>
