@@ -20,6 +20,46 @@ angular.module('app.route', ['ngRoute'])
             templateUrl: "/views/products/products-list.html",
             controller: 'KeychainCtrl'
         })
+        .state('clock', {
+            url: "/clock",
+            templateUrl: "/views/products/products-list.html",
+            controller: 'ClockCtrl'
+        })
+        .state('mugs', {
+            url: "/mugs",
+            templateUrl: "/views/products/products-list.html",
+            controller: 'MugsCtrl'
+        })
+        .state('tshirts', {
+            url: "/tshirts",
+            templateUrl: "/views/products/products-list.html",
+            controller: 'TshirtsCtrl'
+        })
+        .state('pillows', {
+            url: "/pillows",
+            templateUrl: "/views/products/products-list.html",
+            controller: 'PillowsCtrl'
+        })
+        .state('puzzles', {
+            url: "/puzzles",
+            templateUrl: "/views/products/products-list.html",
+            controller: 'PuzzlesCtrl'
+        })
+        .state('photostone', {
+            url: "/photostone",
+            templateUrl: "/views/products/products-list.html",
+            controller: 'PhotostoneCtrl'
+        })
+        .state('photokristall', {
+            url: "/photokristall",
+            templateUrl: "/views/products/products-list.html",
+            controller: 'PhotokristallCtrl'
+        })
+        .state('photoframe', {
+            url: "/photoframe",
+            templateUrl: "/views/products/products-list.html",
+            controller: 'PhotoframeCtrl'
+        })
 
         .state('editor', {
             url: "/editor",

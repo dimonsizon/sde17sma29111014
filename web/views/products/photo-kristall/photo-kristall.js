@@ -1,8 +1,8 @@
 ﻿'use strict';
 
-angular.module('app.puzzles', ['ngRoute'])
+angular.module('app.photokristall', ['ngRoute'])
 
-.controller('PuzzlesCtrl', ['$scope', '$http', '$rootScope', 'CaseService',
+.controller('PhotokristallCtrl', ['$scope', '$http', '$rootScope', 'CaseService',
     function ($scope, $http, $rootScope, CaseService) {
         //$scope.mainFilters = ["iPhone", "iPad", "Samsung", "Sony", "HTC", "Lenovo", "LG", "Nokia"];
 
