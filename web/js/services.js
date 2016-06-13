@@ -32,6 +32,14 @@ appServices.factory('MugService', ['$resource',
     }
 ]);
 
+appServices.factory('TShirtService', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbzVDf6AhWsabpjwAl4noJ2GtPjpZ0u_rpD_9WiTwWpHX_FIzk7o/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
+
 
 
 

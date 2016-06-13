@@ -2,14 +2,13 @@
 
 angular.module('app.tshirts', ['ngRoute'])
 
-.controller('TshirtsCtrl', ['$scope', '$http', '$rootScope', 'CaseService',
-    function ($scope, $http, $rootScope, CaseService) {
-        //$scope.mainFilters = ["iPhone", "iPad", "Samsung", "Sony", "HTC", "Lenovo", "LG", "Nokia"];
+.controller('TshirtsCtrl', ['$scope', '$http', '$rootScope', 'TShirtService',
+    function ($scope, $http, $rootScope, TShirtService) {
+        $scope.mainFilters = ["Футболка"];
 
-
-        //CaseService.query(function (data) {
-        //    $scope.productList = data.products;
-        //});
+        TShirtService.query(function (data) {
+            $scope.productList = data.products;
+        });
 
 
     }]);
