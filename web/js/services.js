@@ -48,6 +48,14 @@ appServices.factory('PillowService', ['$resource',
     }
 ]);
 
+appServices.factory('PuzzleService', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbyljShL7xUPm_R2oqe-IL-yM2czEBwOrM0h9gg17ndp-tSxn7W6/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
+
 
 
 

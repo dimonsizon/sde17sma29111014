@@ -2,14 +2,13 @@
 
 angular.module('app.puzzles', ['ngRoute'])
 
-.controller('PuzzlesCtrl', ['$scope', '$http', '$rootScope', 'CaseService',
-    function ($scope, $http, $rootScope, CaseService) {
-        //$scope.mainFilters = ["iPhone", "iPad", "Samsung", "Sony", "HTC", "Lenovo", "LG", "Nokia"];
+.controller('PuzzlesCtrl', ['$scope', '$http', '$rootScope', 'PuzzleService',
+    function ($scope, $http, $rootScope, PuzzleService) {
+        $scope.mainFilters = ["Пазлы А5", "Пазлы Сердце", "Пазлы Детские"];
 
-
-        //CaseService.query(function (data) {
-        //    $scope.productList = data.products;
-        //});
+        PuzzleService.query(function (data) {
+            $scope.productList = data.products;
+        });
 
 
     }]);
