@@ -16,6 +16,19 @@ appServices.factory('KeychainService', ['$resource',
     }
 ]);
 
+appServices.factory('ClockService', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbwhqPxCDadjUNxGc_J6OHRJSDH6FwxZE1W8TwXRj7Ishu-fdy0/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
+
+//
+
+
+
+
 appServices.factory('DetailsServices', ['$resource',
     function ($resource) {
         return $resource('https://script.google.com/macros/s/:gasId/exec', {}, {

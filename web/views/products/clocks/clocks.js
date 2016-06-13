@@ -2,14 +2,14 @@
 
 angular.module('app.clock', ['ngRoute'])
 
-.controller('ClockCtrl', ['$scope', '$http', '$rootScope', 'CaseService',
-    function ($scope, $http, $rootScope, CaseService) {
-        //$scope.mainFilters = ["iPhone", "iPad", "Samsung", "Sony", "HTC", "Lenovo", "LG", "Nokia"];
+.controller('ClockCtrl', ['$scope', '$http', '$rootScope', 'ClockService',
+    function ($scope, $http, $rootScope, ClockService) {
+        $scope.mainFilters = ["Стеклянные", "Деревянные"];
+        //$scope.productMainFilter = '';
 
-
-        //CaseService.query(function (data) {
-        //    $scope.productList = data.products;
-        //});
+        ClockService.query(function (data) {
+            $scope.productList = data.products;
+        });
 
 
     }]);
