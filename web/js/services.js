@@ -56,6 +56,14 @@ appServices.factory('PuzzleService', ['$resource',
     }
 ]);
 
+appServices.factory('PhotostoneService', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbwu5E2SSuookKyNNUSAzM1y5hlY_ETdY_x5pcGNFxSVcYBDN_Oi/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
+
 
 
 
