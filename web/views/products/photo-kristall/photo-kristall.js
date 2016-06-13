@@ -2,14 +2,12 @@
 
 angular.module('app.photokristall', ['ngRoute'])
 
-.controller('PhotokristallCtrl', ['$scope', '$http', '$rootScope', 'CaseService',
-    function ($scope, $http, $rootScope, CaseService) {
-        //$scope.mainFilters = ["iPhone", "iPad", "Samsung", "Sony", "HTC", "Lenovo", "LG", "Nokia"];
-
-
-        //CaseService.query(function (data) {
-        //    $scope.productList = data.products;
-        //});
-
+.controller('PhotokristallCtrl', ['$scope', '$http', '$rootScope', 'PhotokristallService',
+    function ($scope, $http, $rootScope, PhotokristallService) {
+        $scope.mainFilters = ["Фотокристалл"];
+        
+        PhotokristallService.query(function (data) {
+            $scope.productList = data.products;
+        });
 
     }]);

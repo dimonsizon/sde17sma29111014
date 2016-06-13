@@ -64,6 +64,22 @@ appServices.factory('PhotostoneService', ['$resource',
     }
 ]);
 
+appServices.factory('PhotokristallService', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbzWpmzwmDeE9zcQNywwjre0x2QXCsKK-sVv_cduPpzWU5vvBaQ/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
+
+appServices.factory('PhotoframeService', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbw43RawhaAq9OCT0Bs6KYh3XLOmuIVWXOVdqhJG6ZTsxCpAvlk/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
+
 
 
 
