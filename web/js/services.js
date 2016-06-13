@@ -40,6 +40,15 @@ appServices.factory('TShirtService', ['$resource',
     }
 ]);
 
+appServices.factory('PillowService', ['$resource',
+    function ($resource) {
+        return $resource('https://script.google.com/macros/s/AKfycbwEEslh3cv_ALb_FnbEcjRXWOC2WI65QabBNembFH2WHuYFPtQe/exec', {}, {
+            query: { method: 'GET', isArray: false }
+        });
+    }
+]);
+
+
 
 
 
