@@ -184,6 +184,7 @@
     <Content Include="views\products\mugs\mugs.js" />
     <Content Include="views\products\photo-frame\photo-frame.html" />
     <Content Include="views\products\photo-frame\photo-frame.js" />
+    <Content Include="views\products\photo-kristall\photo-kristall.js" />
     <Content Include="views\products\photo-stone\photo-stone.html" />
     <Content Include="views\products\photo-stone\photo-stone.js" />
     <Content Include="views\products\pillows\pillows.html" />
