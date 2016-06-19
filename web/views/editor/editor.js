@@ -2,8 +2,8 @@
 
 angular.module('app.editor', ['ngRoute'])
 
-.controller('EditorCtrl', ['$scope', '$http', '$rootScope', '$state', '$stateParams', 'FileUploader', '$filter', 'CaseService', 'DetailsServices',
-    function ($scope, $http, $rootScope, $state, $stateParams, FileUploader, $filter, CaseService, DetailsServices) {
+.controller('EditorCtrl', ['$scope', '$http', '$rootScope', '$state', '$stateParams', 'FileUploader', '$filter', 'toastr', 'CaseService', 'DetailsServices', 'MugService', 'PillowService', 'TShirtService',
+    function ($scope, $http, $rootScope, $state, $stateParams, FileUploader, $filter, toastr, CaseService, DetailsServices, MugService, PillowService, TShirtService) {
 
         var currentProduct = $state.params.productId;
         var currentProductType = $state.params.productType;
@@ -25,7 +25,34 @@ angular.module('app.editor', ['ngRoute'])
 
                     break;
                 case 'mug':
+                    MugService.query(function (data) {
+                        $scope.productList = data.products;
+                        $scope.editorLoading = false;
 
+                        if (findFromRoute) {
+                            $scope.setProduct(_.find($scope.productList, { 'id': currentProduct }));
+                        }
+                    });
+                    break;
+                case 'pillow':
+                    PillowService.query(function (data) {
+                        $scope.productList = data.products;
+                        $scope.editorLoading = false;
+
+                        if (findFromRoute) {
+                            $scope.setProduct(_.find($scope.productList, { 'id': currentProduct }));
+                        }
+                    });
+                    break;
+                case 'tshirts':
+                    TShirtService.query(function (data) {
+                        $scope.productList = data.products;
+                        $scope.editorLoading = false;
+
+                        if (findFromRoute) {
+                            $scope.setProduct(_.find($scope.productList, { 'id': currentProduct }));
+                        }
+                    });
                     break;
                 default:
 
@@ -92,6 +119,9 @@ angular.module('app.editor', ['ngRoute'])
                 }
 
                 $scope.setProductType(0); //show first product
+                if ($scope.productTypes[0].mockupUrl == '') {
+                    toastr.error('Для этого продукта еще не разработан макап, попробуйте позже или другой продукт');
+                }
                 $scope.editorLoading = false;
             });
         }
@@ -134,11 +164,11 @@ angular.module('app.editor', ['ngRoute'])
             console.info('onWhenAddingFileFailed', item, filter, options);
         };
         uploader.onAfterAddingFile = function (fileItem) {
-            var fileName = fileItem.file.name,
-                extension = '.' + fileName.split('.')[fileName.split('.').length - 1],
-                date = $filter('date')(new Date().getTime(), 'dd-MM-yy_HH-mm-ss');
+            //var fileName = fileItem.file.name,
+            //    extension = '.' + fileName.split('.')[fileName.split('.').length - 1],
+            //    date = $filter('date')(new Date().getTime(), 'dd-MM-yy_HH-mm-ss');
 
-            fileItem.file.name = date + extension;
+            //fileItem.file.name = date + extension;
             fileItem.upload(); //auto upload after additing            
 
             console.info('onAfterAddingFile', fileItem);

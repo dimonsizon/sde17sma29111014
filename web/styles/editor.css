@@ -100,8 +100,12 @@
         margin-top: 10px;
     }
 
+        .choose-product .btn-group {
+            margin-bottom: 10px;
+        }
+
         .choose-product .dropdown-menu {
-            height: 200px;
+            max-height: 200px;
             overflow-y: auto;
         }
 
