@@ -19,7 +19,11 @@
     }
     
         .product-datails .type button {
-            margin: 0 5px;
+            margin: 0 5px 5px;
+        }
+
+        .product-datails .buttons-container .btn {
+            margin-bottom: 10px;
         }
 
     .product-datails .image-list {
@@ -48,3 +52,11 @@
     .product-images-window .modal-body {
         padding: 3px;
     }
+
+
+@media (max-width: 580px) {
+    .product-datails .image-list .product-image {
+        width: 100%;
+        height: 300px;
+    }
+}
