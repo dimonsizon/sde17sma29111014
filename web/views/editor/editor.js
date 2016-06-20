@@ -57,6 +57,10 @@ angular.module('app.editor', ['ngRoute'])
                 default:
 
             }
+            $scope.selectedProduct = null;
+            $scope.selectedType = null;
+            $scope.selectedSecondType = null;
+            $scope.productTypes = null;
         }
 
         if (currentProduct) {
@@ -120,7 +124,7 @@ angular.module('app.editor', ['ngRoute'])
 
                 $scope.setProductType(0); //show first product
                 if ($scope.productTypes[0].mockupUrl == '') {
-                    toastr.error('Для этого продукта еще не разработан макап, попробуйте позже или другой продукт');
+                    toastr.error('Для этого продукта еще не разработан шаблон, попробуйте позже или другой продукт');
                 }
                 $scope.editorLoading = false;
             });
