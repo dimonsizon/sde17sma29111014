@@ -2,8 +2,8 @@
 
 angular.module('app.cart', ['ngRoute'])
 
-.controller('CartCtrl', ['$scope', '$http', '$rootScope', 'ngCart', 'toastr',
-    function ($scope, $http, $rootScope, ngCart, toastr) {
+.controller('CartCtrl', ['$scope', '$http', '$rootScope', '$location', '$timeout', 'ngCart', 'toastr',
+    function ($scope, $http, $rootScope, $location, $timeout, ngCart, toastr) {
         var cartItems = ngCart.getCart().items;
         $scope.cartItems = [];
 
@@ -31,8 +31,12 @@ angular.module('app.cart', ['ngRoute'])
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
             }).success(function (data) {
                 console.log(data);
-                toastr.success('Сообщение отправлено. Вам ответят в ближайшее время');
+                toastr.success('Заказ отправлен. С вами свяжутся в ближайшее время');
                 $scope.resultMessage = data.message;
+                $scope.clearCart(); //clear basket
+                $timeout(function () {
+                    $location.path('/');
+                }, 3000);                
             });
 
         }
